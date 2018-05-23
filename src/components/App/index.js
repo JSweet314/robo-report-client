@@ -1,18 +1,19 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import { Switch, Route } from 'react-router-dom';
 import Landing from '../Landing';
 import './style.css';
 
 class App extends Component {
   render() {
-    const { userSignedIn } = this.props;
+    const { isLoggedIn } = this.props;
     return (
       <div>
         {/* <Header /> */}
         <Switch>
           <Route
             path="/"
-            render={() => <Landing userSignedIn={userSignedIn} />}
+            render={() => <Landing isLoggedIn={isLoggedIn} />}
           />
         </Switch>
       </div>
@@ -20,4 +21,8 @@ class App extends Component {
   }
 }
 
-export default App;
+export const mapStateToProps = state => ({
+  isLoggedIn: state.isLoggedIn
+});
+
+export default connect(mapStateToProps, null)(App);
