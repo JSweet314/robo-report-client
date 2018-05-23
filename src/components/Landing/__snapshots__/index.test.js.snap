@@ -1,0 +1,22 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Landing should match the snapshot 1`] = `
+<div>
+  <h2>
+    Welcome to Robo Report!
+  </h2>
+  <p>
+    Robo calls have become the primary incoming phone calls to our mobile devices. It's incredibly frustrating. However, the annoyance of fielding and blocking those calls has not superseded the annoyance of finding and filling out the FCC complaint form.
+    <br />
+    RoboReport is here to help. Create an account with our app, and it will auto-populate the FCC complaint form, greatly reducing the primary barrier to getting this complaint data to the FCC, and hopefully, spurring the FCC to take action to stop these incessant, unwanted calls.
+  </p>
+</div>
+`;
+
+exports[`Landing should match the snapshot 2`] = `
+<div>
+  <h2>
+    Welcome Back!
+  </h2>
+</div>
+`;
