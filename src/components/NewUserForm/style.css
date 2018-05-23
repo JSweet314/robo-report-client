@@ -1,0 +1,40 @@
+.new-user-form {
+  display: flex;
+  flex-direction: column;
+  margin: auto;
+  padding: 1rem;
+  width: 50%;
+  min-width: 320px;
+  overflow: visible;
+  justify-content: center;
+  align-items: center;
+  font-size: 2rem;
+}
+
+.user-report-form__fieldset {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.new-user-form label {
+  margin: 1rem 0 0 0;
+  width: 100%;
+}
+
+.new-user-form fieldset {
+  margin: 1rem 0;
+}
+
+.new-user-form button {
+  width: 50%;
+  height: 4rem;
+  font-size: 2rem;
+}
+
+.new-user-form input,
+.new-user-form select,
+.new-user-form option {
+  font-size: 2rem;
+  width: 100%;
+}

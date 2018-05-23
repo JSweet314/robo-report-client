@@ -1,0 +1,18 @@
+.new-user-welcome {
+  width: 50%;
+  min-width: 320px;
+  margin: auto;
+  padding: 1rem;
+  font-size: 2rem;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.new-user-welcome button {
+  display: block;
+  margin: auto;
+  width: 50%;
+  min-width: 4rem;
+  font-size: 2rem;
+}
