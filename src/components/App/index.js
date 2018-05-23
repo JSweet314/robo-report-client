@@ -1,12 +1,20 @@
 import React, { Component } from 'react';
-import NewUserContainer from '../../containers/NewUserContainer';
+import { Switch, Route } from 'react-router-dom';
+import Landing from '../Landing';
 import './style.css';
 
 class App extends Component {
   render() {
+    const { userSignedIn } = this.props;
     return (
       <div>
-        <NewUserContainer />
+        {/* <Header /> */}
+        <Switch>
+          <Route
+            path="/"
+            render={() => <Landing userSignedIn={userSignedIn} />}
+          />
+        </Switch>
       </div>
     );
   }
