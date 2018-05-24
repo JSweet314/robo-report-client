@@ -1,9 +1,12 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
+import * as actions from '../../actions';
 import NewUserWelcome from '../../components/NewUserWelcome';
 import NewUserForm from '../../components/NewUserForm';
 import './style.css';
 
-export default class NewUserContainer extends Component {
+export class NewUserContainer extends Component {
   constructor() {
     super();
     this.state = {
@@ -30,19 +33,32 @@ export default class NewUserContainer extends Component {
     this.setState({ [id]: value });
   }
 
-  handleSubmit = event => {
+  handleOnSubmit = event => {
     event.preventDefault();
+    const user = {...this.state};
+    delete user.welcomeDisplayed;
+    this.props.submitNewUser(user);
   }
 
   render() {
     const { welcomeDisplayed } = this.state;
-    return (welcomeDisplayed ?
+    return welcomeDisplayed ? (
       <NewUserWelcome toggleWelcome={this.toggleWelcome}/>
-      :
+    ) : (
       <NewUserForm 
         values={this.state}
-        handleSubmit={this.handleSubmit}
+        handleOnSubmit={this.handleOnSubmit}
         handleOnChange={this.handleOnChange}/>
     );
   }
 }
+
+export const mapDispatchToProps = dispatch => ({
+  submitNewUser: user => dispatch(actions.submitNewUser(user))
+});
+
+NewUserContainer.propTypes = {
+  submitNewUser: PropTypes.func.isRequired
+};
+
+export default connect(null, mapDispatchToProps)(NewUserContainer);

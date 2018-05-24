@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import './style.css';
 
-const NewUserForm = ({ handleOnChange, handleSubmit, values }) => {
+const NewUserForm = ({ handleOnChange, handleOnSubmit, values }) => {
   const {
     email,
     phone,
@@ -18,7 +18,7 @@ const NewUserForm = ({ handleOnChange, handleSubmit, values }) => {
 
   return (
     <form className='new-user-form'
-      onSubmit={event => handleSubmit(event)}>
+      onSubmit={event => handleOnSubmit(event)}>
       <label htmlFor='firstName'>First Name:</label>
       <input
         required
@@ -124,7 +124,7 @@ const NewUserForm = ({ handleOnChange, handleSubmit, values }) => {
 
 NewUserForm.propTypes = {
   handleOnChange: PropTypes.func.isRequired,
-  handleSubmit: PropTypes.func.isRequired,
+  handleOnSubmit: PropTypes.func.isRequired,
   values: PropTypes.shape({
     email: PropTypes.string.isRequired,
     phone: PropTypes.string.isRequired,
@@ -135,8 +135,7 @@ NewUserForm.propTypes = {
     address: PropTypes.string.isRequired,
     city: PropTypes.string.isRequired,
     state: PropTypes.string.isRequired,
-    zipcode: PropTypes.string.isRequired,
-    welcomeDisplayed: PropTypes.bool.isRequired
+    zipcode: PropTypes.string.isRequired
   })
 };
 
