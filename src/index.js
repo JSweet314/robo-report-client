@@ -9,7 +9,7 @@ import { Provider } from 'react-redux';
 import createSagaMiddleware from 'redux-saga';
 import rootSaga from './sagas';
 import rootReducer from './reducers';
-import App from './components/App';
+import App from './containers/App';
 import './index.css';
 
 dotenv.config();
