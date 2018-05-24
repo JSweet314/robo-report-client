@@ -1,6 +1,7 @@
-import { put, takeLatest } from 'redux-saga/effects';
+import { call, put, takeLatest } from 'redux-saga/effects';
 import { listenForAddNewUser, addNewUserSaga } from './addNewUserSaga';
 import * as actions from '../actions';
+import { postNewUser } from '../apiCalls';
 
 describe('listenForAddNewUser', () => {
   let generator;
@@ -26,16 +27,21 @@ describe('addNewUserSaga', () => {
     generator = addNewUserSaga(mockAction);
   });
 
-  it('should put the captureUser action on the stack', () => {
+  it('should call the roboReport API to post a new user', () => {
     expect(generator.next().value)
-      .toEqual(put(actions.captureUser(mockUser)));
+      .toEqual(call(postNewUser, mockUser));
+  });
+
+  it('should put the captureUser action on the stack', () => {
+    expect(generator.next({ ...mockUser, id: 1 }).value)
+      .toEqual(put(actions.captureUser({ ...mockUser, id: 1 })));
   });
 
   it('should put the toggleUserStatus action on the stack', () => {
     expect(generator.next().value)
       .toEqual(put(actions.toggleUserStatus()));
   });
-  
+
   it('should be done', () => {
     expect(generator.next().done).toBe(true);
   });

@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { Switch, Route } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import Landing from '../Landing';
+import NewUserContainer from '../../containers/NewUserContainer';
 import './style.css';
 
 export class App extends Component {
@@ -18,6 +19,7 @@ export class App extends Component {
             render={() => <Landing isLoggedIn={isLoggedIn} />}
           />
         </Switch>
+        <NewUserContainer />
       </div>
     );
   }
