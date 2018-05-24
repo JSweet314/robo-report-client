@@ -8,11 +8,10 @@ import { Provider } from 'react-redux';
 import createSagaMiddleware from 'redux-saga';
 import rootSaga from './sagas';
 import rootReducer from './reducers';
-import dotenv from 'dotenv';
 import App from './components/App';
 import './index.css';
 
-dotenv.config();
+require('dotenv').config();
 
 const sagaMiddleware = createSagaMiddleware();
 
