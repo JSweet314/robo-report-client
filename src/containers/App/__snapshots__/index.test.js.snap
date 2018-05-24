@@ -4,10 +4,19 @@ exports[`App should match a snapshot 1`] = `
 <div>
   <Switch>
     <Route
+      exact={true}
       path="/"
       render={[Function]}
     />
+    <Route
+      component={[Function]}
+      path="/welcomeNewUser"
+    />
   </Switch>
-  <Connect(NewUserContainer) />
+  <button
+    onClick={[Function]}
+  >
+    Sign In
+  </button>
 </div>
 `;

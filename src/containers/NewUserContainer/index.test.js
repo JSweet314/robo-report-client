@@ -6,9 +6,15 @@ import * as actions from '../../actions';
 describe('NewUserContainer', () => {
   let wrapper;
   const mockSubmitNewUser = jest.fn();
+  const mockLocation = { state: { name: 'Bob Odin', email: 'bob@aol.com' } };
 
   beforeEach(() => {
-    wrapper = shallow(<NewUserContainer submitNewUser={mockSubmitNewUser}/>);
+    wrapper = shallow(
+      <NewUserContainer
+        submitNewUser={mockSubmitNewUser}
+        location={mockLocation}
+      />
+    );
   });
 
   it('should match a snapshot with an instructions prompt', () => {
@@ -21,10 +27,10 @@ describe('NewUserContainer', () => {
   });
 
   it('should handle the change of form inputs', () => {
-    expect(wrapper.state('email')).toEqual('');
-    const mockEvent = { target: { id: 'email', value: 'test' } };
+    expect(wrapper.state('phone')).toEqual('');
+    const mockEvent = { target: { id: 'phone', value: '999-888-1111' } };
     wrapper.instance().handleOnChange(mockEvent);
-    expect(wrapper.state('email')).toEqual('test');
+    expect(wrapper.state('phone')).toEqual('999-888-1111');
   });
 
   it('should handle the submission of the form', () => {
@@ -48,8 +54,9 @@ describe('NewUserContainer', () => {
       const mapped = mapDispatchToProps(mockDispatch);
       const mockUser = { name: 'user' };
       mapped.submitNewUser(mockUser);
-      expect(mockDispatch)
-        .toHaveBeenCalledWith(actions.submitNewUser(mockUser));
+      expect(mockDispatch).toHaveBeenCalledWith(
+        actions.submitNewUser(mockUser),
+      );
     });
   });
 });
