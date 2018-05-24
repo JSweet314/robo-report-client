@@ -1,0 +1,191 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`NewUserForm should match a snapshot 1`] = `
+<form
+  className="new-user-form"
+  onSubmit={[Function]}
+>
+  <label
+    htmlFor="firstName"
+  >
+    First Name:
+  </label>
+  <input
+    id="firstName"
+    onChange={[Function]}
+    required={true}
+    type="text"
+    value=""
+  />
+  <label
+    htmlFor="lastName"
+  >
+    Last Name:
+  </label>
+  <input
+    id="lastName"
+    onChange={[Function]}
+    required={true}
+    type="text"
+    value=""
+  />
+  <label
+    htmlFor=""
+  >
+    Email:
+  </label>
+  <input
+    id="email"
+    onChange={[Function]}
+    required={true}
+    type="email"
+    value=""
+  />
+  <fieldset
+    className="user-report-form__fieldset"
+  >
+    <legend>
+      Your Address
+    </legend>
+    <label
+      htmlFor="address"
+    >
+      Street Address:
+    </label>
+    <input
+      id="address"
+      onChange={[Function]}
+      required={true}
+      type="text"
+      value=""
+    />
+    <label
+      htmlFor="city"
+    >
+      City:
+    </label>
+    <input
+      id="city"
+      onChange={[Function]}
+      required={true}
+      type="text"
+      value=""
+    />
+    <label
+      htmlFor="state"
+    >
+      State:
+    </label>
+    <input
+      id="state"
+      onChange={[Function]}
+      required={true}
+      type="text"
+      value=""
+    />
+    <label
+      htmlFor="zipcode"
+    >
+      Zip Code
+    </label>
+    <input
+      id="zipcode"
+      onChange={[Function]}
+      required={true}
+      type="text"
+      value=""
+    />
+  </fieldset>
+  <fieldset
+    className="user-report-form__fieldset"
+  >
+    <legend>
+      Your Phone
+    </legend>
+    <label
+      htmlFor="phone"
+    >
+      Phone Number:
+    </label>
+    <input
+      id="phone"
+      onChange={[Function]}
+      required={true}
+      type="tel"
+      value=""
+    />
+    <label
+      htmlFor="phoneType"
+    >
+      Phone Type: 
+    </label>
+    <select
+      id="phoneType"
+      onChange={[Function]}
+      required={true}
+      value=""
+    >
+      <option
+        value="-"
+      >
+        -
+      </option>
+      <option
+        value="Wireless (cell phone/other mobile device)"
+      >
+        Wireless (cell phone/other mobile device)
+      </option>
+      <option
+        value="Wired"
+      >
+        Wired
+      </option>
+      <option
+        value="Internet (VOIP)"
+      >
+        Internet (VOIP)
+      </option>
+    </select>
+    <label
+      htmlFor=""
+    >
+      Phone Location:
+    </label>
+    <select
+      id="phoneLocation"
+      onChange={[Function]}
+      required={true}
+      value=""
+    >
+      <option
+        value="-"
+      >
+        -
+      </option>
+      <option
+        value="Residential/Personal"
+      >
+        Residential/Personal
+      </option>
+      <option
+        value="Business  (including government and nonprofit organizations)"
+      >
+        Business (including government and nonprofit organizations)
+      </option>
+      <option
+        value="Patient Room in Health Care of Elderly Care Facility"
+      >
+        Patient Room in Health Care of Elderly Care Facility
+      </option>
+      <option
+        value="Toll Free Line"
+      >
+        Toll Free Line
+      </option>
+    </select>
+  </fieldset>
+  <button>
+    Start Reporting!
+  </button>
+</form>
+`;

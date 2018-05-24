@@ -7,7 +7,7 @@ describe('Landing', () => {
   
   beforeEach(() => {
     wrapper = shallow(<Landing isLoggedIn={false}/>);
-  })
+  });
 
   it('should match the snapshot', () => {
     expect(wrapper).toMatchSnapshot();
