@@ -4,8 +4,8 @@ import { postNewUser } from '../apiCalls';
 
 export function* addNewUserSaga(action) {
   try {
-    const user = yield call(postNewUser, action.user);
-    yield put(actions.captureUser(user));
+    const idObj = yield call(postNewUser, action.user);
+    yield put(actions.captureUser({...action.user, ...idObj}));
     yield put(actions.toggleUserStatus());
   } catch (error) {
     yield put(actions.captureError(error.message));
