@@ -1,0 +1,22 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`NewUserWelcome should match a snapshot 1`] = `
+<article
+  className="new-user-welcome"
+>
+  <h2>
+    Welcome aboard!
+  </h2>
+  <p>
+    In order to make reporting unwanted robocalls to the FCC easier, we need to collect some information that is included with every report.
+  </p>
+  <p>
+    Required information can include legal name, address, phone number (of course), type of phone, etc.
+  </p>
+  <button
+    onClick={[Function]}
+  >
+    Get Started!
+  </button>
+</article>
+`;

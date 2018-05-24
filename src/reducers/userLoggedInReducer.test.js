@@ -7,6 +7,7 @@ describe('userLoggedInReducer', () => {
   });
 
   it('should return toggled state', () => {
-    expect(userLoggedInReducer(undefined, actions.toggleUserStatus())).toBe(true);
+    const mockAction = actions.toggleUserStatus();
+    expect(userLoggedInReducer(undefined, mockAction)).toBe(true);
   });
 });

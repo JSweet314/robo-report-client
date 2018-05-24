@@ -1,12 +1,14 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Switch, Route } from 'react-router-dom';
+import PropTypes from 'prop-types';
 import Landing from '../Landing';
 import './style.css';
 
-class App extends Component {
+export class App extends Component {
   render() {
     const { isLoggedIn } = this.props;
+    
     return (
       <div>
         {/* <Header /> */}
@@ -24,5 +26,9 @@ class App extends Component {
 export const mapStateToProps = state => ({
   isLoggedIn: state.isLoggedIn
 });
+
+App.propTypes = {
+  isLoggedIn: PropTypes.bool.isRequired
+};
 
 export default connect(mapStateToProps, null)(App);
