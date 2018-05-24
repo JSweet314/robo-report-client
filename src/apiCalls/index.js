@@ -6,7 +6,7 @@ export const postNewUser = async user => {
         method: 'POST',
         headers: {
           // eslint-disable-next-line
-          token:  'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhcHBOYW1lIjoicm9iby1yZXBvcnQtY2xpZW50IiwiZW1haWwiOiJqb25AdHVyaW5nLmlvIiwiYWRtaW4iOnRydWUsImlhdCI6MTUyNzE3MTU0NH0.YuGND82AJldmEJdjxt00hI8SXaPU48YjCg7-usMNc5w',
+          token: process.env.REACT_APP_ROBO_TOKEN,
           'Content-Type': 'application/json'
         },
         body: JSON.stringify(user)
