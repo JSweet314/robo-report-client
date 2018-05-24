@@ -33,8 +33,9 @@ describe('addNewUserSaga', () => {
   });
 
   it('should put the captureUser action on the stack', () => {
-    expect(generator.next({ ...mockUser, id: 1 }).value)
-      .toEqual(put(actions.captureUser({ ...mockUser, id: 1 })));
+    const mockId = { id: 1 }
+    expect(generator.next(mockId).value)
+      .toEqual(put(actions.captureUser({ ...mockUser, ...mockId})));
   });
 
   it('should put the toggleUserStatus action on the stack', () => {
