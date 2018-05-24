@@ -60,7 +60,6 @@ export class NewUserContainer extends Component {
   };
 
   render() {
-    console.log(this.props);
     const { welcomeDisplayed } = this.state;
     return welcomeDisplayed ? (
       <NewUserWelcome toggleWelcome={this.toggleWelcome} />
