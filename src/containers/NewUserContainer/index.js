@@ -8,19 +8,15 @@ import NewUserForm from '../../components/NewUserForm';
 import './style.css';
 
 export class NewUserContainer extends Component {
-  constructor(props) {
-    super(props);
-    const { name, email } = props.location.state;
-    const names = name.split(' ');
-    const firstName = names[0];
-    const lastName = names[names.length - 1];
+  constructor() {
+    super();
     this.state = {
-      email: email || '',
+      email: '',
       phone: '',
       phoneType: '-',
       phoneLocation: '-',
-      firstName: firstName || '',
-      lastName: lastName || '',
+      firstName: '',
+      lastName: '',
       address: '',
       city: '',
       state: '',
@@ -28,6 +24,24 @@ export class NewUserContainer extends Component {
       welcomeDisplayed: true,
     };
   }
+
+  componentDidMount() {
+    this.captureOAuthCredentials();
+  }
+
+  captureOAuthCredentials = () => {
+    if (this.props.location.state) {
+      const { name, email } = this.props.location.state;
+      const names = name.split(' ');
+      const firstName = names[0];
+      const lastName = names[names.length - 1];
+      this.setState({
+        firstName,
+        lastName,
+        email
+      });
+    }
+  };
 
   toggleWelcome = () => {
     this.setState({ welcomeDisplayed: !this.state.welcomeDisplayed });
