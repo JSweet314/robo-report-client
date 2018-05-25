@@ -21,8 +21,7 @@ export class NewUserContainer extends Component {
       city: '',
       state: '',
       zipcode: '',
-      welcomeDisplayed: true,
-      formCompleted: false
+      welcomeDisplayed: true
     };
   }
 
@@ -58,24 +57,31 @@ export class NewUserContainer extends Component {
     event.preventDefault();
     const user = this.filterFormValuesFromState();
     this.props.submitNewUser(user);
-    this.setState({ formCompleted: true });
   };
 
   filterFormValuesFromState = () => {
     const values = { ...this.state };
 
     delete values.welcomeDisplayed;
-    delete values.formCompleted;
 
     return values;
   }
 
   render() {
-    const { welcomeDisplayed, formCompleted } = this.state;
+    const { welcomeDisplayed } = this.state;
+    const { isLoggedIn, error } = this.props;
     const values = this.filterFormValuesFromState();
 
-    if (formCompleted) {
+    if (isLoggedIn) {
       return <Redirect to='/' />;
+    }
+
+    if (error) {
+      return (
+        <div>
+          <h2>{error}</h2>
+        </div>
+      );
     }
 
     return welcomeDisplayed ? (
@@ -94,6 +100,11 @@ export const mapDispatchToProps = dispatch => ({
   submitNewUser: user => dispatch(actions.submitNewUser(user))
 });
 
+export const mapStateToProps = ({ isLoggedIn, error }) => ({
+  isLoggedIn,
+  error
+});
+
 NewUserContainer.propTypes = {
   submitNewUser: PropTypes.func.isRequired,
   location: PropTypes.shape({
@@ -101,7 +112,11 @@ NewUserContainer.propTypes = {
       name: PropTypes.string.isRequired,
       email: PropTypes.string.isRequired
     }).isRequired
-  }).isRequired
+  }).isRequired,
+  isLoggedIn: PropTypes.bool.isRequired,
+  error: PropTypes.string
 };
 
-export default withRouter(connect(null, mapDispatchToProps)(NewUserContainer));
+export default withRouter(
+  connect(mapStateToProps, mapDispatchToProps)(NewUserContainer)
+);

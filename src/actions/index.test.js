@@ -44,11 +44,4 @@ describe('actions', () => {
       expect(actions.captureError('error message')).toEqual(expected);
     });
   });
-
-  describe('clearError', () => {
-    it('should return an action of type: CLEAR_ERROR', () => {
-      const expected = { type: 'CLEAR_ERROR' };
-      expect(actions.clearError()).toEqual(expected);
-    });
-  });
 });
