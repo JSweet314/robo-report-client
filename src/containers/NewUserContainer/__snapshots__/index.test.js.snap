@@ -21,7 +21,6 @@ exports[`NewUserContainer should match a snapshot with the form itself 1`] = `
       "phoneLocation": "-",
       "phoneType": "-",
       "state": "",
-      "welcomeDisplayed": false,
       "zipcode": "",
     }
   }

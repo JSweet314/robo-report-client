@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { withRouter } from 'react-router-dom';
+import { Redirect, withRouter } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import * as actions from '../../actions';
@@ -22,16 +22,18 @@ export class NewUserContainer extends Component {
       state: '',
       zipcode: '',
       welcomeDisplayed: true,
+      formCompleted: false
     };
   }
 
   componentDidMount() {
-    this.captureOAuthCredentials();
+    this.captureRedirectedCredentials();
   }
 
-  captureOAuthCredentials = () => {
-    if (this.props.location.state) {
-      const { name, email } = this.props.location.state;
+  captureRedirectedCredentials = () => {
+    const { state } = this.props.location;
+    if (state.name && state.email) {
+      const { name, email } = state;
       const names = name.split(' ');
       const firstName = names[0];
       const lastName = names[names.length - 1];
@@ -54,18 +56,33 @@ export class NewUserContainer extends Component {
 
   handleOnSubmit = event => {
     event.preventDefault();
-    const user = { ...this.state };
-    delete user.welcomeDisplayed;
+    const user = this.filterFormValuesFromState();
     this.props.submitNewUser(user);
+    this.setState({ formCompleted: true });
   };
 
+  filterFormValuesFromState = () => {
+    const values = { ...this.state };
+
+    delete values.welcomeDisplayed;
+    delete values.formCompleted;
+
+    return values;
+  }
+
   render() {
-    const { welcomeDisplayed } = this.state;
+    const { welcomeDisplayed, formCompleted } = this.state;
+    const values = this.filterFormValuesFromState();
+
+    if (formCompleted) {
+      return <Redirect to='/' />;
+    }
+
     return welcomeDisplayed ? (
       <NewUserWelcome toggleWelcome={this.toggleWelcome} />
     ) : (
       <NewUserForm
-        values={this.state}
+        values={values}
         handleOnSubmit={this.handleOnSubmit}
         handleOnChange={this.handleOnChange}
       />
@@ -74,11 +91,17 @@ export class NewUserContainer extends Component {
 }
 
 export const mapDispatchToProps = dispatch => ({
-  submitNewUser: user => dispatch(actions.submitNewUser(user)),
+  submitNewUser: user => dispatch(actions.submitNewUser(user))
 });
 
 NewUserContainer.propTypes = {
   submitNewUser: PropTypes.func.isRequired,
+  location: PropTypes.shape({
+    state: PropTypes.shape({
+      name: PropTypes.string.isRequired,
+      email: PropTypes.string.isRequired
+    }).isRequired
+  }).isRequired
 };
 
 export default withRouter(connect(null, mapDispatchToProps)(NewUserContainer));
