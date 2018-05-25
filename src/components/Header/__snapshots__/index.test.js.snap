@@ -1,7 +1,15 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Header should match the snapshot 1`] = `
-<Route
-  render={[Function]}
-/>
+<header>
+  <h1>
+    Robo Report
+  </h1>
+  <button
+    className="sign-in--button"
+    onClick={[Function]}
+  >
+    Sign In
+  </button>
+</header>
 `;

@@ -7,10 +7,12 @@ describe('App', () => {
   const mockHistory = {
     push: jest.fn()
   };
+  const mockToggleUserStatus = jest.fn()
 
   beforeEach(() => {
     wrapper = shallow(
       <App 
+        toggleUserStatus={mockToggleUserStatus}
         history={mockHistory} 
         isLoggedIn={true} 
       />
