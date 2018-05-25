@@ -10,8 +10,4 @@ describe('errorReducer', () => {
     expect(errorReducer(undefined, actions.captureError('error')))
       .toEqual('error');
   });
-
-  it('should clear the error message', () => {
-    expect(errorReducer(undefined, actions.clearError())).toEqual(null);
-  });
 });
