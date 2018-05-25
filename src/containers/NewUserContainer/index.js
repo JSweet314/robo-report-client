@@ -59,6 +59,7 @@ export class NewUserContainer extends Component {
     const user = { ...this.state };
     delete user.welcomeDisplayed;
     this.props.submitNewUser(user);
+    this.setState({ formCompleted: true });
   };
 
   render() {
