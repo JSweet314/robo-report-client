@@ -18,6 +18,5 @@ exports[`App should match a snapshot 1`] = `
   >
     Sign In
   </button>
-  <Loading />
 </div>
 `;

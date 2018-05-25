@@ -5,7 +5,6 @@ import PropTypes from 'prop-types';
 import firebase from '../../firebase';
 import Landing from '../../components/Landing';
 import NewUserContainer from '../NewUserContainer';
-import Loading from '../../components/Loading';
 import './style.css';
 
 export class App extends Component {
@@ -51,7 +50,6 @@ export class App extends Component {
           <Route path="/welcomeNewUser" component={NewUserContainer} />
         </Switch>
         <button onClick={event => this.handleSignIn(event)}>Sign In</button>
-        <Loading />
       </div>
     );
   }
