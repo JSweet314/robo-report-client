@@ -1,0 +1,14 @@
+header {
+  display: flex;
+  align-items: center;
+  padding: .5em;
+}
+
+h1 {
+  margin: 0 1em; 
+}
+
+.sign-in--button {
+  margin: auto 1em auto auto;
+}
+
