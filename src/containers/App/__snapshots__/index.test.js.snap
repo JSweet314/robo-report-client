@@ -1,21 +1,3 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`App should match a snapshot 1`] = `
-<div>
-  <Header
-    handleOAuthSignIn={[Function]}
-    isLoggedIn={true}
-  />
-  <Switch>
-    <Route
-      exact={true}
-      path="/"
-      render={[Function]}
-    />
-    <Route
-      component={[Function]}
-      path="/welcomeNewUser"
-    />
-  </Switch>
-</div>
-`;
+exports[`App should match a snapshot 1`] = `<Loading />`;

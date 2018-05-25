@@ -42,7 +42,7 @@ describe('NewUserContainer', () => {
       wrapper.instance().handleOnSubmit(mockEvent);
       const mockUser = { ...wrapper.state() };
       delete mockUser.welcomeDisplayed;
-      delete mockUser.loading;
+      delete mockUser.isLoading;
       expect(mockSubmitNewUser).toHaveBeenCalledWith(mockUser);
     });
   });

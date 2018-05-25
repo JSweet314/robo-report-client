@@ -2,43 +2,70 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Switch, Route, withRouter } from 'react-router-dom';
 import * as actions from '../../actions';
-import firebase from '../../firebase';
+import firebase, { auth } from '../../firebase';
 import PropTypes from 'prop-types';
 import Header from '../../components/Header';
 import Landing from '../../components/Landing';
 import NewUserContainer from '../NewUserContainer';
+import Loading from '../../components/Loading';
 import './style.css';
 
 export class App extends Component {
+  constructor() {
+    super();
+    this.state = {
+      isLoading: true
+    };
+  }
+
   componentDidMount() {
-    firebase.auth().onAuthStateChanged(user => {
-      if (user) {
-        if (user.metadata.creationTime === user.metadata.lastSignInTime) {
+    this.checkRedirectCredentials();
+    this.checkActiveUserSession();
+  }
+
+  checkRedirectCredentials = () => {
+    auth.getRedirectResult().then(result => {
+      if (result.user) {
+        const { isNewUser } = result.additionalUserInfo;
+        if (isNewUser) {
           this.props.history.push('/welcomeNewUser', {
-            name: user.displayName,
-            email: user.email
+            name: result.user.displayName,
+            email: result.user.email
           });
-        } else {
-          this.props.toggleUserStatus();
         }
       }
     });
-  }
+  };
+
+  checkActiveUserSession = () => {
+    auth.onAuthStateChanged(user => {
+      if (user) {
+        this.props.toggleUserStatus();
+      }
+      this.setState({ isLoading: !this.state.isLoading });
+    });
+  };
 
   handleOAuthSignIn = event => {
     event.preventDefault();
-    const user = firebase.auth().currentUser;
+    const user = auth.currentUser;
     if (user) {
-      firebase.auth().signOut();
+      auth.signOut();
       this.props.toggleUserStatus();
+      this.setState({ isLoading: !this.state.isLoading });
     } else {
       const provider = new firebase.auth.GoogleAuthProvider();
-      firebase.auth().signInWithRedirect(provider);
+      auth.signInWithRedirect(provider);
     }
   };
 
   render() {
     const { isLoggedIn } = this.props;
+    const { isLoading } = this.state;
+
+    if (isLoading) {
+      return <Loading />;
+    }
 
     return (
       <div>

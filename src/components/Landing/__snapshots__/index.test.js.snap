@@ -1,7 +1,9 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Landing should match the snapshot 1`] = `
-<div>
+<div
+  className="landing"
+>
   <h2>
     Welcome to Robo Report!
   </h2>
@@ -14,9 +16,14 @@ exports[`Landing should match the snapshot 1`] = `
 `;
 
 exports[`Landing should match the snapshot 2`] = `
-<div>
+<div
+  className="landing"
+>
   <h2>
     Welcome Back!
   </h2>
+  <button>
+    Submit New Complaint
+  </button>
 </div>
 `;
