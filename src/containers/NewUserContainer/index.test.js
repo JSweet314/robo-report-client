@@ -1,16 +1,17 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import { NewUserContainer, mapDispatchToProps } from './index';
+import { NewUserContainer, mapDispatchToProps, mapStateToProps } from './index';
 import * as actions from '../../actions';
 
 describe('NewUserContainer', () => {
   let wrapper, mockSubmitNewUser, mockLocation;
-  
+
   beforeEach(() => {
     mockSubmitNewUser = jest.fn();
     mockLocation = { state: { name: 'Bob Odin', email: 'bob@aol.com' } };
     wrapper = shallow(
       <NewUserContainer
+        isLoggedIn={false}
         submitNewUser={mockSubmitNewUser}
         location={mockLocation}
       />
@@ -39,11 +40,10 @@ describe('NewUserContainer', () => {
     it('should handle the submission of the form', () => {
       const mockEvent = { preventDefault: jest.fn() };
       wrapper.instance().handleOnSubmit(mockEvent);
-      const mockUser = wrapper.state();
+      const mockUser = { ...wrapper.state() };
       delete mockUser.welcomeDisplayed;
-      delete mockUser.formCompleted;
       expect(mockSubmitNewUser).toHaveBeenCalledWith(mockUser);
-    });    
+    });
   });
 
   describe('toggleWelcome', () => {
@@ -51,13 +51,14 @@ describe('NewUserContainer', () => {
       expect(wrapper.state('welcomeDisplayed')).toEqual(true);
       wrapper.instance().toggleWelcome();
       expect(wrapper.state('welcomeDisplayed')).toEqual(false);
-    });  
+    });
   });
-  
+
   describe('captureRedirectedCredentials', () => {
     it('should set the redirected credentials in state', () => {
       const wrapper = shallow(
         <NewUserContainer
+          isLoggedIn={false}
           submitNewUser={mockSubmitNewUser}
           location={mockLocation}
         />,
@@ -67,7 +68,7 @@ describe('NewUserContainer', () => {
       [email, firstName, lastName].forEach(value => expect(value).toEqual(''));
 
       wrapper.instance().captureRedirectedCredentials();
-      
+
       expect(wrapper.state('firstName')).toEqual('Bob');
       expect(wrapper.state('lastName')).toEqual('Odin');
       expect(wrapper.state('email')).toEqual('bob@aol.com');
@@ -103,6 +104,18 @@ describe('NewUserContainer', () => {
       expect(mockDispatch).toHaveBeenCalledWith(
         actions.submitNewUser(mockUser),
       );
+    });
+  });
+
+  describe('mapStateToProps', () => {
+    it('should map isLoggedIn from state to formCompleted as prop', () => {
+      const mapped = mapStateToProps({isLoggedIn: true });
+      expect(mapped).toHaveProperty('isLoggedIn', true);
+    });
+
+    it('should map error from state to error as a prop', () => {
+      const mapped = mapStateToProps({error: 'message' });
+      expect(mapped).toHaveProperty('error', 'message');
     });
   });
 });

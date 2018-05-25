@@ -20,7 +20,3 @@ export const captureError = error => ({
   type: 'CAPTURE_ERROR',
   error
 });
-
-export const clearError = () => ({
-  type: 'CLEAR_ERROR'
-});
