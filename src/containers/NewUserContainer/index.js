@@ -32,11 +32,11 @@ export class NewUserContainer extends Component {
 
   captureRedirectedCredentials = () => {
     const { state } = this.props.location;
-    if (state.name && state.email) {
+    if (state) {
       const { name, email } = state;
       const names = name.split(' ');
-      const firstName = names[0];
-      const lastName = names[names.length - 1];
+      const firstName = names[0] || '';
+      const lastName = names[names.length - 1] || '';
       this.setState({
         firstName,
         lastName,
