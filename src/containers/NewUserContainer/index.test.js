@@ -4,11 +4,11 @@ import { NewUserContainer, mapDispatchToProps } from './index';
 import * as actions from '../../actions';
 
 describe('NewUserContainer', () => {
-  let wrapper;
-  const mockSubmitNewUser = jest.fn();
-  const mockLocation = { state: { name: 'Bob Odin', email: 'bob@aol.com' } };
-
+  let wrapper, mockSubmitNewUser, mockLocation;
+  
   beforeEach(() => {
+    mockSubmitNewUser = jest.fn();
+    mockLocation = { state: { name: 'Bob Odin', email: 'bob@aol.com' } };
     wrapper = shallow(
       <NewUserContainer
         submitNewUser={mockSubmitNewUser}
@@ -41,6 +41,7 @@ describe('NewUserContainer', () => {
       wrapper.instance().handleOnSubmit(mockEvent);
       const mockUser = wrapper.state();
       delete mockUser.welcomeDisplayed;
+      delete mockUser.formCompleted;
       expect(mockSubmitNewUser).toHaveBeenCalledWith(mockUser);
     });    
   });
@@ -54,15 +55,14 @@ describe('NewUserContainer', () => {
   });
   
   describe('captureRedirectedCredentials', () => {
-    const wrapper = shallow(
-      <NewUserContainer
-        submitNewUser={mockSubmitNewUser}
-        location={mockLocation}
-      />,
-      { disableLifecycleMethods: true }
-    );
-
     it('should set the redirected credentials in state', () => {
+      const wrapper = shallow(
+        <NewUserContainer
+          submitNewUser={mockSubmitNewUser}
+          location={mockLocation}
+        />,
+        { disableLifecycleMethods: true }
+      );
       const { email, firstName, lastName } = wrapper.state();
       [email, firstName, lastName].forEach(value => expect(value).toEqual(''));
 
@@ -71,6 +71,25 @@ describe('NewUserContainer', () => {
       expect(wrapper.state('firstName')).toEqual('Bob');
       expect(wrapper.state('lastName')).toEqual('Odin');
       expect(wrapper.state('email')).toEqual('bob@aol.com');
+    });
+  });
+
+  describe('filterFormValuesFromState', () => {
+    it('should return only controlled form values held in state', () => {
+      const expected = {
+        email: 'bob@aol.com',
+        phone: '',
+        phoneType: '-',
+        phoneLocation: '-',
+        firstName: 'Bob',
+        lastName: 'Odin',
+        address: '',
+        city: '',
+        state: '',
+        zipcode: ''
+      };
+      const values = wrapper.instance().filterFormValuesFromState();
+      expect(values).toEqual(expected);
     });
   });
 

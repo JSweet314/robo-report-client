@@ -56,17 +56,23 @@ export class NewUserContainer extends Component {
 
   handleOnSubmit = event => {
     event.preventDefault();
-    const user = { ...this.state };
-    delete user.welcomeDisplayed;
+    const user = this.filterFormValuesFromState();
     this.props.submitNewUser(user);
     this.setState({ formCompleted: true });
   };
 
-  render() {
-    const { welcomeDisplayed, formCompleted } = this.state;
+  filterFormValuesFromState = () => {
     const values = { ...this.state };
+
     delete values.welcomeDisplayed;
     delete values.formCompleted;
+
+    return values;
+  }
+
+  render() {
+    const { welcomeDisplayed, formCompleted } = this.state;
+    const values = this.filterFormValuesFromState();
 
     if (formCompleted) {
       return <Redirect to='/' />;
