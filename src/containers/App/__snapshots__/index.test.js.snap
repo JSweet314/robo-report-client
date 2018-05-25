@@ -1,22 +1,3 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`App should match a snapshot 1`] = `
-<div>
-  <Switch>
-    <Route
-      exact={true}
-      path="/"
-      render={[Function]}
-    />
-    <Route
-      component={[Function]}
-      path="/welcomeNewUser"
-    />
-  </Switch>
-  <button
-    onClick={[Function]}
-  >
-    Sign In
-  </button>
-</div>
-`;
+exports[`App should match a snapshot 1`] = `<Loading />`;

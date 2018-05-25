@@ -23,7 +23,7 @@ export class NewUserContainer extends Component {
       state: '',
       zipcode: '',
       welcomeDisplayed: true,
-      loading: false
+      isLoading: false
     };
   }
 
@@ -33,16 +33,16 @@ export class NewUserContainer extends Component {
 
   captureRedirectedCredentials = () => {
     const { state } = this.props.location;
-    if (state.name && state.email) {
+    if (state) {
       const { name, email } = state;
       const names = name.split(' ');
-      const firstName = names[0];
-      const lastName = names[names.length - 1];
+      const firstName = names[0] || '';
+      const lastName = names[names.length - 1] || '';
       this.setState({
         firstName,
         lastName,
         email,
-        loading: false
+        isLoading: false
       });
     }
   };
@@ -59,7 +59,7 @@ export class NewUserContainer extends Component {
   handleOnSubmit = event => {
     event.preventDefault();
     const user = this.filterFormValuesFromState();
-    this.setState({ loading: true });
+    this.setState({ isLoading: true });
     this.props.submitNewUser(user);
   };
 
@@ -67,13 +67,13 @@ export class NewUserContainer extends Component {
     const values = { ...this.state };
 
     delete values.welcomeDisplayed;
-    delete values.loading;
+    delete values.isLoading;
 
     return values;
   }
 
   render() {
-    const { welcomeDisplayed, loading } = this.state;
+    const { welcomeDisplayed, isLoading } = this.state;
     const { isLoggedIn, error } = this.props;
     const values = this.filterFormValuesFromState();
 
@@ -89,7 +89,7 @@ export class NewUserContainer extends Component {
       );
     }
 
-    if (loading) {
+    if (isLoading) {
       return <Loading />;
     }
 
