@@ -15,16 +15,15 @@ export class App extends Component {
     };
   }
 
-  componentWillMount() {
+  componentDidMount() {
     firebase.auth().onAuthStateChanged(user => {
-      if (user) {
-        user.metadata.creationTime === user.metadata.lastSignInTime
-          ? this.props.history.push('/welcomeNewUser', {
-            name: user.displayName,
-            email: user.email
-          })
-          // eslint-disable-next-line
-          : console.log('existingUser');
+      if (user.metadata.creationTime === user.metadata.lastSignInTime) {
+        return this.props.history.push('/welcomeNewUser', {
+          name: user.displayName,
+          email: user.email
+        });
+      } else {
+        return this.props.history.push('/');
       }
     });
   }

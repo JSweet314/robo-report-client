@@ -28,8 +28,7 @@ describe('submitNewUserSaga', () => {
   });
 
   it('should call the roboReport API to post a new user', () => {
-    expect(generator.next().value)
-      .toEqual(call(postNewUser, mockUser));
+    expect(generator.next().value).toEqual(call(postNewUser, mockUser));
   });
 
   it('should put the captureUser action on the stack', () => {
@@ -39,8 +38,7 @@ describe('submitNewUserSaga', () => {
   });
 
   it('should put the toggleUserStatus action on the stack', () => {
-    expect(generator.next().value)
-      .toEqual(put(actions.toggleUserStatus()));
+    expect(generator.next().value).toEqual(put(actions.toggleUserStatus()));
   });
 
   it('should put the captureError action on the stack with error null', () => {
@@ -57,7 +55,8 @@ describe('submitNewUserSaga', () => {
     const expected = put(actions.captureError('an error occured'));
 
     generator.next();
-    expect(generator.throw(new Error('an error occured')).value)
-      .toEqual(expected);
+    expect(generator.throw(new Error('an error occured')).value).toEqual(
+      expected
+    );
   });
 });
