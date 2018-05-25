@@ -2,7 +2,10 @@
 
 exports[`App should match a snapshot 1`] = `
 <div>
-  <withRouter(Header) />
+  <Header
+    handleOAuthSignIn={[Function]}
+    isLoggedIn={true}
+  />
   <Switch>
     <Route
       exact={true}

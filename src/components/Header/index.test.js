@@ -4,9 +4,15 @@ import Header from './';
 
 describe('Header', () => {
   let wrapper;
+  const mockHandleOAuthSignIn = jest.fn();
   
   beforeEach(() => {
-    wrapper = shallow(<Header isLoggedIn={false}/>);
+    wrapper = shallow(
+      <Header 
+        isLoggedIn={false}
+        handleOAuthSignIn={mockHandleOAuthSignIn}
+      />
+    );
   });
 
   it('should match the snapshot', () => {
