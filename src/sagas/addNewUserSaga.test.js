@@ -10,8 +10,9 @@ describe('listenForAddNewUser', () => {
   });
 
   it('should take the latest SUBMIT_NEW_USER action', () => {
-    expect(generator.next().value)
-      .toEqual(takeLatest('SUBMIT_NEW_USER', addNewUserSaga));
+    expect(generator.next().value).toEqual(
+      takeLatest('SUBMIT_NEW_USER', addNewUserSaga)
+    );
   });
 
   it('should be done', () => {
@@ -28,8 +29,7 @@ describe('addNewUserSaga', () => {
   });
 
   it('should call the roboReport API to post a new user', () => {
-    expect(generator.next().value)
-      .toEqual(call(postNewUser, mockUser));
+    expect(generator.next().value).toEqual(call(postNewUser, mockUser));
   });
 
   it('should put the captureUser action on the stack', () => {
@@ -39,8 +39,7 @@ describe('addNewUserSaga', () => {
   });
 
   it('should put the toggleUserStatus action on the stack', () => {
-    expect(generator.next().value)
-      .toEqual(put(actions.toggleUserStatus()));
+    expect(generator.next().value).toEqual(put(actions.toggleUserStatus()));
   });
 
   it('should be done', () => {
@@ -52,7 +51,8 @@ describe('addNewUserSaga', () => {
     const expected = put(actions.captureError('an error occured'));
 
     generator.next();
-    expect(generator.throw(new Error('an error occured')).value)
-      .toEqual(expected);
+    expect(generator.throw(new Error('an error occured')).value).toEqual(
+      expected
+    );
   });
 });

@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 const Landing = ({ isLoggedIn }) => {
-  return isLoggedIn ? (
+  const landingDiv = isLoggedIn ? (
     <div>
       <h2>Welcome Back!</h2>
     </div>
@@ -21,6 +21,8 @@ const Landing = ({ isLoggedIn }) => {
       </p>
     </div>
   );
+
+  return landingDiv;
 };
 
 Landing.propTypes = {
