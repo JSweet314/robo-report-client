@@ -11,7 +11,7 @@ export class App extends Component {
   constructor() {
     super();
     this.state = {
-      isNewUser: false,
+      authButtonText: 'Sign In'
     };
   }
 
@@ -23,6 +23,7 @@ export class App extends Component {
             name: user.displayName,
             email: user.email
           })
+          // eslint-disable-next-line
           : console.log('existingUser');
       }
     });
@@ -55,11 +56,14 @@ export class App extends Component {
 }
 
 export const mapStateToProps = state => ({
-  isLoggedIn: state.isLoggedIn,
+  isLoggedIn: state.isLoggedIn
 });
 
 App.propTypes = {
   isLoggedIn: PropTypes.bool.isRequired,
+  history: PropTypes.shape({
+    push: PropTypes.func.isRequired
+  }).isRequired
 };
 
 export default withRouter(connect(mapStateToProps, null)(App));
