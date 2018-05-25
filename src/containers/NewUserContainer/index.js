@@ -5,6 +5,7 @@ import { connect } from 'react-redux';
 import * as actions from '../../actions';
 import NewUserWelcome from '../../components/NewUserWelcome';
 import NewUserForm from '../../components/NewUserForm';
+import Loading from '../../components/Loading';
 import './style.css';
 
 export class NewUserContainer extends Component {
@@ -21,7 +22,8 @@ export class NewUserContainer extends Component {
       city: '',
       state: '',
       zipcode: '',
-      welcomeDisplayed: true
+      welcomeDisplayed: true,
+      loading: false
     };
   }
 
@@ -39,7 +41,8 @@ export class NewUserContainer extends Component {
       this.setState({
         firstName,
         lastName,
-        email
+        email,
+        loading: false
       });
     }
   };
@@ -56,6 +59,7 @@ export class NewUserContainer extends Component {
   handleOnSubmit = event => {
     event.preventDefault();
     const user = this.filterFormValuesFromState();
+    this.setState({ loading: true });
     this.props.submitNewUser(user);
   };
 
@@ -63,12 +67,13 @@ export class NewUserContainer extends Component {
     const values = { ...this.state };
 
     delete values.welcomeDisplayed;
+    delete values.loading;
 
     return values;
   }
 
   render() {
-    const { welcomeDisplayed } = this.state;
+    const { welcomeDisplayed, loading } = this.state;
     const { isLoggedIn, error } = this.props;
     const values = this.filterFormValuesFromState();
 
@@ -82,6 +87,10 @@ export class NewUserContainer extends Component {
           <h2>{error}</h2>
         </div>
       );
+    }
+
+    if (loading) {
+      return <Loading />;
     }
 
     return welcomeDisplayed ? (
