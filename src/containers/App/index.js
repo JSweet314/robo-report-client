@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Switch, Route, withRouter } from 'react-router-dom';
 import PropTypes from 'prop-types';
-import firebase from '../../firebase';
+import Header from '../../components/Header';
 import Landing from '../../components/Landing';
 import NewUserContainer from '../NewUserContainer';
 import './style.css';
@@ -15,31 +15,32 @@ export class App extends Component {
     };
   }
 
-  componentDidMount() {
-    firebase.auth().onAuthStateChanged(user => {
-      if (user.metadata.creationTime === user.metadata.lastSignInTime) {
-        return this.props.history.push('/welcomeNewUser', {
-          name: user.displayName,
-          email: user.email
-        });
-      } else {
-        return this.props.history.push('/');
-      }
-    });
-  }
+  // componentDidMount() {
+  //   firebase.auth().onAuthStateChanged(user => {
+  //     if (user.metadata.creationTime === user.metadata.lastSignInTime) {
+  //       return this.props.history.push('/welcomeNewUser', {
+  //         name: user.displayName,
+  //         email: user.email
+  //       });
+  //     } else {
+  //       return this.props.history.push('/');
+  //     }
+  //   });
+  // }
 
-  handleSignIn = event => {
-    event.preventDefault();
-    const provider = new firebase.auth.GoogleAuthProvider();
+  // handleOAuthSignIn = event => {
+  //   event.preventDefault();
+  //   const provider = new firebase.auth.GoogleAuthProvider();
 
-    firebase.auth().signInWithRedirect(provider);
-  };
+  //   firebase.auth().signInWithRedirect(provider);
+  // };
 
   render() {
     const { isLoggedIn } = this.props;
 
     return (
       <div>
+        <Header />
         <Switch>
           <Route
             exact
@@ -48,7 +49,6 @@ export class App extends Component {
           />
           <Route path="/welcomeNewUser" component={NewUserContainer} />
         </Switch>
-        <button onClick={event => this.handleSignIn(event)}>Sign In</button>
       </div>
     );
   }

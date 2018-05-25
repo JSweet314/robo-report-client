@@ -2,6 +2,7 @@
 
 exports[`App should match a snapshot 1`] = `
 <div>
+  <withRouter(Header) />
   <Switch>
     <Route
       exact={true}
@@ -13,10 +14,5 @@ exports[`App should match a snapshot 1`] = `
       path="/welcomeNewUser"
     />
   </Switch>
-  <button
-    onClick={[Function]}
-  >
-    Sign In
-  </button>
 </div>
 `;
