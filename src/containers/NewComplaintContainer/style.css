@@ -1,0 +1,34 @@
+.question-block {
+  width: 50%;
+  min-width: 320px;
+  margin: auto;
+  font-size: 2rem;
+}
+
+.question-block,
+.complaint-question {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.complaint-question {
+  margin: 1rem 0;
+}
+
+.complaint-question input,
+.complaint-question textarea,
+.complaint-question select,
+.complaint-question option {
+  font-size: 2rem;
+}
+
+.question-block-nav-group {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.question-block-nav-btn {
+  font-size: 3rem;
+}
