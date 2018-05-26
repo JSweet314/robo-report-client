@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react';
 import { shallow } from 'enzyme';
 import { App, mapStateToProps, mapDispatchToProps } from './index';
 import * as actions from '../../actions';
@@ -8,14 +8,14 @@ describe('App', () => {
   const mockHistory = {
     push: jest.fn()
   };
-  const mockToggleUserStatus = jest.fn();
+  const mockGetSavedUserInfo = jest.fn();
 
   beforeEach(() => {
     wrapper = shallow(
-      <App 
-        toggleUserStatus={mockToggleUserStatus}
-        history={mockHistory} 
-        isLoggedIn={true} 
+      <App
+        getSavedUserInfo={mockGetSavedUserInfo}
+        history={mockHistory}
+        isLoggedIn={true}
       />
     );
   });
@@ -36,10 +36,12 @@ describe('App', () => {
   describe('mapDispatchToProps', () => {
     const mockDispatch = jest.fn();
 
-    it('should map an action toggleUserStatus to props', () => {
+    it('should map an action getSavedUserInfo to props', () => {
       const mapped = mapDispatchToProps(mockDispatch);
-      mapped.toggleUserStatus();
-      expect(mockDispatch).toHaveBeenCalledWith(actions.toggleUserStatus());
+      mapped.getSavedUserInfo('email');
+      expect(mockDispatch).toHaveBeenCalledWith(
+        actions.getSavedUserInfo('email')
+      );
     });
   });
 });

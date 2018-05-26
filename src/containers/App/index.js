@@ -15,7 +15,8 @@ export class App extends Component {
   constructor() {
     super();
     this.state = {
-      isLoading: true
+      isLoading: true,
+      isLoggedIn: false
     };
   }
 
@@ -41,7 +42,8 @@ export class App extends Component {
   checkActiveUserSession = () => {
     auth.onAuthStateChanged(user => {
       if (user) {
-        this.props.toggleUserStatus();
+        this.props.getSavedUserInfo(user.email);
+        this.setState({ isLoggedIn: !this.state.isLoggedIn });
       }
       this.setState({ isLoading: !this.state.isLoading });
     });
@@ -52,8 +54,10 @@ export class App extends Component {
     const user = auth.currentUser;
     if (user) {
       auth.signOut();
-      this.props.toggleUserStatus();
-      this.setState({ isLoading: !this.state.isLoading });
+      this.setState({
+        isLoading: !this.state.isLoading,
+        isLoggedIn: !this.state.isLoggedIn
+      });
     } else {
       const provider = new firebase.auth.GoogleAuthProvider();
       auth.signInWithRedirect(provider);
@@ -61,8 +65,7 @@ export class App extends Component {
   };
 
   render() {
-    const { isLoggedIn } = this.props;
-    const { isLoading } = this.state;
+    const { isLoading, isLoggedIn } = this.state;
 
     if (isLoading) {
       return <Loading />;
@@ -89,7 +92,7 @@ export class App extends Component {
 }
 
 export const mapDispatchToProps = dispatch => ({
-  toggleUserStatus: () => dispatch(actions.toggleUserStatus())
+  getSavedUserInfo: userEmail => dispatch(actions.getSavedUserInfo(userEmail))
 });
 
 export const mapStateToProps = state => ({
@@ -97,11 +100,10 @@ export const mapStateToProps = state => ({
 });
 
 App.propTypes = {
-  isLoggedIn: PropTypes.bool.isRequired,
   history: PropTypes.shape({
     push: PropTypes.func.isRequired
   }).isRequired,
-  toggleUserStatus: PropTypes.func.isRequired
+  getSavedUserInfo: PropTypes.func.isRequired
 };
 
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(App));
