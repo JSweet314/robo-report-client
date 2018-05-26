@@ -1,3 +1,90 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`NewComplaintContainer should match a snapshot 1`] = `<div />`;
+exports[`NewComplaintContainer should match a snapshot 1`] = `
+<div>
+  <div
+    key="questionBlock-1"
+  >
+    <h3>
+      Tell us about the call.
+    </h3>
+    <div
+      key="subject"
+    >
+      <label
+        htmlFor="subject"
+      >
+        Subject
+      </label>
+      <input
+        id="subject"
+        onChange={[Function]}
+        required={true}
+        type="text"
+        value=""
+      />
+    </div>
+    <div
+      key="description"
+    >
+      <label
+        htmlFor="description"
+      >
+        description
+      </label>
+      <input
+        id="description"
+        onChange={[Function]}
+        required={true}
+        type="textarea"
+        value=""
+      />
+    </div>
+    <div
+      key="isSoliciting"
+    >
+      <label
+        htmlFor="isSoliciting"
+      >
+        Did the call/message that you are reporting advertise any type of property, goods, or services ?
+      </label>
+      <select
+        id="isSoliciting"
+        name="isSoliciting"
+        onChange={[Function]}
+        required={true}
+        value="-"
+      >
+        <option
+          key="isSoliciting-Yes"
+          value="Yes"
+        >
+          Yes
+        </option>
+        <option
+          key="isSoliciting-No"
+          value="No"
+        >
+          No
+        </option>
+      </select>
+    </div>
+    <div
+      key="typeOfSolicit"
+    >
+      <label
+        htmlFor="typeOfSolicit"
+      >
+        Type of Property, Goods, or Services
+      </label>
+      <input
+        id="typeOfSolicit"
+        onChange={[Function]}
+        required={true}
+        type="text"
+        value=""
+      />
+    </div>
+  </div>
+</div>
+`;
