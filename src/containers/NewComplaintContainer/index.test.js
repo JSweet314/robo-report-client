@@ -3,11 +3,17 @@ import { shallow } from 'enzyme';
 import { NewComplaintContainer } from './index';
 
 describe('NewComplaintContainer', () => {
-  let wrapper, mockUser;
+  let wrapper, mockUser, mockHistory;
   
   beforeEach(() => {
     mockUser = {};
-    wrapper = shallow(<NewComplaintContainer user={mockUser} />);
+    mockHistory = { push: jest.fn() };
+    wrapper = shallow(
+      <NewComplaintContainer 
+        history={mockHistory}
+        user={mockUser}
+      />
+    );
   });
 
   it('should match a snapshot', () => {

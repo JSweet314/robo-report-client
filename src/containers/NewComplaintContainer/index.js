@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import questionBlocks from './complaintQuestions';
 import PropTypes from 'prop-types';
+import './style.css';
 
 export class NewComplaintContainer extends Component {
   constructor() {
@@ -36,27 +37,73 @@ export class NewComplaintContainer extends Component {
 
   handleOnChange = event => {
     const { id, value } = event.target;
-    this.setState({ [id]: value});
+    this.setState({ [id]: value });
+  }
+
+  handleQuestionBlockNavigation = event => {
+    const { name } = event.target;
+    const { blockIndex } = this.state;
+
+    switch (name) {
+    case 'back':
+      if (blockIndex === 0) {
+        this.props.history.push('/');
+      } else {
+        this.setState({ blockIndex: blockIndex - 1 });
+      }
+      break;
+    case 'next':
+      if (blockIndex === questionBlocks.length - 1) {
+        this.props.history.push('/');
+      } else {
+        this.setState({ blockIndex: blockIndex + 1 });
+      }
+      break;
+    default:
+      break;
+    }
   }
 
   questionFramer = () => {
     const { blockIndex } = this.state;
     const block = questionBlocks[blockIndex];
     return (
-      <div key={`questionBlock-${blockIndex + 1}`}>
+      <div
+        className="question-block"
+        key={`questionBlock-${blockIndex + 1}`}
+      >
         <h3>{block.headline}</h3>
         {this.questionBuilder(block)}
+        <div className='question-block-nav-group'>
+          <button
+            className='question-block-nav-btn back-btn'
+            name='back'
+            onClick={event => this.handleQuestionBlockNavigation(event)}
+          >
+            Back
+          </button>
+          <button
+            className='question-block-nav-btn next-btn'
+            name='next'
+            onClick={event => this.handleQuestionBlockNavigation(event)}
+          >
+            Next
+          </button>
+        </div>
       </div>
     );
   };
 
   questionBuilder = block => {
     return block.questions.map(question => {
-      if (question.type === 'select') {
+      switch (question.type) {
+      case 'select':
         return this.selectQuestionBuilder(question);
+      case 'textarea':
+        return this.textareaQuestionBuilder(question);
+      default:
+        return this.textQuestionBuilder(question);
       }
-      return this.textQuestionBuilder(question);
-
     });
   }
 
@@ -66,7 +113,7 @@ export class NewComplaintContainer extends Component {
       <option key={`${value}-${option}`} value={option}>{option}</option>
     );
     return (
-      <div key={value}>
+      <div className="complaint-question" key={value}>
         <label htmlFor={value}>{label}</label>
         <select
           onChange={event => this.handleOnChange(event)}
@@ -84,12 +131,27 @@ export class NewComplaintContainer extends Component {
   textQuestionBuilder = question => {
     const { label, type, value, required } = question;
     return (
-      <div key={value}>
+      <div className="complaint-question" key={value}>
         <label htmlFor={value}>{label}</label>
         <input
           onChange={event => this.handleOnChange(event)}
           id={value}
           type={type}
+          value={this.state.values[value]}
+          required={required}
+        />
+      </div>
+    );
+  }
+
+  textareaQuestionBuilder = question => {
+    const { label, value, required } = question;
+    return (
+      <div className="complaint-question" key={value}>
+        <label htmlFor={value}>{label}</label>
+        <textarea
+          onChange={event => this.handleOnChange(event)}
+          id={value}
           value={this.state.values[value]}
           required={required}
         />
@@ -107,7 +169,10 @@ export class NewComplaintContainer extends Component {
 }
 
 NewComplaintContainer.propTypes = {
-  user: PropTypes.object
+  user: PropTypes.object,
+  history: PropTypes.shape({
+    push: PropTypes.func.isRequired
+  }).isRequired
 };
 
 export const mapStateToProps = ({ user }) => ({

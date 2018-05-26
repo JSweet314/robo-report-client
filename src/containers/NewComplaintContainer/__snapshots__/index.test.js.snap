@@ -3,12 +3,14 @@
 exports[`NewComplaintContainer should match a snapshot 1`] = `
 <div>
   <div
+    className="question-block"
     key="questionBlock-1"
   >
     <h3>
       Tell us about the call.
     </h3>
     <div
+      className="complaint-question"
       key="subject"
     >
       <label
@@ -25,22 +27,23 @@ exports[`NewComplaintContainer should match a snapshot 1`] = `
       />
     </div>
     <div
+      className="complaint-question"
       key="description"
     >
       <label
         htmlFor="description"
       >
-        description
+        Description
       </label>
-      <input
+      <textarea
         id="description"
         onChange={[Function]}
         required={true}
-        type="textarea"
         value=""
       />
     </div>
     <div
+      className="complaint-question"
       key="isSoliciting"
     >
       <label
@@ -56,6 +59,12 @@ exports[`NewComplaintContainer should match a snapshot 1`] = `
         value="-"
       >
         <option
+          key="isSoliciting--"
+          value="-"
+        >
+          -
+        </option>
+        <option
           key="isSoliciting-Yes"
           value="Yes"
         >
@@ -70,6 +79,7 @@ exports[`NewComplaintContainer should match a snapshot 1`] = `
       </select>
     </div>
     <div
+      className="complaint-question"
       key="typeOfSolicit"
     >
       <label
@@ -84,6 +94,24 @@ exports[`NewComplaintContainer should match a snapshot 1`] = `
         type="text"
         value=""
       />
+    </div>
+    <div
+      className="question-block-nav-group"
+    >
+      <button
+        className="question-block-nav-btn back-btn"
+        name="back"
+        onClick={[Function]}
+      >
+        Back
+      </button>
+      <button
+        className="question-block-nav-btn next-btn"
+        name="next"
+        onClick={[Function]}
+      >
+        Next
+      </button>
     </div>
   </div>
 </div>

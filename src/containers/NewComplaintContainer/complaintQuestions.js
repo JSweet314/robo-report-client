@@ -11,7 +11,7 @@ const questionBlocks = [
         required: true
       },
       {
-        label: 'description',
+        label: 'Description',
         type: 'textarea',
         value: 'description',
         required: true
@@ -20,7 +20,7 @@ const questionBlocks = [
         label: 'Did the call/message that you are reporting advertise any type of property, goods, or services ?',
         type: 'select',
         value: 'isSoliciting',
-        options: ['Yes', 'No'],
+        options: ['-', 'Yes', 'No'],
         required: true
       },
       {
@@ -38,35 +38,35 @@ const questionBlocks = [
         label: 'Have you or anyone else in your household done any business with the caller / company within the past 18 months immediately before you received the call / message ?',
         type: 'select',
         value: 'doneBusinessWith',
-        options: ['Yes', 'No', 'Uncertain'],
+        options: ['-', 'Yes', 'No', 'Uncertain'],
         required: true
       },
       {
         label: 'Have you or anyone else in your household made any inquiry or application to the caller/company within the 3 months immediately before you received the call/message?',
         type: 'select',
         value: 'inquiredWith',
-        options: ['Yes', 'No', 'Uncertain'],
+        options: ['-', 'Yes', 'No', 'Uncertain'],
         required: true
       },
       {
         label: 'Do you or anyone in your household have a personal relationship with the individual that made the call?',
         type: 'select',
         value: 'householdRelation',
-        options: ['Yes', 'No', 'Uncertain'],
+        options: ['-', 'Yes', 'No', 'Uncertain'],
         required: true
       },
       {
         label: 'Have you or anyone else in your household or business given the caller/company permission to call?',
         type: 'select',
         value: 'permissionToCall',
-        options: ['Yes', 'No', 'Uncertain'],
+        options: ['-', 'Yes', 'No', 'Uncertain'],
         required: true
       },
       {
         label: 'Did you give permission to the caller/business to call you in writing?',
         type: 'select',
         value: 'writtenPermission',
-        options: ['Yes', 'No'],
+        options: ['-', 'Yes', 'No'],
         required: false
       },
       {
@@ -96,14 +96,14 @@ const questionBlocks = [
         label: 'Type of Call or Message',
         type: 'select',
         value: 'typeOfCall',
-        options: ['Abandoned Calls', 'Live Voice', 'Prerecorded Voice', 'Text Message'],
+        options: ['-', 'Abandoned Calls', 'Live Voice', 'Prerecorded Voice', 'Text Message'],
         required: true
       },
       {
         label: 'Did you receive Caller ID Information?',
         type: 'select',
         value: 'receivedCallerId',
-        options: ['Yes', 'No', 'Don\'t have caller id', 'Uncertain'],
+        options: ['-', 'Yes', 'No', 'Don\'t have caller id', 'Uncertain'],
         required: true
       },
       {
@@ -127,14 +127,14 @@ const questionBlocks = [
         label: 'Was the caller\'s business name provided during the call/message?',
         type: 'select',
         value: 'receivedBusinessName',
-        options: ['Yes', 'No', 'Uncertain'],
+        options: ['-', 'Yes', 'No', 'Uncertain'],
         required: true
       },
       {
         label: 'Was the business name provided at the beginning of the call/message?',
         type: 'select',
         value: 'nameAtBeginning',
-        options: ['Yes', 'No'],
+        options: ['-', 'Yes', 'No'],
         required: true
       },
       {
