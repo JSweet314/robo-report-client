@@ -81,11 +81,20 @@ describe('apiCalls', () => {
     });
 
     it('should call fetch with the correct params', () => {
-      //eslint-disable-next-line
-      const expected = `http://roboreport-api.herokuapp.com/api/v1/users?email=thedude@gmail.com`;
+      const expected = [
+        //eslint-disable-next-line
+        `http://roboreport-api.herokuapp.com/api/v1/users?email=thedude@gmail.com`,
+        {
+          method: 'GET',
+          headers: {
+            // eslint-disable-next-line
+            token: process.env.REACT_APP_ROBO_TOKEN
+          }
+        }
+      ];
 
       api.getUserInfo(mockUserEmail);
-      expect(window.fetch).toHaveBeenCalledWith(expected);
+      expect(window.fetch).toHaveBeenCalledWith(...expected);
     });
 
     it('should return the user object if the response is ok', async () => {

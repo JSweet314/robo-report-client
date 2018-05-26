@@ -24,7 +24,14 @@ export const postNewUser = async user => {
 export const getUserInfo = async userEmail => {
   try {
     const response = await fetch(
-      `http://roboreport-api.herokuapp.com/api/v1/users?email=${userEmail}`
+      `http://roboreport-api.herokuapp.com/api/v1/users?email=${userEmail}`,
+      {
+        method: 'GET',
+        headers: {
+          // eslint-disable-next-line
+          token: process.env.REACT_APP_ROBO_TOKEN
+        }
+      }
     );
     if (response.ok) {
       return await response.json();
