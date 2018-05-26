@@ -48,7 +48,7 @@ export class NewComplaintContainer extends Component {
     switch (name) {
     case 'back':
       if (blockIndex === 0) {
-        this.props.history.push('/');
+        this.props.history.goBack();
       } else {
         this.setState({ blockIndex: blockIndex - 1 });
       }
@@ -172,7 +172,8 @@ export class NewComplaintContainer extends Component {
 NewComplaintContainer.propTypes = {
   user: PropTypes.object,
   history: PropTypes.shape({
-    push: PropTypes.func.isRequired
+    push: PropTypes.func.isRequired,
+    goBack: PropTypes.func.isRequired
   }).isRequired
 };
 
