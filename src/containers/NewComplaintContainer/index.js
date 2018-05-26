@@ -44,7 +44,6 @@ export class NewComplaintContainer extends Component {
   handleQuestionBlockNavigation = event => {
     const { name } = event.target;
     const { blockIndex } = this.state;
-
     switch (name) {
     case 'back':
       if (blockIndex === 0) {
@@ -95,8 +94,8 @@ export class NewComplaintContainer extends Component {
     );
   };
 
-  questionBuilder = block => {
-    return block.questions.map(question => {
+  questionBuilder = block =>
+    block.questions.map(question => {
       switch (question.type) {
       case 'select':
         return this.selectQuestionBuilder(question);
@@ -106,7 +105,6 @@ export class NewComplaintContainer extends Component {
         return this.textQuestionBuilder(question);
       }
     });
-  }
 
   selectQuestionBuilder = question => {
     const { label, value, options, required } = question;
@@ -161,13 +159,18 @@ export class NewComplaintContainer extends Component {
   }
 
   render() {
+    const questionBlock = this.questionFramer();
     return (
       <div>
-        {this.questionFramer()}
+        {questionBlock}
       </div>
     );
   }
 }
+
+export const mapStateToProps = ({ user }) => ({
+  user
+});
 
 NewComplaintContainer.propTypes = {
   user: PropTypes.object,
@@ -176,10 +179,6 @@ NewComplaintContainer.propTypes = {
     goBack: PropTypes.func.isRequired
   }).isRequired
 };
-
-export const mapStateToProps = ({ user }) => ({
-  user
-});
 
 export default withRouter(
   connect(mapStateToProps, null)(NewComplaintContainer)

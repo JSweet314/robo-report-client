@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`NewComplaintContainer should match a snapshot 1`] = `
+exports[`NewComplaintContainer Snapshots should match question 0 1`] = `
 <div>
   <div
     className="question-block"
@@ -92,6 +92,596 @@ exports[`NewComplaintContainer should match a snapshot 1`] = `
         onChange={[Function]}
         required={true}
         type="text"
+        value=""
+      />
+    </div>
+    <div
+      className="question-block-nav-group"
+    >
+      <button
+        className="question-block-nav-btn back-btn"
+        name="back"
+        onClick={[Function]}
+      >
+        Back
+      </button>
+      <button
+        className="question-block-nav-btn next-btn"
+        name="next"
+        onClick={[Function]}
+      >
+        Next
+      </button>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`NewComplaintContainer Snapshots should match question 1 1`] = `
+<div>
+  <div
+    className="question-block"
+    key="questionBlock-2"
+  >
+    <h3>
+      Any inkling of a relationship?
+    </h3>
+    <div
+      className="complaint-question"
+      key="doneBusinessWith"
+    >
+      <label
+        htmlFor="doneBusinessWith"
+      >
+        Have you or anyone else in your household done any business with the caller / company within the past 18 months immediately before you received the call / message ?
+      </label>
+      <select
+        id="doneBusinessWith"
+        name="doneBusinessWith"
+        onChange={[Function]}
+        required={true}
+        value="-"
+      >
+        <option
+          key="doneBusinessWith--"
+          value="-"
+        >
+          -
+        </option>
+        <option
+          key="doneBusinessWith-Yes"
+          value="Yes"
+        >
+          Yes
+        </option>
+        <option
+          key="doneBusinessWith-No"
+          value="No"
+        >
+          No
+        </option>
+        <option
+          key="doneBusinessWith-Uncertain"
+          value="Uncertain"
+        >
+          Uncertain
+        </option>
+      </select>
+    </div>
+    <div
+      className="complaint-question"
+      key="inquiredWith"
+    >
+      <label
+        htmlFor="inquiredWith"
+      >
+        Have you or anyone else in your household made any inquiry or application to the caller/company within the 3 months immediately before you received the call/message?
+      </label>
+      <select
+        id="inquiredWith"
+        name="inquiredWith"
+        onChange={[Function]}
+        required={true}
+        value="-"
+      >
+        <option
+          key="inquiredWith--"
+          value="-"
+        >
+          -
+        </option>
+        <option
+          key="inquiredWith-Yes"
+          value="Yes"
+        >
+          Yes
+        </option>
+        <option
+          key="inquiredWith-No"
+          value="No"
+        >
+          No
+        </option>
+        <option
+          key="inquiredWith-Uncertain"
+          value="Uncertain"
+        >
+          Uncertain
+        </option>
+      </select>
+    </div>
+    <div
+      className="complaint-question"
+      key="householdRelation"
+    >
+      <label
+        htmlFor="householdRelation"
+      >
+        Do you or anyone in your household have a personal relationship with the individual that made the call?
+      </label>
+      <select
+        id="householdRelation"
+        name="householdRelation"
+        onChange={[Function]}
+        required={true}
+        value="-"
+      >
+        <option
+          key="householdRelation--"
+          value="-"
+        >
+          -
+        </option>
+        <option
+          key="householdRelation-Yes"
+          value="Yes"
+        >
+          Yes
+        </option>
+        <option
+          key="householdRelation-No"
+          value="No"
+        >
+          No
+        </option>
+        <option
+          key="householdRelation-Uncertain"
+          value="Uncertain"
+        >
+          Uncertain
+        </option>
+      </select>
+    </div>
+    <div
+      className="complaint-question"
+      key="permissionToCall"
+    >
+      <label
+        htmlFor="permissionToCall"
+      >
+        Have you or anyone else in your household or business given the caller/company permission to call?
+      </label>
+      <select
+        id="permissionToCall"
+        name="permissionToCall"
+        onChange={[Function]}
+        required={true}
+        value="-"
+      >
+        <option
+          key="permissionToCall--"
+          value="-"
+        >
+          -
+        </option>
+        <option
+          key="permissionToCall-Yes"
+          value="Yes"
+        >
+          Yes
+        </option>
+        <option
+          key="permissionToCall-No"
+          value="No"
+        >
+          No
+        </option>
+        <option
+          key="permissionToCall-Uncertain"
+          value="Uncertain"
+        >
+          Uncertain
+        </option>
+      </select>
+    </div>
+    <div
+      className="complaint-question"
+      key="writtenPermission"
+    >
+      <label
+        htmlFor="writtenPermission"
+      >
+        Did you give permission to the caller/business to call you in writing?
+      </label>
+      <select
+        id="writtenPermission"
+        name="writtenPermission"
+        onChange={[Function]}
+        required={false}
+        value="-"
+      >
+        <option
+          key="writtenPermission--"
+          value="-"
+        >
+          -
+        </option>
+        <option
+          key="writtenPermission-Yes"
+          value="Yes"
+        >
+          Yes
+        </option>
+        <option
+          key="writtenPermission-No"
+          value="No"
+        >
+          No
+        </option>
+      </select>
+    </div>
+    <div
+      className="complaint-question"
+      key="dateOfPermission"
+    >
+      <label
+        htmlFor="dateOfPermission"
+      >
+        Date you provided permission to the caller/company to call
+      </label>
+      <input
+        id="dateOfPermission"
+        onChange={[Function]}
+        required={false}
+        type="date"
+        value=""
+      />
+    </div>
+    <div
+      className="question-block-nav-group"
+    >
+      <button
+        className="question-block-nav-btn back-btn"
+        name="back"
+        onClick={[Function]}
+      >
+        Back
+      </button>
+      <button
+        className="question-block-nav-btn next-btn"
+        name="next"
+        onClick={[Function]}
+      >
+        Next
+      </button>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`NewComplaintContainer Snapshots should match question 2 1`] = `
+<div>
+  <div
+    className="question-block"
+    key="questionBlock-3"
+  >
+    <h3>
+      The nitty gritty
+    </h3>
+    <div
+      className="complaint-question"
+      key="date"
+    >
+      <label
+        htmlFor="date"
+      >
+        Date of Your Issue/Problem
+      </label>
+      <input
+        id="date"
+        onChange={[Function]}
+        required={true}
+        type="date"
+        value=""
+      />
+    </div>
+    <div
+      className="complaint-question"
+      key="time"
+    >
+      <label
+        htmlFor="time"
+      >
+        Time of Your Issue/Problem
+      </label>
+      <input
+        id="time"
+        onChange={[Function]}
+        required={true}
+        type="time"
+        value=""
+      />
+    </div>
+    <div
+      className="complaint-question"
+      key="typeOfCall"
+    >
+      <label
+        htmlFor="typeOfCall"
+      >
+        Type of Call or Message
+      </label>
+      <select
+        id="typeOfCall"
+        name="typeOfCall"
+        onChange={[Function]}
+        required={true}
+        value=""
+      >
+        <option
+          key="typeOfCall--"
+          value="-"
+        >
+          -
+        </option>
+        <option
+          key="typeOfCall-Abandoned Calls"
+          value="Abandoned Calls"
+        >
+          Abandoned Calls
+        </option>
+        <option
+          key="typeOfCall-Live Voice"
+          value="Live Voice"
+        >
+          Live Voice
+        </option>
+        <option
+          key="typeOfCall-Prerecorded Voice"
+          value="Prerecorded Voice"
+        >
+          Prerecorded Voice
+        </option>
+        <option
+          key="typeOfCall-Text Message"
+          value="Text Message"
+        >
+          Text Message
+        </option>
+      </select>
+    </div>
+    <div
+      className="complaint-question"
+      key="receivedCallerId"
+    >
+      <label
+        htmlFor="receivedCallerId"
+      >
+        Did you receive Caller ID Information?
+      </label>
+      <select
+        id="receivedCallerId"
+        name="receivedCallerId"
+        onChange={[Function]}
+        required={true}
+        value="-"
+      >
+        <option
+          key="receivedCallerId--"
+          value="-"
+        >
+          -
+        </option>
+        <option
+          key="receivedCallerId-Yes"
+          value="Yes"
+        >
+          Yes
+        </option>
+        <option
+          key="receivedCallerId-No"
+          value="No"
+        >
+          No
+        </option>
+        <option
+          key="receivedCallerId-Don't have caller id"
+          value="Don't have caller id"
+        >
+          Don't have caller id
+        </option>
+        <option
+          key="receivedCallerId-Uncertain"
+          value="Uncertain"
+        >
+          Uncertain
+        </option>
+      </select>
+    </div>
+    <div
+      className="complaint-question"
+      key="callerIdNumber"
+    >
+      <label
+        htmlFor="callerIdNumber"
+      >
+        Caller ID Number
+      </label>
+      <input
+        id="callerIdNumber"
+        onChange={[Function]}
+        required={false}
+        type="tel"
+        value=""
+      />
+    </div>
+    <div
+      className="complaint-question"
+      key="callerIdName"
+    >
+      <label
+        htmlFor="callerIdName"
+      >
+        Caller ID Name
+      </label>
+      <input
+        id="callerIdName"
+        onChange={[Function]}
+        required={false}
+        type="text"
+        value=""
+      />
+    </div>
+    <div
+      className="question-block-nav-group"
+    >
+      <button
+        className="question-block-nav-btn back-btn"
+        name="back"
+        onClick={[Function]}
+      >
+        Back
+      </button>
+      <button
+        className="question-block-nav-btn next-btn"
+        name="next"
+        onClick={[Function]}
+      >
+        Next
+      </button>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`NewComplaintContainer Snapshots should match question 3 1`] = `
+<div>
+  <div
+    className="question-block"
+    key="questionBlock-4"
+  >
+    <h3>
+      Conversational pleasantries
+    </h3>
+    <div
+      className="complaint-question"
+      key="receivedBusinessName"
+    >
+      <label
+        htmlFor="receivedBusinessName"
+      >
+        Was the caller's business name provided during the call/message?
+      </label>
+      <select
+        id="receivedBusinessName"
+        name="receivedBusinessName"
+        onChange={[Function]}
+        required={true}
+        value="-"
+      >
+        <option
+          key="receivedBusinessName--"
+          value="-"
+        >
+          -
+        </option>
+        <option
+          key="receivedBusinessName-Yes"
+          value="Yes"
+        >
+          Yes
+        </option>
+        <option
+          key="receivedBusinessName-No"
+          value="No"
+        >
+          No
+        </option>
+        <option
+          key="receivedBusinessName-Uncertain"
+          value="Uncertain"
+        >
+          Uncertain
+        </option>
+      </select>
+    </div>
+    <div
+      className="complaint-question"
+      key="nameAtBeginning"
+    >
+      <label
+        htmlFor="nameAtBeginning"
+      >
+        Was the business name provided at the beginning of the call/message?
+      </label>
+      <select
+        id="nameAtBeginning"
+        name="nameAtBeginning"
+        onChange={[Function]}
+        required={true}
+        value="-"
+      >
+        <option
+          key="nameAtBeginning--"
+          value="-"
+        >
+          -
+        </option>
+        <option
+          key="nameAtBeginning-Yes"
+          value="Yes"
+        >
+          Yes
+        </option>
+        <option
+          key="nameAtBeginning-No"
+          value="No"
+        >
+          No
+        </option>
+      </select>
+    </div>
+    <div
+      className="complaint-question"
+      key="providedAdvertiserName"
+    >
+      <label
+        htmlFor="providedAdvertiserName"
+      >
+        Please provide the name of the advertiser provided during the call
+      </label>
+      <input
+        id="providedAdvertiserName"
+        onChange={[Function]}
+        required={true}
+        type="text"
+        value=""
+      />
+    </div>
+    <div
+      className="complaint-question"
+      key="providedAdvertiserNumber"
+    >
+      <label
+        htmlFor="providedAdvertiserNumber"
+      >
+        Provide the advertiser's phone number given during the call.
+      </label>
+      <input
+        id="providedAdvertiserNumber"
+        onChange={[Function]}
+        required={false}
+        type="tel"
         value=""
       />
     </div>

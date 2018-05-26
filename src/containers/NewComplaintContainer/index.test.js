@@ -1,6 +1,6 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import { NewComplaintContainer } from './index';
+import { NewComplaintContainer, mapStateToProps } from './index';
 
 describe('NewComplaintContainer', () => {
   let wrapper, mockUser, mockHistory, mockHistoryPush, mockHistoryGoBack;
@@ -18,8 +18,25 @@ describe('NewComplaintContainer', () => {
     );
   });
 
-  it('should match a snapshot', () => {
-    expect(wrapper).toMatchSnapshot();
+  describe('Snapshots', () => {
+    it('should match question 0', () => {
+      expect(wrapper).toMatchSnapshot();
+    });
+
+    it('should match question 1', () => {
+      wrapper.setState({ blockIndex: 1 });
+      expect(wrapper).toMatchSnapshot();
+    });
+
+    it('should match question 2', () => {
+      wrapper.setState({ blockIndex: 2 });
+      expect(wrapper).toMatchSnapshot();
+    });
+
+    it('should match question 3', () => {
+      wrapper.setState({ blockIndex: 3 });
+      expect(wrapper).toMatchSnapshot();
+    });
   });
 
   describe('handleOnChange', () => {
@@ -61,6 +78,14 @@ describe('NewComplaintContainer', () => {
       mockEvent.target.name = 'back';
       wrapper.instance().handleQuestionBlockNavigation(mockEvent);
       expect(mockHistoryGoBack).toHaveBeenCalledTimes(1);
+    });
+  });
+
+  describe('mapStateToProps', () => {
+    it('should map user from state to props', () => {
+      const mockState = { user: { name: 'Jerry' } };
+      const mapped = mapStateToProps(mockState);
+      expect(mapped).toHaveProperty('user', { name: 'Jerry' });
     });
   });
 });
