@@ -1,0 +1,12 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Loading should match a snapshot 1`] = `
+<div
+  className="loading-div"
+>
+  <img
+    alt=""
+    src="loading.gif"
+  />
+</div>
+`;
