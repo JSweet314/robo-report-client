@@ -29,10 +29,12 @@ describe('NewUserContainer', () => {
 
   describe('handleOnChange', () => {
     it('should handle the change of form inputs', () => {
-      expect(wrapper.state('phone')).toEqual('');
+      expect(wrapper.state('values'))
+        .toHaveProperty('phone', '');
       const mockEvent = { target: { id: 'phone', value: '999-888-1111' } };
       wrapper.instance().handleOnChange(mockEvent);
-      expect(wrapper.state('phone')).toEqual('999-888-1111');
+      expect(wrapper.state('values'))
+        .toHaveProperty('phone', '999-888-1111');
     });
   });
 
@@ -40,9 +42,7 @@ describe('NewUserContainer', () => {
     it('should handle the submission of the form', () => {
       const mockEvent = { preventDefault: jest.fn() };
       wrapper.instance().handleOnSubmit(mockEvent);
-      const mockUser = { ...wrapper.state() };
-      delete mockUser.welcomeDisplayed;
-      delete mockUser.isLoading;
+      const mockUser = wrapper.state('values');
       expect(mockSubmitNewUser).toHaveBeenCalledWith(mockUser);
     });
   });
@@ -65,33 +65,17 @@ describe('NewUserContainer', () => {
         />,
         { disableLifecycleMethods: true }
       );
-      const { email, firstName, lastName } = wrapper.state();
+      const { email, firstName, lastName } = wrapper.state('values');
       [email, firstName, lastName].forEach(value => expect(value).toEqual(''));
 
       wrapper.instance().captureRedirectedCredentials();
 
-      expect(wrapper.state('firstName')).toEqual('Bob');
-      expect(wrapper.state('lastName')).toEqual('Odin');
-      expect(wrapper.state('email')).toEqual('bob@aol.com');
-    });
-  });
-
-  describe('filterFormValuesFromState', () => {
-    it('should return only controlled form values held in state', () => {
-      const expected = {
-        email: 'bob@aol.com',
-        phone: '',
-        phoneType: '-',
-        phoneLocation: '-',
-        firstName: 'Bob',
-        lastName: 'Odin',
-        address: '',
-        city: '',
-        state: '',
-        zipcode: ''
-      };
-      const values = wrapper.instance().filterFormValuesFromState();
-      expect(values).toEqual(expected);
+      expect(wrapper.state('values'))
+        .toHaveProperty('firstName', 'Bob');
+      expect(wrapper.state('values'))
+        .toHaveProperty('lastName', 'Odin');
+      expect(wrapper.state('values'))
+        .toHaveProperty('email', 'bob@aol.com');
     });
   });
 
@@ -110,12 +94,12 @@ describe('NewUserContainer', () => {
 
   describe('mapStateToProps', () => {
     it('should map isLoggedIn from state to formCompleted as prop', () => {
-      const mapped = mapStateToProps({isLoggedIn: true });
+      const mapped = mapStateToProps({ isLoggedIn: true });
       expect(mapped).toHaveProperty('isLoggedIn', true);
     });
 
     it('should map error from state to error as a prop', () => {
-      const mapped = mapStateToProps({error: 'message' });
+      const mapped = mapStateToProps({ error: 'message' });
       expect(mapped).toHaveProperty('error', 'message');
     });
   });

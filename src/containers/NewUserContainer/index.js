@@ -12,16 +12,18 @@ export class NewUserContainer extends Component {
   constructor() {
     super();
     this.state = {
-      email: '',
-      phone: '',
-      phoneType: '-',
-      phoneLocation: '-',
-      firstName: '',
-      lastName: '',
-      address: '',
-      city: '',
-      state: '',
-      zipcode: '',
+      values: {
+        email: '',
+        phone: '',
+        phoneType: '-',
+        phoneLocation: '-',
+        firstName: '',
+        lastName: '',
+        address: '',
+        city: '',
+        state: '',
+        zipcode: ''
+      },
       welcomeDisplayed: true,
       isLoading: false
     };
@@ -38,12 +40,13 @@ export class NewUserContainer extends Component {
       const names = name.split(' ');
       const firstName = names[0] || '';
       const lastName = names[names.length - 1] || '';
-      this.setState({
+      const values = {
+        ...this.state.values, 
         firstName,
         lastName,
-        email,
-        isLoading: false
-      });
+        email
+      };
+      this.setState({ values, isLoading: false });
     }
   };
 
@@ -53,29 +56,19 @@ export class NewUserContainer extends Component {
 
   handleOnChange = event => {
     const { id, value } = event.target;
-    this.setState({ [id]: value });
+    const values = { ...this.state.values, [id]: value };
+    this.setState({ values});
   };
 
   handleOnSubmit = event => {
     event.preventDefault();
-    const user = this.filterFormValuesFromState();
     this.setState({ isLoading: true });
-    this.props.submitNewUser(user);
+    this.props.submitNewUser(this.state.values);
   };
 
-  filterFormValuesFromState = () => {
-    const values = { ...this.state };
-
-    delete values.welcomeDisplayed;
-    delete values.isLoading;
-
-    return values;
-  }
-
   render() {
-    const { welcomeDisplayed, isLoading } = this.state;
+    const { welcomeDisplayed, isLoading, values } = this.state;
     const { isLoggedIn, error } = this.props;
-    const values = this.filterFormValuesFromState();
 
     if (isLoggedIn) {
       return <Redirect to='/' />;
