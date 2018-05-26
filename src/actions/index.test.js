@@ -18,6 +18,16 @@ describe('actions', () => {
     });
   });
 
+  describe('getSavedUserInfo', () => {
+    it('should return an actions of type: GET_USER_INFO', () => {
+      const expected = {
+        type: 'GET_USER_INFO',
+        userEmail: 'thedude@gmail.com'
+      };
+      expect(actions.getSavedUserInfo('thedude@gmail.com')).toEqual(expected);
+    });
+  });
+
   describe('captureUser', () => {
     it('should return an action of type: CAPTURE_USER', () => {
       const expected = {

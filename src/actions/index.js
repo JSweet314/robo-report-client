@@ -7,6 +7,11 @@ export const submitNewUser = user => ({
   user
 });
 
+export const getSavedUserInfo = userEmail => ({
+  type: 'GET_USER_INFO',
+  userEmail
+});
+
 export const captureUser = user => ({
   type: 'CAPTURE_USER',
   user
