@@ -37,7 +37,8 @@ export class NewComplaintContainer extends Component {
 
   handleOnChange = event => {
     const { id, value } = event.target;
-    this.setState({ [id]: value });
+    const values = { ...this.state.values, [id]: value };
+    this.setState({ values });
   }
 
   handleQuestionBlockNavigation = event => {
