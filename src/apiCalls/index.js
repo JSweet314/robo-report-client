@@ -14,9 +14,23 @@ export const postNewUser = async user => {
     );
     if (response.ok) {
       return await response.json();
-    } 
+    }
     throw new Error(`Bad response, status code: ${response.status}`);
   } catch (error) {
     throw new Error(`postNewUser error: ${error.message}`);
+  }
+};
+
+export const getUserInfo = async userEmail => {
+  try {
+    const response = await fetch(
+      `http://roboreport-api.herokuapp.com/api/v1/users?email=${userEmail}`
+    );
+    if (response.ok) {
+      return await response.json();
+    }
+    throw new Error(`Bad response, status code: ${response.status}`);
+  } catch (error) {
+    throw new Error(`getUserInfo error: ${error.message}`);
   }
 };
