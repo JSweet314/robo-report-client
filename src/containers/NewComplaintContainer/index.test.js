@@ -19,21 +19,21 @@ describe('NewComplaintContainer', () => {
   });
 
   describe('Snapshots', () => {
-    it('should match question 0', () => {
+    it('should match question block 0', () => {
       expect(wrapper).toMatchSnapshot();
     });
 
-    it('should match question 1', () => {
+    it('should match question block 1', () => {
       wrapper.setState({ blockIndex: 1 });
       expect(wrapper).toMatchSnapshot();
     });
 
-    it('should match question 2', () => {
+    it('should match question block 2', () => {
       wrapper.setState({ blockIndex: 2 });
       expect(wrapper).toMatchSnapshot();
     });
 
-    it('should match question 3', () => {
+    it('should match question block 3', () => {
       wrapper.setState({ blockIndex: 3 });
       expect(wrapper).toMatchSnapshot();
     });
