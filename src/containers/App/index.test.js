@@ -8,15 +8,19 @@ describe('App', () => {
   const mockHistory = {
     push: jest.fn()
   };
+  const mockUser = { id: 1, name: 'Walter', email: 'walt@aol.com' };
   const mockGetSavedUserInfo = jest.fn();
+  const mockCaptureUser = jest.fn();
 
   beforeEach(() => {
     wrapper = shallow(
       <App
+        user={mockUser}
         getSavedUserInfo={mockGetSavedUserInfo}
         history={mockHistory}
-        isLoggedIn={true}
-      />
+        captureUser={mockCaptureUser}
+      />,
+      { disableLifecycleMethods: true }
     );
   });
 
@@ -25,11 +29,11 @@ describe('App', () => {
   });
 
   describe('mapStateToProps', () => {
-    const mockState = { isLoggedIn: false };
+    const mockState = { user: { id: 1 } };
     const mapped = mapStateToProps(mockState);
 
-    it('should return isLoggedIn from the state', () => {
-      expect(mapped).toHaveProperty('isLoggedIn', false);
+    it('should return user from the state', () => {
+      expect(mapped).toHaveProperty('user', { id: 1 });
     });
   });
 
@@ -41,6 +45,14 @@ describe('App', () => {
       mapped.getSavedUserInfo('email');
       expect(mockDispatch).toHaveBeenCalledWith(
         actions.getSavedUserInfo('email')
+      );
+    });
+
+    it('should map an action captureUser to props', () => {
+      const mapped = mapDispatchToProps(mockDispatch);
+      mapped.captureUser({});
+      expect(mockDispatch).toHaveBeenCalledWith(
+        actions.captureUser({})
       );
     });
   });
