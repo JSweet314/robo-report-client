@@ -15,38 +15,46 @@ export class App extends Component {
   constructor() {
     super();
     this.state = {
-      isLoading: true,
-      isLoggedIn: false
+      isLoading: false
     };
   }
 
   componentDidMount() {
     this.checkRedirectCredentials();
-    this.checkActiveUserSession();
+  }
+
+  componentDidUpdate(prevProps) {
+    if (prevProps.user.id !== this.props.user.id) {
+      this.setState({ isLoading: false });
+    }
   }
 
   checkRedirectCredentials = () => {
+    this.setState({ isLoading: true });
     auth.getRedirectResult().then(result => {
       if (result.user) {
+        this.setState({ isLoading: false });
         const { isNewUser } = result.additionalUserInfo;
         if (isNewUser) {
           this.props.history.push('/welcomeNewUser', {
             name: result.user.displayName,
             email: result.user.email
           });
+        } else {
+          this.setState({ isLoading: true });
+          this.props.getSavedUserInfo(result.user.email);
         }
+      } else {
+        this.checkActiveUserSession();
       }
     });
   };
 
   checkActiveUserSession = () => {
-    auth.onAuthStateChanged(user => {
-      if (user) {
-        this.props.getSavedUserInfo(user.email);
-        this.setState({ isLoggedIn: !this.state.isLoggedIn });
-      }
-      this.setState({ isLoading: !this.state.isLoading });
-    });
+    const user = auth.currentUser;
+    if (user) {
+      this.props.getSavedUserInfo(user.email);
+    }
   };
 
   handleOAuthSignIn = event => {
@@ -54,10 +62,7 @@ export class App extends Component {
     const user = auth.currentUser;
     if (user) {
       auth.signOut();
-      this.setState({
-        isLoading: !this.state.isLoading,
-        isLoggedIn: !this.state.isLoggedIn
-      });
+      this.props.captureUser({});
     } else {
       const provider = new firebase.auth.GoogleAuthProvider();
       auth.signInWithRedirect(provider);
@@ -65,7 +70,8 @@ export class App extends Component {
   };
 
   render() {
-    const { isLoading, isLoggedIn } = this.state;
+    const { isLoading } = this.state;
+    const isLoggedIn = this.props.user.id ? true : false;
 
     if (isLoading) {
       return <Loading />;
@@ -92,18 +98,21 @@ export class App extends Component {
 }
 
 export const mapDispatchToProps = dispatch => ({
-  getSavedUserInfo: userEmail => dispatch(actions.getSavedUserInfo(userEmail))
+  getSavedUserInfo: userEmail => dispatch(actions.getSavedUserInfo(userEmail)),
+  captureUser: user => dispatch(actions.captureUser(user))
 });
 
 export const mapStateToProps = state => ({
-  isLoggedIn: state.isLoggedIn
+  user: state.user
 });
 
 App.propTypes = {
   history: PropTypes.shape({
     push: PropTypes.func.isRequired
   }).isRequired,
-  getSavedUserInfo: PropTypes.func.isRequired
+  getSavedUserInfo: PropTypes.func.isRequired,
+  captureUser: PropTypes.func.isRequired,
+  user: PropTypes.object.isRequired
 };
 
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(App));
