@@ -37,10 +37,6 @@ describe('submitNewUserSaga', () => {
       .toEqual(put(actions.captureUser({ ...mockUser, ...mockId})));
   });
 
-  it('should put the toggleUserStatus action on the stack', () => {
-    expect(generator.next().value).toEqual(put(actions.toggleUserStatus()));
-  });
-
   it('should put the captureError action on the stack with error null', () => {
     expect(generator.next().value)
       .toEqual(put(actions.captureError(null)));

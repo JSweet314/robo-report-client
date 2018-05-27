@@ -6,7 +6,6 @@ export function* submitNewUserSaga(action) {
   try {
     const idObj = yield call(postNewUser, action.user);
     yield put(actions.captureUser({...action.user, ...idObj}));
-    yield put(actions.toggleUserStatus());
     yield put(actions.captureError(null));
   } catch (error) {
     yield put(actions.captureError(error.message));
