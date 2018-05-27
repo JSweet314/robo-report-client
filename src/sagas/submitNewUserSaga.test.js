@@ -51,8 +51,7 @@ describe('submitNewUserSaga', () => {
     const expected = put(actions.captureError('an error occured'));
 
     generator.next();
-    expect(generator.throw(new Error('an error occured')).value).toEqual(
-      expected
-    );
+    expect(generator.throw(new Error('an error occured')).value)
+      .toEqual(expected);
   });
 });

@@ -1,17 +1,30 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import { NewComplaintContainer, mapStateToProps } from './index';
+import { 
+  NewComplaintContainer, 
+  mapStateToProps, 
+  mapDispatchToProps 
+} from './index';
+import * as actions from '../../actions';
 
 describe('NewComplaintContainer', () => {
-  let wrapper, mockUser, mockHistory, mockHistoryPush, mockHistoryGoBack;
+  let wrapper, 
+    mockUser, 
+    mockHistory, 
+    mockHistoryPush, 
+    mockHistoryGoBack, 
+    mockSubmitNewComplaint;
 
   beforeEach(() => {
-    mockUser = {};
+    mockUser = { id: 1 };
     mockHistoryPush = jest.fn();
     mockHistoryGoBack = jest.fn();
+    mockSubmitNewComplaint = jest.fn();
     mockHistory = { push: mockHistoryPush, goBack: mockHistoryGoBack };
+
     wrapper = shallow(
       <NewComplaintContainer
+        submitNewComplaint={mockSubmitNewComplaint}
         history={mockHistory}
         user={mockUser}
       />
@@ -59,6 +72,15 @@ describe('NewComplaintContainer', () => {
       expect(wrapper.state('blockIndex')).toEqual(1);
     });
 
+    it('should call submitNewComplaint if there are no more questions', () => {
+      wrapper.instance().handleQuestionBlockNavigation(mockEvent);
+      wrapper.instance().handleQuestionBlockNavigation(mockEvent);
+      wrapper.instance().handleQuestionBlockNavigation(mockEvent);
+      wrapper.instance().handleQuestionBlockNavigation(mockEvent);
+      const expected = { ...wrapper.state('values'), user_id: 1 };
+      expect(mockSubmitNewComplaint).toHaveBeenCalledWith(expected);
+    });
+
     it('should push to a new route if there are no more questions', () => {
       wrapper.instance().handleQuestionBlockNavigation(mockEvent);
       wrapper.instance().handleQuestionBlockNavigation(mockEvent);
@@ -86,6 +108,16 @@ describe('NewComplaintContainer', () => {
       const mockState = { user: { name: 'Jerry' } };
       const mapped = mapStateToProps(mockState);
       expect(mapped).toHaveProperty('user', { name: 'Jerry' });
+    });
+  });
+
+  describe('mapDispatchToProps', () => {
+    const mockDispatch = jest.fn();
+    it('should map user from state to props', () => {
+      const mapped = mapDispatchToProps(mockDispatch);
+      mapped.submitNewComplaint({});
+      expect(mockDispatch)
+        .toHaveBeenCalledWith(actions.submitNewComplaint({}));
     });
   });
 });
