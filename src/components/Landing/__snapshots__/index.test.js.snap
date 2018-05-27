@@ -22,8 +22,11 @@ exports[`Landing should match the snapshot 2`] = `
   <h2>
     Welcome Back!
   </h2>
-  <button>
+  <Link
+    replace={false}
+    to="/newComplaint"
+  >
     Submit New Complaint
-  </button>
+  </Link>
 </div>
 `;
