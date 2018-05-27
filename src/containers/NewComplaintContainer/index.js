@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import questionBlocks from './complaintQuestions';
 import PropTypes from 'prop-types';
+import * as actions from '../../actions';
 import './style.css';
 
 export class NewComplaintContainer extends Component {
@@ -37,7 +38,7 @@ export class NewComplaintContainer extends Component {
 
   handleOnChange = event => {
     const { id, value } = event.target;
-    const values = { ...this.state.values, [id]: value };
+    const values = { ...this.state.values, [id]: value }; 
     this.setState({ values });
   }
 
@@ -54,6 +55,8 @@ export class NewComplaintContainer extends Component {
       break;
     case 'next':
       if (blockIndex === questionBlocks.length - 1) {
+        const user_id = this.props.user.id;
+        this.props.submitNewComplaint({...this.state.values, user_id});
         this.props.history.push('/');
       } else {
         this.setState({ blockIndex: blockIndex + 1 });
@@ -178,14 +181,21 @@ export const mapStateToProps = ({ user }) => ({
   user
 });
 
+export const mapDispatchToProps = dispatch => ({
+  submitNewComplaint: complaint => dispatch(
+    actions.submitNewComplaint(complaint)
+  )
+});
+
 NewComplaintContainer.propTypes = {
   user: PropTypes.object,
   history: PropTypes.shape({
     push: PropTypes.func.isRequired,
     goBack: PropTypes.func.isRequired
-  }).isRequired
+  }).isRequired,
+  submitNewComplaint: PropTypes.func.isRequired
 };
 
 export default withRouter(
-  connect(mapStateToProps, null)(NewComplaintContainer)
+  connect(mapStateToProps, mapDispatchToProps)(NewComplaintContainer)
 );

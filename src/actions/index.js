@@ -13,6 +13,16 @@ export const captureUser = user => ({
   user
 });
 
+export const submitNewComplaint = complaint => ({
+  type: 'SUBMIT_NEW_COMPLAINT',
+  complaint
+});
+
+export const captureComplaint = complaint => ({
+  type: 'CAPTURE_COMPLAINT',
+  complaint
+});
+
 export const captureError = error => ({
   type: 'CAPTURE_ERROR',
   error
