@@ -108,12 +108,14 @@ export class NewComplaintContainer extends Component {
 
   selectQuestionBuilder = question => {
     const { label, value, options, required } = question;
+    const asterisk = required ? '*' : '';
+
     const optionElems = options.map(option =>
       <option key={`${value}-${option}`} value={option}>{option}</option>
     );
     return (
       <div className="complaint-question" key={value}>
-        <label htmlFor={value}>{label}</label>
+        <label htmlFor={value}>{label}{asterisk}</label>
         <select
           onChange={event => this.handleOnChange(event)}
           value={this.state.values[value]}
@@ -129,9 +131,11 @@ export class NewComplaintContainer extends Component {
 
   textQuestionBuilder = question => {
     const { label, type, value, required } = question;
+    const asterisk = required ? '*' : '';
+
     return (
       <div className="complaint-question" key={value}>
-        <label htmlFor={value}>{label}</label>
+        <label htmlFor={value}>{label}{asterisk}</label>
         <input
           onChange={event => this.handleOnChange(event)}
           id={value}
@@ -145,9 +149,11 @@ export class NewComplaintContainer extends Component {
 
   textareaQuestionBuilder = question => {
     const { label, value, required } = question;
+    const asterisk = required ? '*' : '';
+    
     return (
       <div className="complaint-question" key={value}>
-        <label htmlFor={value}>{label}</label>
+        <label htmlFor={value}>{label}{asterisk}</label>
         <textarea
           onChange={event => this.handleOnChange(event)}
           id={value}

@@ -68,7 +68,8 @@ export class NewUserContainer extends Component {
 
   render() {
     const { welcomeDisplayed, isLoading, values } = this.state;
-    const { isLoggedIn, error } = this.props;
+    const { user, error } = this.props;
+    const isLoggedIn = user.id ? true : false;
 
     if (isLoggedIn) {
       return <Redirect to='/' />;
@@ -102,8 +103,8 @@ export const mapDispatchToProps = dispatch => ({
   submitNewUser: user => dispatch(actions.submitNewUser(user))
 });
 
-export const mapStateToProps = ({ isLoggedIn, error }) => ({
-  isLoggedIn,
+export const mapStateToProps = ({ user, error }) => ({
+  user,
   error
 });
 
@@ -115,7 +116,7 @@ NewUserContainer.propTypes = {
       email: PropTypes.string.isRequired
     }).isRequired
   }).isRequired,
-  isLoggedIn: PropTypes.bool.isRequired,
+  user: PropTypes.object.isRequired,
   error: PropTypes.string
 };
 

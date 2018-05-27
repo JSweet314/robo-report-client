@@ -4,14 +4,16 @@ import { NewUserContainer, mapDispatchToProps, mapStateToProps } from './index';
 import * as actions from '../../actions';
 
 describe('NewUserContainer', () => {
-  let wrapper, mockSubmitNewUser, mockLocation;
+  let wrapper, mockSubmitNewUser, mockLocation, mockUser;
 
   beforeEach(() => {
     mockSubmitNewUser = jest.fn();
     mockLocation = { state: { name: 'Bob Odin', email: 'bob@aol.com' } };
+    mockUser = { id: 1 };
+
     wrapper = shallow(
       <NewUserContainer
-        isLoggedIn={false}
+        user={mockUser}
         submitNewUser={mockSubmitNewUser}
         location={mockLocation}
       />
@@ -29,12 +31,10 @@ describe('NewUserContainer', () => {
 
   describe('handleOnChange', () => {
     it('should handle the change of form inputs', () => {
-      expect(wrapper.state('values'))
-        .toHaveProperty('phone', '');
+      expect(wrapper.state('values')).toHaveProperty('phone', '');
       const mockEvent = { target: { id: 'phone', value: '999-888-1111' } };
       wrapper.instance().handleOnChange(mockEvent);
-      expect(wrapper.state('values'))
-        .toHaveProperty('phone', '999-888-1111');
+      expect(wrapper.state('values')).toHaveProperty('phone', '999-888-1111');
     });
   });
 
@@ -59,7 +59,7 @@ describe('NewUserContainer', () => {
     it('should set the redirected credentials in state', () => {
       const wrapper = shallow(
         <NewUserContainer
-          isLoggedIn={false}
+          user={mockUser}
           submitNewUser={mockSubmitNewUser}
           location={mockLocation}
         />,
@@ -70,12 +70,9 @@ describe('NewUserContainer', () => {
 
       wrapper.instance().captureRedirectedCredentials();
 
-      expect(wrapper.state('values'))
-        .toHaveProperty('firstName', 'Bob');
-      expect(wrapper.state('values'))
-        .toHaveProperty('lastName', 'Odin');
-      expect(wrapper.state('values'))
-        .toHaveProperty('email', 'bob@aol.com');
+      expect(wrapper.state('values')).toHaveProperty('firstName', 'Bob');
+      expect(wrapper.state('values')).toHaveProperty('lastName', 'Odin');
+      expect(wrapper.state('values')).toHaveProperty('email', 'bob@aol.com');
     });
   });
 
@@ -87,15 +84,15 @@ describe('NewUserContainer', () => {
       const mockUser = { name: 'user' };
       mapped.submitNewUser(mockUser);
       expect(mockDispatch).toHaveBeenCalledWith(
-        actions.submitNewUser(mockUser),
+        actions.submitNewUser(mockUser)
       );
     });
   });
 
   describe('mapStateToProps', () => {
-    it('should map isLoggedIn from state to formCompleted as prop', () => {
-      const mapped = mapStateToProps({ isLoggedIn: true });
-      expect(mapped).toHaveProperty('isLoggedIn', true);
+    it('should map user from state to formCompleted as prop', () => {
+      const mapped = mapStateToProps({ user: { id: 1 } });
+      expect(mapped).toHaveProperty('user', { id: 1 });
     });
 
     it('should map error from state to error as a prop', () => {
