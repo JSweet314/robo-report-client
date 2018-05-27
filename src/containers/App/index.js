@@ -54,6 +54,8 @@ export class App extends Component {
     const user = auth.currentUser;
     if (user) {
       this.props.getSavedUserInfo(user.email);
+    } else {
+      this.setState({ isLoading: false });
     }
   };
 

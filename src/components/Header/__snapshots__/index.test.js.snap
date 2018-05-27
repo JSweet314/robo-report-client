@@ -13,3 +13,17 @@ exports[`Header should match the snapshot 1`] = `
   </button>
 </header>
 `;
+
+exports[`Header should match the snapshot 2`] = `
+<header>
+  <h1>
+    Robo Report
+  </h1>
+  <button
+    className="sign-in--button"
+    onClick={[Function]}
+  >
+    Sign Out
+  </button>
+</header>
+`;

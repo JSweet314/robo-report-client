@@ -1,28 +1,15 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`NewUserContainer should match a snapshot with an instructions prompt 1`] = `
-<NewUserWelcome
-  toggleWelcome={[Function]}
+<Redirect
+  push={false}
+  to="/"
 />
 `;
 
 exports[`NewUserContainer should match a snapshot with the form itself 1`] = `
-<NewUserForm
-  handleOnChange={[Function]}
-  handleOnSubmit={[Function]}
-  values={
-    Object {
-      "address": "",
-      "city": "",
-      "email": "bob@aol.com",
-      "firstName": "Bob",
-      "lastName": "Odin",
-      "phone": "",
-      "phoneLocation": "-",
-      "phoneType": "-",
-      "state": "",
-      "zipcode": "",
-    }
-  }
+<Redirect
+  push={false}
+  to="/"
 />
 `;

@@ -1,12 +1,15 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 import './styles.css';
 
 const Landing = ({ isLoggedIn }) => {
   const landingDiv = isLoggedIn ? (
     <div className="landing">
       <h2>Welcome Back!</h2>
-      <button>Submit New Complaint</button>
+      <Link to="/newComplaint">
+        Submit New Complaint
+      </Link>
     </div>
   ) : (
     <div className="landing">

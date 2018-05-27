@@ -18,4 +18,15 @@ describe('Header', () => {
   it('should match the snapshot', () => {
     expect(wrapper).toMatchSnapshot();
   });
+
+  it('should match the snapshot', () => {
+    wrapper = shallow(
+      <Header 
+        isLoggedIn={true}
+        handleOAuthSignIn={mockHandleOAuthSignIn}
+      />
+    );
+    
+    expect(wrapper).toMatchSnapshot();
+  });
 });
