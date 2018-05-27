@@ -10,8 +10,4 @@ describe('userReducer', () => {
     const mockAction = actions.captureUser({ name: 'user' });
     expect(userReducer(undefined, mockAction)).toEqual({name: 'user'});
   });
-
-  it('should be able to forget user data on log-out', () => {
-    expect(userReducer(undefined, actions.forgetUser())).toEqual({});
-  });
 });
