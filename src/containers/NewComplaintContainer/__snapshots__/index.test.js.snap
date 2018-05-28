@@ -26,6 +26,7 @@ exports[`NewComplaintContainer Snapshots should match question block 0 1`] = `
       </label>
       <input
         id="subject"
+        maxLength="255"
         onChange={[Function]}
         required={true}
         type="text"
@@ -61,7 +62,7 @@ exports[`NewComplaintContainer Snapshots should match question block 0 1`] = `
       <label
         htmlFor="isSoliciting"
       >
-        Did the call/message that you are reporting advertise any type of property, goods, or services ?
+        Did the call/message that you are reporting advertise any type of property, goods, or services?
         *
       </label>
       <select
@@ -108,30 +109,16 @@ exports[`NewComplaintContainer Snapshots should match question block 0 1`] = `
       </label>
       <input
         id="typeOfSolicit"
+        maxLength="255"
         onChange={[Function]}
         required={true}
         type="text"
         value=""
       />
     </div>
-    <div
-      className="question-block-nav-group"
-    >
-      <button
-        className="question-block-nav-btn back-btn"
-        name="back"
-        onClick={[Function]}
-      >
-        Back
-      </button>
-      <button
-        className="question-block-nav-btn next-btn"
-        name="next"
-        onClick={[Function]}
-      >
-        Next
-      </button>
-    </div>
+    <BlockNavBtnGroup
+      handleQuestionBlockNavigation={[Function]}
+    />
   </div>
 </div>
 `;
@@ -157,7 +144,7 @@ exports[`NewComplaintContainer Snapshots should match question block 1 1`] = `
       <label
         htmlFor="doneBusinessWith"
       >
-        Have you or anyone else in your household done any business with the caller / company within the past 18 months immediately before you received the call / message ?
+        Have you or anyone else in your household done any business with the caller / company within the past 18 months immediately before you received the call / message?
         *
       </label>
       <select
@@ -394,30 +381,16 @@ exports[`NewComplaintContainer Snapshots should match question block 1 1`] = `
       </label>
       <input
         id="dateOfPermission"
+        maxLength="255"
         onChange={[Function]}
         required={false}
         type="date"
         value=""
       />
     </div>
-    <div
-      className="question-block-nav-group"
-    >
-      <button
-        className="question-block-nav-btn back-btn"
-        name="back"
-        onClick={[Function]}
-      >
-        Back
-      </button>
-      <button
-        className="question-block-nav-btn next-btn"
-        name="next"
-        onClick={[Function]}
-      >
-        Next
-      </button>
-    </div>
+    <BlockNavBtnGroup
+      handleQuestionBlockNavigation={[Function]}
+    />
   </div>
 </div>
 `;
@@ -448,6 +421,7 @@ exports[`NewComplaintContainer Snapshots should match question block 2 1`] = `
       </label>
       <input
         id="date"
+        maxLength="255"
         onChange={[Function]}
         required={true}
         type="date"
@@ -471,6 +445,7 @@ exports[`NewComplaintContainer Snapshots should match question block 2 1`] = `
       </label>
       <input
         id="time"
+        maxLength="255"
         onChange={[Function]}
         required={true}
         type="time"
@@ -601,6 +576,7 @@ exports[`NewComplaintContainer Snapshots should match question block 2 1`] = `
       </label>
       <input
         id="callerIdNumber"
+        maxLength="255"
         onChange={[Function]}
         required={false}
         type="tel"
@@ -623,30 +599,16 @@ exports[`NewComplaintContainer Snapshots should match question block 2 1`] = `
       </label>
       <input
         id="callerIdName"
+        maxLength="255"
         onChange={[Function]}
         required={false}
         type="text"
         value=""
       />
     </div>
-    <div
-      className="question-block-nav-group"
-    >
-      <button
-        className="question-block-nav-btn back-btn"
-        name="back"
-        onClick={[Function]}
-      >
-        Back
-      </button>
-      <button
-        className="question-block-nav-btn next-btn"
-        name="next"
-        onClick={[Function]}
-      >
-        Next
-      </button>
-    </div>
+    <BlockNavBtnGroup
+      handleQuestionBlockNavigation={[Function]}
+    />
   </div>
 </div>
 `;
@@ -767,6 +729,7 @@ exports[`NewComplaintContainer Snapshots should match question block 3 1`] = `
       </label>
       <input
         id="providedAdvertiserName"
+        maxLength="255"
         onChange={[Function]}
         required={true}
         type="text"
@@ -789,30 +752,16 @@ exports[`NewComplaintContainer Snapshots should match question block 3 1`] = `
       </label>
       <input
         id="providedAdvertiserNumber"
+        maxLength="255"
         onChange={[Function]}
         required={false}
         type="tel"
         value=""
       />
     </div>
-    <div
-      className="question-block-nav-group"
-    >
-      <button
-        className="question-block-nav-btn back-btn"
-        name="back"
-        onClick={[Function]}
-      >
-        Back
-      </button>
-      <button
-        className="question-block-nav-btn next-btn"
-        name="next"
-        onClick={[Function]}
-      >
-        Next
-      </button>
-    </div>
+    <BlockNavBtnGroup
+      handleQuestionBlockNavigation={[Function]}
+    />
   </div>
 </div>
 `;

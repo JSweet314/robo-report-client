@@ -77,11 +77,13 @@ describe('NewComplaintContainer', () => {
       wrapper.instance().handleQuestionBlockNavigation(mockEvent);
       wrapper.instance().handleQuestionBlockNavigation(mockEvent);
       wrapper.instance().handleQuestionBlockNavigation(mockEvent);
+      wrapper.instance().handleQuestionBlockNavigation(mockEvent);
       const expected = { ...wrapper.state('values'), user_id: 1 };
       expect(mockSubmitNewComplaint).toHaveBeenCalledWith(expected);
     });
 
     it('should push to a new route if there are no more questions', () => {
+      wrapper.instance().handleQuestionBlockNavigation(mockEvent);
       wrapper.instance().handleQuestionBlockNavigation(mockEvent);
       wrapper.instance().handleQuestionBlockNavigation(mockEvent);
       wrapper.instance().handleQuestionBlockNavigation(mockEvent);
