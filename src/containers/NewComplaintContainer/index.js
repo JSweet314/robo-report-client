@@ -38,7 +38,7 @@ export class NewComplaintContainer extends Component {
 
   handleOnChange = event => {
     const { id, value } = event.target;
-    const values = { ...this.state.values, [id]: value }; 
+    const values = { ...this.state.values, [id]: value };
     this.setState({ values });
   }
 
@@ -56,7 +56,7 @@ export class NewComplaintContainer extends Component {
     case 'next':
       if (blockIndex === questionBlocks.length - 1) {
         const user_id = this.props.user.id;
-        this.props.submitNewComplaint({...this.state.values, user_id});
+        this.props.submitNewComplaint({ ...this.state.values, user_id });
         this.props.history.push('/');
       } else {
         this.setState({ blockIndex: blockIndex + 1 });
@@ -110,14 +110,25 @@ export class NewComplaintContainer extends Component {
     });
 
   selectQuestionBuilder = question => {
-    const { label, value, options, required } = question;
+    const { values } = this.state;
+    const { label, value, options, required, dependent } = question;
     const asterisk = required ? '*' : '';
-
+    let displaySetting = 'flex';
     const optionElems = options.map(option =>
       <option key={`${value}-${option}`} value={option}>{option}</option>
     );
+
+    if (dependent) {
+      displaySetting = values[dependent] === 'Yes' ? 'flex' : 'none';
+    }
+
+
     return (
-      <div className="complaint-question" key={value}>
+      <div
+        className="complaint-question"
+        key={value}
+        style={{ display: displaySetting }}
+      >
         <label htmlFor={value}>{label}{asterisk}</label>
         <select
           onChange={event => this.handleOnChange(event)}
@@ -133,11 +144,21 @@ export class NewComplaintContainer extends Component {
   }
 
   textQuestionBuilder = question => {
-    const { label, type, value, required } = question;
+    const { values } = this.state;
+    const { label, type, value, required, dependent } = question;
     const asterisk = required ? '*' : '';
+    let displaySetting = 'flex';
+
+    if (dependent) {
+      displaySetting = values[dependent] === 'Yes' ? 'flex' : 'none';
+    }
 
     return (
-      <div className="complaint-question" key={value}>
+      <div
+        className="complaint-question"
+        key={value}
+        style={{ display: displaySetting }}
+      >
         <label htmlFor={value}>{label}{asterisk}</label>
         <input
           onChange={event => this.handleOnChange(event)}
@@ -153,7 +174,7 @@ export class NewComplaintContainer extends Component {
   textareaQuestionBuilder = question => {
     const { label, value, required } = question;
     const asterisk = required ? '*' : '';
-    
+
     return (
       <div className="complaint-question" key={value}>
         <label htmlFor={value}>{label}{asterisk}</label>

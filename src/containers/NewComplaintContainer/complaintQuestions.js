@@ -27,7 +27,8 @@ const questionBlocks = [
         label: 'Type of Property, Goods, or Services',
         type: 'text',
         value: 'typeOfSolicit',
-        required: true
+        required: true,
+        dependent: 'isSoliciting'
       }
     ]
   },
@@ -67,13 +68,15 @@ const questionBlocks = [
         type: 'select',
         value: 'writtenPermission',
         options: ['-', 'Yes', 'No'],
-        required: false
+        required: false,
+        dependent: 'permissionToCall'
       },
       {
         label: 'Date you provided permission to the caller/company to call',
         type: 'date',
         value: 'dateOfPermission',
-        required: false
+        required: false,
+        dependent: 'permissionToCall'
       }
     ]
   },
@@ -110,13 +113,15 @@ const questionBlocks = [
         label: 'Caller ID Number',
         type: 'tel',
         value: 'callerIdNumber',
-        required: false
+        required: false,
+        dependent: 'receivedCallerId'
       },
       {
         label: 'Caller ID Name',
         type: 'text',
         value: 'callerIdName',
-        required: false
+        required: false,
+        dependent: 'receivedCallerId'
       }
     ]
   },
@@ -135,13 +140,15 @@ const questionBlocks = [
         type: 'select',
         value: 'nameAtBeginning',
         options: ['-', 'Yes', 'No'],
-        required: true
+        required: true,
+        dependent: 'receivedBusinessName'
       },
       {
         label: 'Please provide the name of the advertiser provided during the call',
         type: 'text',
         value: 'providedAdvertiserName',
-        required: true
+        required: true,
+        dependent: 'receivedBusinessName'
       },
       {
         label: 'Provide the advertiser\'s phone number given during the call.',
@@ -159,21 +166,21 @@ export default questionBlocks;
 Have you or anyone else in your household done any business with the 
 caller/company within the past 18 months immediately before you received 
 the call/message?
-<select>
-  Yes
-  No
-  Uncertain
+  <select>
+    Yes
+    No
+    Uncertain
 Have you or anyone else in your household made any inquiry or application to the caller/company within the 3 months immediately before you received the call/message?
-<select>
-  Yes
-  No
-  Uncertain
+  <select>
+    Yes
+    No
+    Uncertain
 Do you or anyone in your household have a personal relationship with the 
 individual that made the call?
-<select>
-  Yes
-  No
-  Uncertain
+  <select>
+    Yes
+    No
+    Uncertain
 Have you or anyone else in your household or business given the caller/company permission to call?
   <select>
     Yes

@@ -12,6 +12,11 @@ exports[`NewComplaintContainer Snapshots should match question block 0 1`] = `
     <div
       className="complaint-question"
       key="subject"
+      style={
+        Object {
+          "display": "flex",
+        }
+      }
     >
       <label
         htmlFor="subject"
@@ -47,6 +52,11 @@ exports[`NewComplaintContainer Snapshots should match question block 0 1`] = `
     <div
       className="complaint-question"
       key="isSoliciting"
+      style={
+        Object {
+          "display": "flex",
+        }
+      }
     >
       <label
         htmlFor="isSoliciting"
@@ -84,6 +94,11 @@ exports[`NewComplaintContainer Snapshots should match question block 0 1`] = `
     <div
       className="complaint-question"
       key="typeOfSolicit"
+      style={
+        Object {
+          "display": "none",
+        }
+      }
     >
       <label
         htmlFor="typeOfSolicit"
@@ -133,6 +148,11 @@ exports[`NewComplaintContainer Snapshots should match question block 1 1`] = `
     <div
       className="complaint-question"
       key="doneBusinessWith"
+      style={
+        Object {
+          "display": "flex",
+        }
+      }
     >
       <label
         htmlFor="doneBusinessWith"
@@ -176,6 +196,11 @@ exports[`NewComplaintContainer Snapshots should match question block 1 1`] = `
     <div
       className="complaint-question"
       key="inquiredWith"
+      style={
+        Object {
+          "display": "flex",
+        }
+      }
     >
       <label
         htmlFor="inquiredWith"
@@ -219,6 +244,11 @@ exports[`NewComplaintContainer Snapshots should match question block 1 1`] = `
     <div
       className="complaint-question"
       key="householdRelation"
+      style={
+        Object {
+          "display": "flex",
+        }
+      }
     >
       <label
         htmlFor="householdRelation"
@@ -262,6 +292,11 @@ exports[`NewComplaintContainer Snapshots should match question block 1 1`] = `
     <div
       className="complaint-question"
       key="permissionToCall"
+      style={
+        Object {
+          "display": "flex",
+        }
+      }
     >
       <label
         htmlFor="permissionToCall"
@@ -305,6 +340,11 @@ exports[`NewComplaintContainer Snapshots should match question block 1 1`] = `
     <div
       className="complaint-question"
       key="writtenPermission"
+      style={
+        Object {
+          "display": "none",
+        }
+      }
     >
       <label
         htmlFor="writtenPermission"
@@ -341,6 +381,11 @@ exports[`NewComplaintContainer Snapshots should match question block 1 1`] = `
     <div
       className="complaint-question"
       key="dateOfPermission"
+      style={
+        Object {
+          "display": "none",
+        }
+      }
     >
       <label
         htmlFor="dateOfPermission"
@@ -389,6 +434,11 @@ exports[`NewComplaintContainer Snapshots should match question block 2 1`] = `
     <div
       className="complaint-question"
       key="date"
+      style={
+        Object {
+          "display": "flex",
+        }
+      }
     >
       <label
         htmlFor="date"
@@ -407,6 +457,11 @@ exports[`NewComplaintContainer Snapshots should match question block 2 1`] = `
     <div
       className="complaint-question"
       key="time"
+      style={
+        Object {
+          "display": "flex",
+        }
+      }
     >
       <label
         htmlFor="time"
@@ -425,6 +480,11 @@ exports[`NewComplaintContainer Snapshots should match question block 2 1`] = `
     <div
       className="complaint-question"
       key="typeOfCall"
+      style={
+        Object {
+          "display": "flex",
+        }
+      }
     >
       <label
         htmlFor="typeOfCall"
@@ -474,6 +534,11 @@ exports[`NewComplaintContainer Snapshots should match question block 2 1`] = `
     <div
       className="complaint-question"
       key="receivedCallerId"
+      style={
+        Object {
+          "display": "flex",
+        }
+      }
     >
       <label
         htmlFor="receivedCallerId"
@@ -523,6 +588,11 @@ exports[`NewComplaintContainer Snapshots should match question block 2 1`] = `
     <div
       className="complaint-question"
       key="callerIdNumber"
+      style={
+        Object {
+          "display": "none",
+        }
+      }
     >
       <label
         htmlFor="callerIdNumber"
@@ -540,6 +610,11 @@ exports[`NewComplaintContainer Snapshots should match question block 2 1`] = `
     <div
       className="complaint-question"
       key="callerIdName"
+      style={
+        Object {
+          "display": "none",
+        }
+      }
     >
       <label
         htmlFor="callerIdName"
@@ -588,6 +663,11 @@ exports[`NewComplaintContainer Snapshots should match question block 3 1`] = `
     <div
       className="complaint-question"
       key="receivedBusinessName"
+      style={
+        Object {
+          "display": "flex",
+        }
+      }
     >
       <label
         htmlFor="receivedBusinessName"
@@ -631,6 +711,11 @@ exports[`NewComplaintContainer Snapshots should match question block 3 1`] = `
     <div
       className="complaint-question"
       key="nameAtBeginning"
+      style={
+        Object {
+          "display": "none",
+        }
+      }
     >
       <label
         htmlFor="nameAtBeginning"
@@ -668,6 +753,11 @@ exports[`NewComplaintContainer Snapshots should match question block 3 1`] = `
     <div
       className="complaint-question"
       key="providedAdvertiserName"
+      style={
+        Object {
+          "display": "none",
+        }
+      }
     >
       <label
         htmlFor="providedAdvertiserName"
@@ -686,6 +776,11 @@ exports[`NewComplaintContainer Snapshots should match question block 3 1`] = `
     <div
       className="complaint-question"
       key="providedAdvertiserNumber"
+      style={
+        Object {
+          "display": "flex",
+        }
+      }
     >
       <label
         htmlFor="providedAdvertiserNumber"
