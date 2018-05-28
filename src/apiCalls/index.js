@@ -26,7 +26,6 @@ export const getUserInfo = async userEmail => {
     const response = await fetch(
       `http://roboreport-api.herokuapp.com/api/v1/users?email=${userEmail}`,
       {
-        method: 'GET',
         headers: {
           // eslint-disable-next-line
           token: process.env.REACT_APP_ROBO_TOKEN
@@ -63,5 +62,24 @@ export const postNewComplaint = async complaint => {
     throw new Error(`Bad response, status code: ${response.status}`);
   } catch (error) {
     throw new Error(`postNewComplaint error: ${error.message}`);
+  }
+};
+
+export const getUserComplaints = async userId => {
+  try {
+    const response = await fetch(
+      `http://roboreport-api.herokuapp.com/api/v1/complaints?user_id=${userId}`,
+      {
+        headers: {
+          token: process.env.REACT_APP_ROBO_TOKEN
+        }
+      }
+    );
+    if (response.ok) {
+      return await response.json();
+    }
+    throw new Error(`Bad response, status code: ${response.status}`);
+  } catch (error) {
+    throw new Error(`getUserComplaints error: ${error.message}`);
   }
 };

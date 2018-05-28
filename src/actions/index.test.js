@@ -31,6 +31,26 @@ describe('actions', () => {
     });
   });
 
+  describe('getUserComplaints', () => {
+    it('should return an action of type: GET_USER_COMPLAINTS', () => {
+      const expected = {
+        type: 'GET_USER_COMPLAINTS',
+        userId: 1
+      };
+      expect(actions.getUserComplaints(1)).toEqual(expected);
+    });
+  });
+
+  describe('captureDbComplaints', () => {
+    it('should return an action of type CAPTURE_DB_COMPLAINTS', () => {
+      const expected = {
+        type: 'CAPTURE_DB_COMPLAINTS',
+        complaints: [{}]
+      };
+      expect(actions.captureDbComplaints([{}])).toEqual(expected);
+    });
+  });
+
   describe('captureError', () => {
     it('should return an action of type: CAPTURE_ERROR', () => {
       const expected = {
