@@ -11,6 +11,8 @@ describe('App', () => {
   const mockUser = { id: 1, name: 'Walter', email: 'walt@aol.com' };
   const mockGetSavedUserInfo = jest.fn();
   const mockCaptureUser = jest.fn();
+  const mockGetUserComplaints = jest.fn();
+  const mockCaptureDbComplaints = jest.fn();
 
   beforeEach(() => {
     wrapper = shallow(
@@ -19,6 +21,8 @@ describe('App', () => {
         getSavedUserInfo={mockGetSavedUserInfo}
         history={mockHistory}
         captureUser={mockCaptureUser}
+        getUserComplaints={mockGetUserComplaints}
+        captureDbComplaints={mockCaptureDbComplaints}
       />,
       { disableLifecycleMethods: true }
     );
@@ -53,6 +57,22 @@ describe('App', () => {
       mapped.captureUser({});
       expect(mockDispatch).toHaveBeenCalledWith(
         actions.captureUser({})
+      );
+    });
+
+    it('should map an action getUserComplaints to props', () => {
+      const mapped = mapDispatchToProps(mockDispatch);
+      mapped.getUserComplaints(1);
+      expect(mockDispatch).toHaveBeenCalledWith(
+        actions.getUserComplaints(1)
+      );
+    });
+
+    it('should map an action captureDbComplaints to props', () => {
+      const mapped = mapDispatchToProps(mockDispatch);
+      mapped.captureDbComplaints([]);
+      expect(mockDispatch).toHaveBeenCalledWith(
+        actions.captureDbComplaints([])
       );
     });
   });

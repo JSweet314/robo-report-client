@@ -25,6 +25,11 @@ export class App extends Component {
 
   componentDidUpdate(prevProps) {
     if (prevProps.user.id !== this.props.user.id) {
+      if (this.props.user.id) {
+        this.props.getUserComplaints(this.props.user.id);
+      } else {
+        this.props.captureDbComplaints([]);
+      }
       this.setState({ isLoading: false });
     }
   }
@@ -101,7 +106,10 @@ export class App extends Component {
 
 export const mapDispatchToProps = dispatch => ({
   getSavedUserInfo: userEmail => dispatch(actions.getSavedUserInfo(userEmail)),
-  captureUser: user => dispatch(actions.captureUser(user))
+  captureUser: user => dispatch(actions.captureUser(user)),
+  getUserComplaints: userId => dispatch(actions.getUserComplaints(userId)),
+  captureDbComplaints: complaints =>
+    dispatch(actions.captureDbComplaints(complaints))
 });
 
 export const mapStateToProps = state => ({
@@ -114,6 +122,8 @@ App.propTypes = {
   }).isRequired,
   getSavedUserInfo: PropTypes.func.isRequired,
   captureUser: PropTypes.func.isRequired,
+  getUserComplaints: PropTypes.func.isRequired,
+  captureDbComplaints: PropTypes.func.isRequired,
   user: PropTypes.object.isRequired
 };
 
