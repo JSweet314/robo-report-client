@@ -9,6 +9,7 @@ import Landing from '../../components/Landing';
 import NewUserContainer from '../NewUserContainer';
 import Loading from '../../components/Loading';
 import NewComplaintContainer from '../NewComplaintContainer';
+import UserComplaintsContainer from "../UserComplaintsContainer";
 import './style.css';
 
 export class App extends Component {
@@ -98,6 +99,7 @@ export class App extends Component {
           />
           <Route path="/welcomeNewUser" component={NewUserContainer} />
           <Route path="/newComplaint" component={NewComplaintContainer} />
+          <Route path="/myReports" component={UserComplaintsContainer} />
         </Switch>
       </div>
     );

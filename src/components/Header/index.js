@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { NavLink } from 'react-router-dom';
 import './styles.css';
 
 const Header = ({ isLoggedIn, handleOAuthSignIn }) => {
@@ -8,10 +9,8 @@ const Header = ({ isLoggedIn, handleOAuthSignIn }) => {
   return (
     <header>
       <h1>Robo Report</h1>
-      <button 
-        className="sign-in--button" 
-        onClick={handleOAuthSignIn}
-      >
+      <NavLink to="/myReports">My Reports</NavLink>
+      <button className="sign-in--button" onClick={handleOAuthSignIn}>
         {authBtnText}
       </button>
     </header>
