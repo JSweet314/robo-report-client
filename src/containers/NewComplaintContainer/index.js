@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import questionBlocks from './complaintQuestions';
+import SummaryReport from '../../components/SummaryReport';
+import BlockNavBtnGroup from '../../components/BlockNavBtnGroup';
 import PropTypes from 'prop-types';
 import * as actions from '../../actions';
 import './style.css';
@@ -54,7 +56,7 @@ export class NewComplaintContainer extends Component {
       }
       break;
     case 'next':
-      if (blockIndex === questionBlocks.length - 1) {
+      if (blockIndex === questionBlocks.length) {
         const user_id = this.props.user.id;
         this.props.submitNewComplaint({ ...this.state.values, user_id });
         this.props.history.push('/');
@@ -69,30 +71,25 @@ export class NewComplaintContainer extends Component {
 
   questionFramer = () => {
     const { blockIndex } = this.state;
-    const block = questionBlocks[blockIndex];
+    const block = questionBlocks[blockIndex] || {};
     return (
       <div
         className="question-block"
         key={`questionBlock-${blockIndex + 1}`}
       >
-        <h3>{block.headline}</h3>
-        {this.questionBuilder(block)}
-        <div className='question-block-nav-group'>
-          <button
-            className='question-block-nav-btn back-btn'
-            name='back'
-            onClick={event => this.handleQuestionBlockNavigation(event)}
-          >
-            Back
-          </button>
-          <button
-            className='question-block-nav-btn next-btn'
-            name='next'
-            onClick={event => this.handleQuestionBlockNavigation(event)}
-          >
-            Next
-          </button>
-        </div>
+        <h3>{block.headline || 'Summary'}</h3>
+        {
+          blockIndex === questionBlocks.length ? 
+            <SummaryReport 
+              questionBlocks={questionBlocks}
+              values={this.state.values} 
+            />
+            :
+            this.questionBuilder(block)
+        }
+        <BlockNavBtnGroup
+          handleQuestionBlockNavigation={this.handleQuestionBlockNavigation}
+        />
       </div>
     );
   };
@@ -117,12 +114,9 @@ export class NewComplaintContainer extends Component {
     const optionElems = options.map(option =>
       <option key={`${value}-${option}`} value={option}>{option}</option>
     );
-
     if (dependent) {
       displaySetting = values[dependent] === 'Yes' ? 'flex' : 'none';
     }
-
-
     return (
       <div
         className="complaint-question"
@@ -148,11 +142,9 @@ export class NewComplaintContainer extends Component {
     const { label, type, value, required, dependent } = question;
     const asterisk = required ? '*' : '';
     let displaySetting = 'flex';
-
     if (dependent) {
       displaySetting = values[dependent] === 'Yes' ? 'flex' : 'none';
     }
-
     return (
       <div
         className="complaint-question"
@@ -161,6 +153,7 @@ export class NewComplaintContainer extends Component {
       >
         <label htmlFor={value}>{label}{asterisk}</label>
         <input
+          maxLength='255'
           onChange={event => this.handleOnChange(event)}
           id={value}
           type={type}
@@ -174,7 +167,6 @@ export class NewComplaintContainer extends Component {
   textareaQuestionBuilder = question => {
     const { label, value, required } = question;
     const asterisk = required ? '*' : '';
-
     return (
       <div className="complaint-question" key={value}>
         <label htmlFor={value}>{label}{asterisk}</label>
@@ -197,6 +189,8 @@ export class NewComplaintContainer extends Component {
     );
   }
 }
+
+
 
 export const mapStateToProps = ({ user }) => ({
   user

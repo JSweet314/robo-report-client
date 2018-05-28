@@ -17,7 +17,7 @@ const questionBlocks = [
         required: true
       },
       {
-        label: 'Did the call/message that you are reporting advertise any type of property, goods, or services ?',
+        label: 'Did the call/message that you are reporting advertise any type of property, goods, or services?',
         type: 'select',
         value: 'isSoliciting',
         options: ['-', 'Yes', 'No'],
@@ -36,7 +36,7 @@ const questionBlocks = [
     headline: 'Any inkling of a relationship?',
     questions: [
       {
-        label: 'Have you or anyone else in your household done any business with the caller / company within the past 18 months immediately before you received the call / message ?',
+        label: 'Have you or anyone else in your household done any business with the caller / company within the past 18 months immediately before you received the call / message?',
         type: 'select',
         value: 'doneBusinessWith',
         options: ['-', 'Yes', 'No', 'Uncertain'],
