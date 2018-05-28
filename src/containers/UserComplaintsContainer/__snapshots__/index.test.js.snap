@@ -2,6 +2,224 @@
 
 exports[`UserComplaintsContainer should match the snapshot 1`] = `
 <div>
-  UserComplaintsContainer
+  <SummaryReport
+    key="complaint-1"
+    questionBlocks={
+      Array [
+        Object {
+          "headline": "Tell us about the call.",
+          "questions": Array [
+            Object {
+              "label": "Subject",
+              "required": true,
+              "type": "text",
+              "value": "subject",
+            },
+            Object {
+              "label": "Description",
+              "required": true,
+              "type": "textarea",
+              "value": "description",
+            },
+            Object {
+              "label": "Did the call/message that you are reporting advertise any type of property, goods, or services?",
+              "options": Array [
+                "-",
+                "Yes",
+                "No",
+              ],
+              "required": true,
+              "type": "select",
+              "value": "isSoliciting",
+            },
+            Object {
+              "dependent": "isSoliciting",
+              "label": "Type of Property, Goods, or Services",
+              "required": true,
+              "type": "text",
+              "value": "typeOfSolicit",
+            },
+          ],
+        },
+        Object {
+          "headline": "Any inkling of a relationship?",
+          "questions": Array [
+            Object {
+              "label": "Have you or anyone else in your household done any business with the caller / company within the past 18 months immediately before you received the call / message?",
+              "options": Array [
+                "-",
+                "Yes",
+                "No",
+                "Uncertain",
+              ],
+              "required": true,
+              "type": "select",
+              "value": "doneBusinessWith",
+            },
+            Object {
+              "label": "Have you or anyone else in your household made any inquiry or application to the caller/company within the 3 months immediately before you received the call/message?",
+              "options": Array [
+                "-",
+                "Yes",
+                "No",
+                "Uncertain",
+              ],
+              "required": true,
+              "type": "select",
+              "value": "inquiredWith",
+            },
+            Object {
+              "label": "Do you or anyone in your household have a personal relationship with the individual that made the call?",
+              "options": Array [
+                "-",
+                "Yes",
+                "No",
+                "Uncertain",
+              ],
+              "required": true,
+              "type": "select",
+              "value": "householdRelation",
+            },
+            Object {
+              "label": "Have you or anyone else in your household or business given the caller/company permission to call?",
+              "options": Array [
+                "-",
+                "Yes",
+                "No",
+                "Uncertain",
+              ],
+              "required": true,
+              "type": "select",
+              "value": "permissionToCall",
+            },
+            Object {
+              "dependent": "permissionToCall",
+              "label": "Did you give permission to the caller/business to call you in writing?",
+              "options": Array [
+                "-",
+                "Yes",
+                "No",
+              ],
+              "required": false,
+              "type": "select",
+              "value": "writtenPermission",
+            },
+            Object {
+              "dependent": "permissionToCall",
+              "label": "Date you provided permission to the caller/company to call",
+              "required": false,
+              "type": "date",
+              "value": "dateOfPermission",
+            },
+          ],
+        },
+        Object {
+          "headline": "The nitty gritty",
+          "questions": Array [
+            Object {
+              "label": "Date of Your Issue/Problem",
+              "required": true,
+              "type": "date",
+              "value": "date",
+            },
+            Object {
+              "label": "Time of Your Issue/Problem",
+              "required": true,
+              "type": "time",
+              "value": "time",
+            },
+            Object {
+              "label": "Type of Call or Message",
+              "options": Array [
+                "-",
+                "Abandoned Calls",
+                "Live Voice",
+                "Prerecorded Voice",
+                "Text Message",
+              ],
+              "required": true,
+              "type": "select",
+              "value": "typeOfCall",
+            },
+            Object {
+              "label": "Did you receive Caller ID Information?",
+              "options": Array [
+                "-",
+                "Yes",
+                "No",
+                "Don't have caller id",
+                "Uncertain",
+              ],
+              "required": true,
+              "type": "select",
+              "value": "receivedCallerId",
+            },
+            Object {
+              "dependent": "receivedCallerId",
+              "label": "Caller ID Number",
+              "required": false,
+              "type": "tel",
+              "value": "callerIdNumber",
+            },
+            Object {
+              "dependent": "receivedCallerId",
+              "label": "Caller ID Name",
+              "required": false,
+              "type": "text",
+              "value": "callerIdName",
+            },
+          ],
+        },
+        Object {
+          "headline": "Conversational pleasantries",
+          "questions": Array [
+            Object {
+              "label": "Was the caller's business name provided during the call/message?",
+              "options": Array [
+                "-",
+                "Yes",
+                "No",
+                "Uncertain",
+              ],
+              "required": true,
+              "type": "select",
+              "value": "receivedBusinessName",
+            },
+            Object {
+              "dependent": "receivedBusinessName",
+              "label": "Was the business name provided at the beginning of the call/message?",
+              "options": Array [
+                "-",
+                "Yes",
+                "No",
+              ],
+              "required": true,
+              "type": "select",
+              "value": "nameAtBeginning",
+            },
+            Object {
+              "dependent": "receivedBusinessName",
+              "label": "Please provide the name of the advertiser provided during the call",
+              "required": true,
+              "type": "text",
+              "value": "providedAdvertiserName",
+            },
+            Object {
+              "label": "Provide the advertiser's phone number given during the call.",
+              "required": false,
+              "type": "tel",
+              "value": "providedAdvertiserNumber",
+            },
+          ],
+        },
+      ]
+    }
+    values={
+      Object {
+        "id": 1,
+        "subject": "Nuisance Caller",
+      }
+    }
+  />
 </div>
 `;

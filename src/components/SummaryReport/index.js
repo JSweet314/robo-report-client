@@ -12,7 +12,7 @@ const SummaryReport = ({
     const value = values[question.value] === '-' || !values[question.value] ?
       'N/A' : values[question.value];
     return (
-      <p key={question.value}>
+      <p key={`question-${question.value}`}>
         <strong>{question.label}</strong>: {value}
       </p>
     );

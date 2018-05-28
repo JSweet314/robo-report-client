@@ -4,7 +4,7 @@ import { UserComplaintsContainer, mapStateToProps } from './index';
 
 describe('UserComplaintsContainer', () => {
   let wrapper;
-  const mockComplaints = [{ subject: 'Nuisance Caller' }];
+  const mockComplaints = [{ subject: 'Nuisance Caller', id: 1 }];
 
   beforeEach(() => {
     wrapper = shallow(<UserComplaintsContainer complaints={mockComplaints} />);
@@ -20,7 +20,7 @@ describe('UserComplaintsContainer', () => {
 
     it('should return complaints from the state', () => {
       expect(mapped)
-        .toHaveProperty('complaints', [{ subject: 'Nuisance Caller' }]);
+        .toHaveProperty('complaints', mockComplaints);
     });
   });
 });
