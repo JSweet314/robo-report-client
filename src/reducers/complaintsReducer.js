@@ -1,7 +1,9 @@
 const complaintsReducer = (state = [], action) => {
   switch (action.type) {
   case 'CAPTURE_COMPLAINT':
-    return [...state, action.complaint];  
+    return [...state, action.complaint];
+  case 'CAPTURE_DB_COMPLAINTS':
+    return action.complaints;
   default:
     return state;
   }

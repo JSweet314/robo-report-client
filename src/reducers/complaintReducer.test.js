@@ -6,8 +6,13 @@ describe('complaintsReducer', () => {
     expect(complaintsReducer(undefined, {})).toEqual([]);
   });
 
+  it('should capture and array of complaints', () => {
+    const mockAction = actions.captureDbComplaints([{}]);
+    expect(complaintsReducer(undefined, mockAction)).toEqual([{}]);
+  });
+
   it('should capture a new complaint', () => {
     const mockAction = actions.captureComplaint({});
-    expect(complaintsReducer(undefined, mockAction)).toEqual([{}]);
+    expect(complaintsReducer([{}], mockAction)).toEqual([{}, {}]);
   });
 });

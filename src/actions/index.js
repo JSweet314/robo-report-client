@@ -23,6 +23,16 @@ export const captureComplaint = complaint => ({
   complaint
 });
 
+export const getUserComplaints = userId => ({
+  type: 'GET_USER_COMPLAINTS',
+  userId
+});
+
+export const captureDbComplaints = complaints => ({
+  type: 'CAPTURE_DB_COMPLAINTS',
+  complaints
+});
+
 export const captureError = error => ({
   type: 'CAPTURE_ERROR',
   error
