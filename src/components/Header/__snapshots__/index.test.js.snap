@@ -5,6 +5,13 @@ exports[`Header should match the snapshot 1`] = `
   <h1>
     Robo Report
   </h1>
+  <NavLink
+    activeClassName="active"
+    ariaCurrent="true"
+    to="/myReports"
+  >
+    My Reports
+  </NavLink>
   <button
     className="sign-in--button"
     onClick={[Function]}
@@ -19,6 +26,13 @@ exports[`Header should match the snapshot 2`] = `
   <h1>
     Robo Report
   </h1>
+  <NavLink
+    activeClassName="active"
+    ariaCurrent="true"
+    to="/myReports"
+  >
+    My Reports
+  </NavLink>
   <button
     className="sign-in--button"
     onClick={[Function]}

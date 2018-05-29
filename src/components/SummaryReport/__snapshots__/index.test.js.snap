@@ -3,7 +3,7 @@
 exports[`SummaryReport should match a snapshot 1`] = `
 <div>
   <p
-    key="subject"
+    key="question-subject"
   >
     <strong>
       Subject
@@ -12,7 +12,7 @@ exports[`SummaryReport should match a snapshot 1`] = `
     N/A
   </p>
   <p
-    key="description"
+    key="question-description"
   >
     <strong>
       Description
@@ -21,7 +21,7 @@ exports[`SummaryReport should match a snapshot 1`] = `
     N/A
   </p>
   <p
-    key="isSoliciting"
+    key="question-isSoliciting"
   >
     <strong>
       Did the call/message that you are reporting advertise any type of property, goods, or services?
@@ -30,7 +30,7 @@ exports[`SummaryReport should match a snapshot 1`] = `
     N/A
   </p>
   <p
-    key="typeOfSolicit"
+    key="question-typeOfSolicit"
   >
     <strong>
       Type of Property, Goods, or Services
@@ -39,7 +39,7 @@ exports[`SummaryReport should match a snapshot 1`] = `
     N/A
   </p>
   <p
-    key="doneBusinessWith"
+    key="question-doneBusinessWith"
   >
     <strong>
       Have you or anyone else in your household done any business with the caller / company within the past 18 months immediately before you received the call / message?
@@ -48,7 +48,7 @@ exports[`SummaryReport should match a snapshot 1`] = `
     N/A
   </p>
   <p
-    key="inquiredWith"
+    key="question-inquiredWith"
   >
     <strong>
       Have you or anyone else in your household made any inquiry or application to the caller/company within the 3 months immediately before you received the call/message?
@@ -57,7 +57,7 @@ exports[`SummaryReport should match a snapshot 1`] = `
     N/A
   </p>
   <p
-    key="householdRelation"
+    key="question-householdRelation"
   >
     <strong>
       Do you or anyone in your household have a personal relationship with the individual that made the call?
@@ -66,7 +66,7 @@ exports[`SummaryReport should match a snapshot 1`] = `
     N/A
   </p>
   <p
-    key="permissionToCall"
+    key="question-permissionToCall"
   >
     <strong>
       Have you or anyone else in your household or business given the caller/company permission to call?
@@ -75,7 +75,7 @@ exports[`SummaryReport should match a snapshot 1`] = `
     N/A
   </p>
   <p
-    key="writtenPermission"
+    key="question-writtenPermission"
   >
     <strong>
       Did you give permission to the caller/business to call you in writing?
@@ -84,7 +84,7 @@ exports[`SummaryReport should match a snapshot 1`] = `
     N/A
   </p>
   <p
-    key="dateOfPermission"
+    key="question-dateOfPermission"
   >
     <strong>
       Date you provided permission to the caller/company to call
@@ -93,7 +93,7 @@ exports[`SummaryReport should match a snapshot 1`] = `
     N/A
   </p>
   <p
-    key="date"
+    key="question-date"
   >
     <strong>
       Date of Your Issue/Problem
@@ -102,7 +102,7 @@ exports[`SummaryReport should match a snapshot 1`] = `
     N/A
   </p>
   <p
-    key="time"
+    key="question-time"
   >
     <strong>
       Time of Your Issue/Problem
@@ -111,7 +111,7 @@ exports[`SummaryReport should match a snapshot 1`] = `
     N/A
   </p>
   <p
-    key="typeOfCall"
+    key="question-typeOfCall"
   >
     <strong>
       Type of Call or Message
@@ -120,7 +120,7 @@ exports[`SummaryReport should match a snapshot 1`] = `
     N/A
   </p>
   <p
-    key="receivedCallerId"
+    key="question-receivedCallerId"
   >
     <strong>
       Did you receive Caller ID Information?
@@ -129,7 +129,7 @@ exports[`SummaryReport should match a snapshot 1`] = `
     N/A
   </p>
   <p
-    key="callerIdNumber"
+    key="question-callerIdNumber"
   >
     <strong>
       Caller ID Number
@@ -138,7 +138,7 @@ exports[`SummaryReport should match a snapshot 1`] = `
     N/A
   </p>
   <p
-    key="callerIdName"
+    key="question-callerIdName"
   >
     <strong>
       Caller ID Name
@@ -147,7 +147,7 @@ exports[`SummaryReport should match a snapshot 1`] = `
     N/A
   </p>
   <p
-    key="receivedBusinessName"
+    key="question-receivedBusinessName"
   >
     <strong>
       Was the caller's business name provided during the call/message?
@@ -156,7 +156,7 @@ exports[`SummaryReport should match a snapshot 1`] = `
     N/A
   </p>
   <p
-    key="nameAtBeginning"
+    key="question-nameAtBeginning"
   >
     <strong>
       Was the business name provided at the beginning of the call/message?
@@ -165,7 +165,7 @@ exports[`SummaryReport should match a snapshot 1`] = `
     N/A
   </p>
   <p
-    key="providedAdvertiserName"
+    key="question-providedAdvertiserName"
   >
     <strong>
       Please provide the name of the advertiser provided during the call
@@ -174,7 +174,7 @@ exports[`SummaryReport should match a snapshot 1`] = `
     N/A
   </p>
   <p
-    key="providedAdvertiserNumber"
+    key="question-providedAdvertiserNumber"
   >
     <strong>
       Provide the advertiser's phone number given during the call.
