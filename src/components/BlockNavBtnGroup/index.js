@@ -2,8 +2,11 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 const BlockNavBtnGroup = (
-  { handleQuestionBlockNavigation, isNextBtnDisabled }
+  { handleQuestionBlockNavigation, isNextBtnDisabled, blockIndex }
 ) => {
+
+  const nextText = blockIndex > 3 ? 'Report It!' : 'Next';
+
   return (
     <div className='question-block-nav-group'>
       <button
@@ -14,19 +17,21 @@ const BlockNavBtnGroup = (
         Back
       </button>
       <button
-        disabled={isNextBtnDisabled}
+        disabled={isNextBtnDisabled && blockIndex < 4}
         className='question-block-nav-btn next-btn'
         name='next'
         onClick={event => handleQuestionBlockNavigation(event)}
       >
-        Next
+        { nextText }
       </button>
     </div>
   );
 };
 
 BlockNavBtnGroup.propTypes = {
-  handleQuestionBlockNavigation: PropTypes.func.isRequired
+  handleQuestionBlockNavigation: PropTypes.func.isRequired,
+  isNextBtnDisabled: PropTypes.bool.isRequired,
+  blockIndex: PropTypes.number.isRequired
 };
 
 export default BlockNavBtnGroup;

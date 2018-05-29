@@ -102,7 +102,9 @@ export class NewComplaintContainer extends Component {
             :
             this.questionBuilder(block)
         }
+        <p>* = required field</p>
         <BlockNavBtnGroup
+          blockIndex={blockIndex}
           isNextBtnDisabled={isNextBtnDisabled}
           handleQuestionBlockNavigation={this.handleQuestionBlockNavigation}
         />

@@ -1,0 +1,23 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`BlockNavBtnGroup should match a snapshot 1`] = `
+<div
+  className="question-block-nav-group"
+>
+  <button
+    className="question-block-nav-btn back-btn"
+    name="back"
+    onClick={[Function]}
+  >
+    Back
+  </button>
+  <button
+    className="question-block-nav-btn next-btn"
+    disabled={true}
+    name="next"
+    onClick={[Function]}
+  >
+    Next
+  </button>
+</div>
+`;
