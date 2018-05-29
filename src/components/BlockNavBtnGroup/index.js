@@ -1,7 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const BlockNavBtnGroup = ({ handleQuestionBlockNavigation }) => {
+const BlockNavBtnGroup = (
+  { handleQuestionBlockNavigation, isNextBtnDisabled }
+) => {
   return (
     <div className='question-block-nav-group'>
       <button
@@ -12,6 +14,7 @@ const BlockNavBtnGroup = ({ handleQuestionBlockNavigation }) => {
         Back
       </button>
       <button
+        disabled={isNextBtnDisabled}
         className='question-block-nav-btn next-btn'
         name='next'
         onClick={event => handleQuestionBlockNavigation(event)}
