@@ -1,5 +1,18 @@
 .landing {
   padding: 1em;
-  display: flex;
-  flex-direction: column;
+  margin: auto;
+}
+
+.landing h2 {
+  width: fit-content;
+  font-size: 2.2em;
+  padding: 1em;
+  margin: 0 auto;
+}
+
+.landing p {
+  width: 60%;
+  font-size: 2em;
+  line-height: 1.1;
+  margin: .5em auto;
 }
