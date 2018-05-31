@@ -1,18 +1,31 @@
 .landing {
   padding: 1em;
   margin: auto;
+  font-size: 1.5rem;
 }
 
 .landing h2 {
   width: fit-content;
-  font-size: 2.2em;
-  padding: 1em;
+  font-size: 2.2rem;
   margin: 0 auto;
+}
+
+.submit-new-complaint-btn {
+  display: block;
+  width: fit-content;
+  margin: 1em auto;
+  padding: .2em;
+  border: 1px solid #000;
+  background: #50AECC;
+}
+
+.landing h4 {
+  width: 60%;
+  margin: .2em auto;
 }
 
 .landing p {
   width: 60%;
-  font-size: 2em;
   line-height: 1.1;
-  margin: .5em auto;
+  margin: .3em auto;
 }
