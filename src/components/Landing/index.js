@@ -10,6 +10,9 @@ const Landing = ({ isLoggedIn }) => {
       <Link to="/newComplaint">
         Submit New Complaint
       </Link>
+      <h4>How it works:</h4>
+      <p>When you choose to submit a new complaint, you will be taken through 
+        all of the questions needed to complete the report as </p>
     </div>
   ) : (
     <div className="landing">

@@ -116,8 +116,13 @@ exports[`NewComplaintContainer Snapshots should match question block 0 1`] = `
         value=""
       />
     </div>
+    <p>
+      * = required field
+    </p>
     <BlockNavBtnGroup
+      blockIndex={0}
       handleQuestionBlockNavigation={[Function]}
+      isNextBtnDisabled={true}
     />
   </div>
 </div>
@@ -388,8 +393,13 @@ exports[`NewComplaintContainer Snapshots should match question block 1 1`] = `
         value=""
       />
     </div>
+    <p>
+      * = required field
+    </p>
     <BlockNavBtnGroup
+      blockIndex={1}
       handleQuestionBlockNavigation={[Function]}
+      isNextBtnDisabled={true}
     />
   </div>
 </div>
@@ -606,8 +616,13 @@ exports[`NewComplaintContainer Snapshots should match question block 2 1`] = `
         value=""
       />
     </div>
+    <p>
+      * = required field
+    </p>
     <BlockNavBtnGroup
+      blockIndex={2}
       handleQuestionBlockNavigation={[Function]}
+      isNextBtnDisabled={true}
     />
   </div>
 </div>
@@ -759,8 +774,13 @@ exports[`NewComplaintContainer Snapshots should match question block 3 1`] = `
         value=""
       />
     </div>
+    <p>
+      * = required field
+    </p>
     <BlockNavBtnGroup
+      blockIndex={3}
       handleQuestionBlockNavigation={[Function]}
+      isNextBtnDisabled={true}
     />
   </div>
 </div>

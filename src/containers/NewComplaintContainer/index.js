@@ -72,6 +72,21 @@ export class NewComplaintContainer extends Component {
   questionFramer = () => {
     const { blockIndex } = this.state;
     const block = questionBlocks[blockIndex] || {};
+    let isNextBtnDisabled = true;
+    if (block.questions) {
+      isNextBtnDisabled = block.questions.some(question => {
+        const { value, required, dependent } = question;
+        if (required && dependent) {
+          return (!this.state.values[value] || this.state.values[value] === '-')
+            && this.state.values[dependent] === 'Yes'; 
+        }
+        if (required) {
+          return !this.state.values[value] || this.state.values[value] === '-';
+        }
+        return false;
+      });
+    }
+
     return (
       <div
         className="question-block"
@@ -87,7 +102,10 @@ export class NewComplaintContainer extends Component {
             :
             this.questionBuilder(block)
         }
+        <p>* = required field</p>
         <BlockNavBtnGroup
+          blockIndex={blockIndex}
+          isNextBtnDisabled={isNextBtnDisabled}
           handleQuestionBlockNavigation={this.handleQuestionBlockNavigation}
         />
       </div>
