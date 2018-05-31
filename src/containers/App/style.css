@@ -1,0 +1,12 @@
+.app {
+  max-width: 85vw;
+  height: 100vh;
+  margin: 0 auto;
+  background: linear-gradient(360deg, #38aecc 10%, #347fb9 90%)
+}
+
+@media screen and (max-width: 768px) {
+  .app {
+    max-width: 100vw;
+  }
+}
