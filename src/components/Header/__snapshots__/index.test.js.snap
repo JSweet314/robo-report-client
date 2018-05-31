@@ -2,42 +2,70 @@
 
 exports[`Header should match the snapshot 1`] = `
 <header>
-  <h1>
-    Robo Report
-  </h1>
-  <NavLink
-    activeClassName="active"
-    ariaCurrent="true"
-    to="/myReports"
+  <Link
+    replace={false}
+    to="/"
   >
-    My Reports
-  </NavLink>
-  <button
-    className="sign-in--button"
-    onClick={[Function]}
-  >
-    Sign In
-  </button>
+    <h1>
+      Robo Report
+    </h1>
+  </Link>
+  <nav>
+    <Link
+      replace={false}
+      to="/"
+    >
+      Home
+    </Link>
+    <NavLink
+      activeClassName="active"
+      ariaCurrent="true"
+      className="hidden"
+      to="/myReports"
+    >
+      My Reports
+    </NavLink>
+    <button
+      className="sign-in--button"
+      onClick={[Function]}
+    >
+      Sign In
+    </button>
+  </nav>
 </header>
 `;
 
 exports[`Header should match the snapshot 2`] = `
 <header>
-  <h1>
-    Robo Report
-  </h1>
-  <NavLink
-    activeClassName="active"
-    ariaCurrent="true"
-    to="/myReports"
+  <Link
+    replace={false}
+    to="/"
   >
-    My Reports
-  </NavLink>
-  <button
-    className="sign-in--button"
-    onClick={[Function]}
-  >
-    Sign Out
-  </button>
+    <h1>
+      Robo Report
+    </h1>
+  </Link>
+  <nav>
+    <Link
+      replace={false}
+      to="/"
+    >
+      Home
+    </Link>
+    <NavLink
+      activeClassName="active"
+      ariaCurrent="true"
+      className="display"
+      to="/myReports"
+    >
+      My Reports
+    </NavLink>
+    <button
+      className="sign-in--button"
+      onClick={[Function]}
+    >
+      Sign Out
+    </button>
+  </nav>
 </header>
 `;

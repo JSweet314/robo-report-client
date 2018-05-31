@@ -1,18 +1,25 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { NavLink } from 'react-router-dom';
+import { NavLink, Link } from 'react-router-dom';
 import './styles.css';
 
 const Header = ({ isLoggedIn, handleOAuthSignIn }) => {
   const authBtnText = isLoggedIn ? 'Sign Out' : 'Sign In';
-
+  const myReportsBtnClassName = isLoggedIn ? 'display' : 'hidden';
   return (
     <header>
-      <h1>Robo Report</h1>
-      <NavLink to="/myReports">My Reports</NavLink>
-      <button className="sign-in--button" onClick={handleOAuthSignIn}>
-        {authBtnText}
-      </button>
+      <Link to="/">
+        <h1>Robo Report</h1>
+      </Link>
+      <nav>
+        <Link to="/">Home</Link>
+        <NavLink to="/myReports" className={myReportsBtnClassName}>
+          My Reports
+        </NavLink>
+        <button className="sign-in--button" onClick={handleOAuthSignIn}>
+          {authBtnText}
+        </button>
+      </nav>
     </header>
   );
 };

@@ -86,7 +86,7 @@ export class App extends Component {
     }
 
     return (
-      <div>
+      <div className="app">
         <Header
           isLoggedIn={isLoggedIn}
           handleOAuthSignIn={this.handleOAuthSignIn}
