@@ -7,11 +7,13 @@ const Landing = ({ isLoggedIn }) => {
   const landingDiv = isLoggedIn ? (
     <div className="landing">
       <h2>Welcome Back!</h2>
-      <Link to="/newComplaint">Submit New Complaint</Link>
+      <Link to="/newComplaint" className="submit-new-complaint-btn">
+        Submit New Complaint
+      </Link>
       <h4>How it works:</h4>
       <p>
         When you choose to submit a new complaint, you will be taken through all
-        of the questions needed to complete the report as{' '}
+        of the questions needed to complete the report.
       </p>
     </div>
   ) : (

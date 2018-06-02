@@ -26,6 +26,7 @@ exports[`Landing should match the snapshot 2`] = `
     Welcome Back!
   </h2>
   <Link
+    className="submit-new-complaint-btn"
     replace={false}
     to="/newComplaint"
   >
@@ -35,8 +36,7 @@ exports[`Landing should match the snapshot 2`] = `
     How it works:
   </h4>
   <p>
-    When you choose to submit a new complaint, you will be taken through all of the questions needed to complete the report as
-     
+    When you choose to submit a new complaint, you will be taken through all of the questions needed to complete the report.
   </p>
 </div>
 `;
