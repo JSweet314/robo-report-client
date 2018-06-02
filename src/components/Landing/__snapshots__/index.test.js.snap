@@ -20,7 +20,7 @@ exports[`Landing should match the snapshot 1`] = `
     >
       RoboReport is here to help.
       <br />
-       Create an account with our app, and it will auto-populate the FCC complaint form, greatly reducing the primary barrier to getting this complaint data to the FCC, and hopefully, spurring the FCC to take action to stop these incessant,unwanted calls.
+       Create an account with our app, and it will auto-populate the FCC complaint form, greatly reducing the primary barrier to getting this complaint data to the FCC, and hopefully, spurring the FCC to take action to stop these incessant, unwanted calls.
     </p>
   </div>
 </div>

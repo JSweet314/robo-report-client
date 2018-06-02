@@ -16,6 +16,9 @@ exports[`ComplaintSubmitPrompt should match a snapshot 1`] = `
       Scoll through and review the form and make any edits you'd like.
     </li>
     <li>
+      Read and click the attest statement near the bottom.
+    </li>
+    <li>
       Check the Captcha that you are not a robot (ironic, we know)
     </li>
     <li>

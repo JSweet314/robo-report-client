@@ -16,9 +16,9 @@ const Instructions = () => {
       </p>
       <ol>
         <li>
-            Scoll through and review the form and make any edits you&#39;d
-            like.
+            Scoll through and review the form, making any edits as needed.
         </li>
+        <li>Read and click the attest statement near the bottom.</li>
         <li>Check the Captcha that you are not a robot (ironic, we know)</li>
         <li>Submit the form!</li>
       </ol>
