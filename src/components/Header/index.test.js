@@ -9,7 +9,7 @@ describe('Header', () => {
   beforeEach(() => {
     wrapper = shallow(
       <Header 
-        isLoggedIn={false}
+        user={{}}
         handleOAuthSignIn={mockHandleOAuthSignIn}
       />
     );
@@ -22,7 +22,7 @@ describe('Header', () => {
   it('should match the snapshot', () => {
     wrapper = shallow(
       <Header 
-        isLoggedIn={true}
+        user={{id: 1}}
         handleOAuthSignIn={mockHandleOAuthSignIn}
       />
     );

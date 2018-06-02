@@ -1,0 +1,26 @@
+.instructions {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 50%;
+  font-size: 2rem;
+  background-color: white;
+  padding: 1rem;
+  border-radius: 15px;
+  box-shadow: 2px 2px 6px 2px black;
+}
+
+.instructions__heading {
+  text-align: left;
+  width: 100%;
+}
+
+.submit-new-complaint-btn {
+  display: block;
+  width: fit-content;
+  margin: 1em auto;
+  padding: .2em;
+  border: 1px solid #000;
+  background: #50AECC;
+}

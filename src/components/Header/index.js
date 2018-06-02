@@ -3,9 +3,9 @@ import PropTypes from 'prop-types';
 import { NavLink, Link } from 'react-router-dom';
 import './styles.css';
 
-const Header = ({ isLoggedIn, handleOAuthSignIn }) => {
-  const authBtnText = isLoggedIn ? 'Sign Out' : 'Sign In';
-  const myReportsBtnClassName = isLoggedIn ? 'display' : 'hidden';
+const Header = ({ user, handleOAuthSignIn }) => {
+  const authBtnText = user.id ? 'Sign Out' : 'Sign In';
+  const myReportsBtnClassName = user.id ? 'display' : 'hidden';
   return (
     <header>
       <Link to="/">
@@ -25,7 +25,7 @@ const Header = ({ isLoggedIn, handleOAuthSignIn }) => {
 };
 
 Header.propTypes = {
-  isLoggedIn: PropTypes.bool.isRequired,
+  user: PropTypes.object.isRequired,
   handleOAuthSignIn: PropTypes.func.isRequired
 };
 
