@@ -2,19 +2,16 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import './styles.css';
+import Instructions from '../Instructions';
 
 const Landing = ({ isLoggedIn }) => {
   const landingDiv = isLoggedIn ? (
     <div className="landing">
       <h2>Welcome Back!</h2>
+      <Instructions />;
       <Link to="/newComplaint" className="submit-new-complaint-btn">
         Submit New Complaint
       </Link>
-      <h4>How it works:</h4>
-      <p>
-        When you choose to submit a new complaint, you will be taken through all
-        of the questions needed to complete the report.
-      </p>
     </div>
   ) : (
     <div className="landing">
