@@ -6,7 +6,13 @@ exports[`App should match a snapshot 1`] = `
 >
   <Header
     handleOAuthSignIn={[Function]}
-    isLoggedIn={true}
+    user={
+      Object {
+        "email": "walt@aol.com",
+        "id": 1,
+        "name": "Walter",
+      }
+    }
   />
   <Switch>
     <Route

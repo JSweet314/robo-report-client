@@ -1,34 +1,37 @@
 html {
+  height: 100%;
+  width: 100%;
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   -webkit-tap-highlight-color: transparent;
   text-size-adjust: 100%;
+  font-size: 62.5%;
 }
+
 body {
+  height: 100%;
+  width: 100%;
   margin: 0;
   box-sizing: border-box;
   line-height: 1;
-  font-size: 62.5%;
   font-family: sans-serif;
-  width: 100vw;
 }
+
+#root {
+  height: 100%;
+  width: 100%;
+}
+
 iframe {
   border: 0;
 }
+
 main {
   display: block;
 }
-ul,
-ol {
-  margin-top: 0;
-  margin-bottom: 0;
-  padding-left: 0;
-}
-li {
-  display: block;
-}
+
 h1,
 h2,
 h3,
@@ -39,23 +42,29 @@ h6 {
   margin-bottom: 0;
   font-size: inherit;
 }
+
 p {
   margin-top: 0;
   margin-bottom: 0;
 }
+
 strong {
   font-weight: bold;
 }
+
 img {
   border: 0;
   max-width: 100%;
   height: auto;
   vertical-align: middle;
 }
+
 a {
   text-decoration: none;
   color: inherit;
+  cursor: pointer;
 }
+
 button {
   border: 0;
   margin: 0;
@@ -69,6 +78,7 @@ button {
   cursor: pointer;
   overflow: visible;
 }
+
 ::-moz-focus-inner {
   border: 0;
   padding: 0;

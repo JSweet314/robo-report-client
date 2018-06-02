@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import './style.css';
 
 const Instructions = () => {
@@ -10,8 +11,8 @@ const Instructions = () => {
         all of the questions needed to complete the report. The questions are
         taken directly from the FCC&#39;s complaint form for unwanted calls.
         Once you have completed all of the required parts of the form, Robo
-        Report will pull up the FCC form and complete it for you! To finish
-        the process, all you will need to do is:
+        Report will pull up the FCC form and complete it for you! <br /><br />
+        To finish the process, all you will need to do is:
         <ol>
           <li>
             Scoll through and review the form and make any edits you&#39;d
@@ -21,6 +22,11 @@ const Instructions = () => {
           <li>Submit the form!</li>
         </ol>
       </p>
+      <Link
+        className='submit-new-complaint-btn'
+        to="/newComplaint">
+        Submit New Complaint
+      </Link>
     </div>
   );
 };

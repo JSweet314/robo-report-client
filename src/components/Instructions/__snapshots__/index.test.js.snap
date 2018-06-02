@@ -12,7 +12,10 @@ exports[`Instructions should match a snapshot 1`] = `
   <p
     className="instructions__body"
   >
-    When you choose to submit a new complaint, you will be taken through all of the questions needed to complete the report. The questions are taken directly from the FCC's complaint form for unwanted calls. Once you have completed all of the required parts of the form, Robo Report will pull up the FCC form and complete it for you! To finish the process, all you will need to do is:
+    When you choose to submit a new complaint, you will be taken through all of the questions needed to complete the report. The questions are taken directly from the FCC's complaint form for unwanted calls. Once you have completed all of the required parts of the form, Robo Report will pull up the FCC form and complete it for you! 
+    <br />
+    <br />
+    To finish the process, all you will need to do is:
     <ol>
       <li>
         Scoll through and review the form and make any edits you'd like.
@@ -25,5 +28,12 @@ exports[`Instructions should match a snapshot 1`] = `
       </li>
     </ol>
   </p>
+  <Link
+    className="submit-new-complaint-btn"
+    replace={false}
+    to="/newComplaint"
+  >
+    Submit New Complaint
+  </Link>
 </div>
 `;

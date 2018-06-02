@@ -79,29 +79,26 @@ export class App extends Component {
 
   render() {
     const { isLoading } = this.state;
-    const isLoggedIn = this.props.user.id ? true : false;
-
-    if (isLoading) {
-      return <Loading />;
-    }
+    const { user } = this.props;
 
     return (
-      <div className="app">
-        <Header
-          isLoggedIn={isLoggedIn}
-          handleOAuthSignIn={this.handleOAuthSignIn}
-        />
-        <Switch>
-          <Route
-            exact
-            path="/"
-            render={() => <Landing isLoggedIn={isLoggedIn} />}
+      isLoading ? <Loading /> :
+        <div className="app">
+          <Header
+            user={user}
+            handleOAuthSignIn={this.handleOAuthSignIn}
           />
-          <Route path="/welcomeNewUser" component={NewUserContainer} />
-          <Route path="/newComplaint" component={NewComplaintContainer} />
-          <Route path="/myReports" component={UserComplaintsContainer} />
-        </Switch>
-      </div>
+          <Switch>
+            <Route
+              exact
+              path="/"
+              render={() => <Landing user={user} />}
+            />
+            <Route path="/welcomeNewUser" component={NewUserContainer} />
+            <Route path="/newComplaint" component={NewComplaintContainer} />
+            <Route path="/myReports" component={UserComplaintsContainer} />
+          </Switch>
+        </div>
     );
   }
 }

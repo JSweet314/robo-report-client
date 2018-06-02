@@ -6,7 +6,7 @@ describe('Landing', () => {
   let wrapper;
   
   beforeEach(() => {
-    wrapper = shallow(<Landing isLoggedIn={false}/>);
+    wrapper = shallow(<Landing user={{}}/>);
   });
 
   it('should match the snapshot', () => {
@@ -14,7 +14,7 @@ describe('Landing', () => {
   });
 
   it('should match the snapshot', () => {
-    wrapper = shallow(<Landing isLoggedIn={true}/>);
+    wrapper = shallow(<Landing user={{id: 1, firstName: 'Walter'}}/>);
 
     expect(wrapper).toMatchSnapshot();
   });
