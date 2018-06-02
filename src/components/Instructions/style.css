@@ -1,0 +1,13 @@
+.instructions {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 50%;
+  font-size: 2rem;
+}
+
+.instructions__heading {
+  text-align: left;
+  width: 100%;
+}
