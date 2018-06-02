@@ -16,18 +16,18 @@ exports[`Instructions should match a snapshot 1`] = `
     <br />
     <br />
     To finish the process, all you will need to do is:
-    <ol>
-      <li>
-        Scoll through and review the form and make any edits you'd like.
-      </li>
-      <li>
-        Check the Captcha that you are not a robot (ironic, we know)
-      </li>
-      <li>
-        Submit the form!
-      </li>
-    </ol>
   </p>
+  <ol>
+    <li>
+      Scoll through and review the form and make any edits you'd like.
+    </li>
+    <li>
+      Check the Captcha that you are not a robot (ironic, we know)
+    </li>
+    <li>
+      Submit the form!
+    </li>
+  </ol>
   <Link
     className="submit-new-complaint-btn"
     replace={false}

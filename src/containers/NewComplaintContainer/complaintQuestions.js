@@ -15,7 +15,12 @@ const questionBlocks = [
         type: 'textarea',
         value: 'description',
         required: true
-      },
+      }
+    ]
+  },
+  {
+    headline: 'Business or pleasure?',
+    questions: [
       {
         label: 'Did the call/message that you are reporting advertise any type of property, goods, or services?',
         type: 'select',
@@ -29,32 +34,30 @@ const questionBlocks = [
         value: 'typeOfSolicit',
         required: true,
         dependent: 'isSoliciting'
-      }
-    ]
-  },
-  {
-    headline: 'Any inkling of a relationship?',
-    questions: [
+      },
       {
         label: 'Have you or anyone else in your household done any business with the caller / company within the past 18 months immediately before you received the call / message?',
         type: 'select',
         value: 'doneBusinessWith',
         options: ['-', 'Yes', 'No', 'Uncertain'],
-        required: true
+        required: true,
+        dependent: 'isSoliciting'
       },
       {
         label: 'Have you or anyone else in your household made any inquiry or application to the caller/company within the 3 months immediately before you received the call/message?',
         type: 'select',
         value: 'inquiredWith',
         options: ['-', 'Yes', 'No', 'Uncertain'],
-        required: true
+        required: true,
+        dependent: 'isSoliciting'
       },
       {
         label: 'Do you or anyone in your household have a personal relationship with the individual that made the call?',
         type: 'select',
         value: 'householdRelation',
         options: ['-', 'Yes', 'No', 'Uncertain'],
-        required: true
+        required: true,
+        dependent: 'isSoliciting'
       },
       {
         label: 'Have you or anyone else in your household or business given the caller/company permission to call?',
@@ -161,71 +164,3 @@ const questionBlocks = [
 ];
 
 export default questionBlocks;
-
-/*
-Have you or anyone else in your household done any business with the 
-caller/company within the past 18 months immediately before you received 
-the call/message?
-  <select>
-    Yes
-    No
-    Uncertain
-Have you or anyone else in your household made any inquiry or application to the caller/company within the 3 months immediately before you received the call/message?
-  <select>
-    Yes
-    No
-    Uncertain
-Do you or anyone in your household have a personal relationship with the 
-individual that made the call?
-  <select>
-    Yes
-    No
-    Uncertain
-Have you or anyone else in your household or business given the caller/company permission to call?
-  <select>
-    Yes
-      Did you give permission to the caller/business to call you in writing?
-        <select>
-          Yes
-          No
-      Date you provided permission to the caller/company to call
-        <input[date]> (MUST BE IN FORMAT 'January, 1, 2018')
-    No
-    Uncertain
-
-Date of Your Issue/Problem 
-  <input[date]>
-Time of Your Issue/Problem 
-  <input[time]>
-Type of Call or Message 
-  <select>
-    Abandoned Calls
-    Live Voice
-    Prerecorded voice
-    Text Message
-Did you receive Caller ID Information?
-  <select>
-    Yes
-      Caller ID Number 
-        <input[text]> (555-555-5555)
-      Caller ID Name 
-        <input[text]>
-    No
-    Don't have caller id
-    Uncertain
-    
-Was the caller's business name provided during the call/message? 
-  <select>
-    Yes
-      Was the business name provided at the beginning of the call/message?
-        <select>
-          Yes
-          No
-      Please provide the name of the advertiser provided during the call
-        <input[text]>
-    No
-    Uncertain
-Provide the advertiser's phone number given during the call.
-  <input[text]> (555-555-5555)
-
-*/

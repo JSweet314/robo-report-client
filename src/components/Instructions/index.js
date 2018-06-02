@@ -13,15 +13,15 @@ const Instructions = () => {
         Once you have completed all of the required parts of the form, Robo
         Report will pull up the FCC form and complete it for you! <br /><br />
         To finish the process, all you will need to do is:
-        <ol>
-          <li>
+      </p>
+      <ol>
+        <li>
             Scoll through and review the form and make any edits you&#39;d
             like.
-          </li>
-          <li>Check the Captcha that you are not a robot (ironic, we know)</li>
-          <li>Submit the form!</li>
-        </ol>
-      </p>
+        </li>
+        <li>Check the Captcha that you are not a robot (ironic, we know)</li>
+        <li>Submit the form!</li>
+      </ol>
       <Link
         className='submit-new-complaint-btn'
         to="/newComplaint">

@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import questionBlocks from './complaintQuestions';
-import SummaryReport from '../../components/SummaryReport';
+import ComplaintSubmitPrompt from '../../components/ComplaintSubmitPrompt';
 import BlockNavBtnGroup from '../../components/BlockNavBtnGroup';
 import PropTypes from 'prop-types';
 import * as actions from '../../actions';
@@ -92,17 +92,19 @@ export class NewComplaintContainer extends Component {
         className="question-block"
         key={`questionBlock-${blockIndex + 1}`}
       >
-        <h3>{block.headline || 'Summary'}</h3>
+        <h3 className='question-block__headline'>
+          {block.headline || 'Now, for the moment of truth...'}
+        </h3>
         {
           blockIndex === questionBlocks.length ? 
-            <SummaryReport 
-              questionBlocks={questionBlocks}
-              values={this.state.values} 
-            />
+            <ComplaintSubmitPrompt />
             :
             this.questionBuilder(block)
         }
-        <p>* = required field</p>
+        {
+          blockIndex !== questionBlocks.length &&
+          <p>* = required field</p>
+        }
         <BlockNavBtnGroup
           blockIndex={blockIndex}
           isNextBtnDisabled={isNextBtnDisabled}
@@ -201,7 +203,7 @@ export class NewComplaintContainer extends Component {
   render() {
     const questionBlock = this.questionFramer();
     return (
-      <div>
+      <div className='new-complaint-container'>
         {questionBlock}
       </div>
     );

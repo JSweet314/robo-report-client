@@ -21,6 +21,11 @@ exports[`UserComplaintsContainer should match the snapshot 1`] = `
               "type": "textarea",
               "value": "description",
             },
+          ],
+        },
+        Object {
+          "headline": "Business or pleasure?",
+          "questions": Array [
             Object {
               "label": "Did the call/message that you are reporting advertise any type of property, goods, or services?",
               "options": Array [
@@ -39,12 +44,8 @@ exports[`UserComplaintsContainer should match the snapshot 1`] = `
               "type": "text",
               "value": "typeOfSolicit",
             },
-          ],
-        },
-        Object {
-          "headline": "Any inkling of a relationship?",
-          "questions": Array [
             Object {
+              "dependent": "isSoliciting",
               "label": "Have you or anyone else in your household done any business with the caller / company within the past 18 months immediately before you received the call / message?",
               "options": Array [
                 "-",
@@ -57,6 +58,7 @@ exports[`UserComplaintsContainer should match the snapshot 1`] = `
               "value": "doneBusinessWith",
             },
             Object {
+              "dependent": "isSoliciting",
               "label": "Have you or anyone else in your household made any inquiry or application to the caller/company within the 3 months immediately before you received the call/message?",
               "options": Array [
                 "-",
@@ -69,6 +71,7 @@ exports[`UserComplaintsContainer should match the snapshot 1`] = `
               "value": "inquiredWith",
             },
             Object {
+              "dependent": "isSoliciting",
               "label": "Do you or anyone in your household have a personal relationship with the individual that made the call?",
               "options": Array [
                 "-",
