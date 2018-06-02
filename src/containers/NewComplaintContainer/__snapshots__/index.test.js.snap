@@ -1,12 +1,16 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`NewComplaintContainer Snapshots should match question block 0 1`] = `
-<div>
+<div
+  className="new-complaint-container"
+>
   <div
     className="question-block"
     key="questionBlock-1"
   >
-    <h3>
+    <h3
+      className="question-block__headline"
+    >
       Tell us about the call.
     </h3>
     <div
@@ -50,6 +54,31 @@ exports[`NewComplaintContainer Snapshots should match question block 0 1`] = `
         value=""
       />
     </div>
+    <p>
+      * = required field
+    </p>
+    <BlockNavBtnGroup
+      blockIndex={0}
+      handleQuestionBlockNavigation={[Function]}
+      isNextBtnDisabled={true}
+    />
+  </div>
+</div>
+`;
+
+exports[`NewComplaintContainer Snapshots should match question block 1 1`] = `
+<div
+  className="new-complaint-container"
+>
+  <div
+    className="question-block"
+    key="questionBlock-2"
+  >
+    <h3
+      className="question-block__headline"
+    >
+      Business or pleasure?
+    </h3>
     <div
       className="complaint-question"
       key="isSoliciting"
@@ -116,33 +145,12 @@ exports[`NewComplaintContainer Snapshots should match question block 0 1`] = `
         value=""
       />
     </div>
-    <p>
-      * = required field
-    </p>
-    <BlockNavBtnGroup
-      blockIndex={0}
-      handleQuestionBlockNavigation={[Function]}
-      isNextBtnDisabled={true}
-    />
-  </div>
-</div>
-`;
-
-exports[`NewComplaintContainer Snapshots should match question block 1 1`] = `
-<div>
-  <div
-    className="question-block"
-    key="questionBlock-2"
-  >
-    <h3>
-      Any inkling of a relationship?
-    </h3>
     <div
       className="complaint-question"
       key="doneBusinessWith"
       style={
         Object {
-          "display": "flex",
+          "display": "none",
         }
       }
     >
@@ -190,7 +198,7 @@ exports[`NewComplaintContainer Snapshots should match question block 1 1`] = `
       key="inquiredWith"
       style={
         Object {
-          "display": "flex",
+          "display": "none",
         }
       }
     >
@@ -238,7 +246,7 @@ exports[`NewComplaintContainer Snapshots should match question block 1 1`] = `
       key="householdRelation"
       style={
         Object {
-          "display": "flex",
+          "display": "none",
         }
       }
     >
@@ -406,12 +414,16 @@ exports[`NewComplaintContainer Snapshots should match question block 1 1`] = `
 `;
 
 exports[`NewComplaintContainer Snapshots should match question block 2 1`] = `
-<div>
+<div
+  className="new-complaint-container"
+>
   <div
     className="question-block"
     key="questionBlock-3"
   >
-    <h3>
+    <h3
+      className="question-block__headline"
+    >
       The nitty gritty
     </h3>
     <div
@@ -629,12 +641,16 @@ exports[`NewComplaintContainer Snapshots should match question block 2 1`] = `
 `;
 
 exports[`NewComplaintContainer Snapshots should match question block 3 1`] = `
-<div>
+<div
+  className="new-complaint-container"
+>
   <div
     className="question-block"
     key="questionBlock-4"
   >
-    <h3>
+    <h3
+      className="question-block__headline"
+    >
       Conversational pleasantries
     </h3>
     <div

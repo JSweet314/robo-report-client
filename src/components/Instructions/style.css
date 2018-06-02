@@ -6,7 +6,7 @@
   width: 50%;
   font-size: 2rem;
   background-color: white;
-  padding: 1rem;
+  padding: 2rem;
   border-radius: 15px;
   box-shadow: 2px 2px 6px 2px black;
 }
@@ -17,10 +17,18 @@
 }
 
 .submit-new-complaint-btn {
+  font-weight: bold;
   display: block;
   width: fit-content;
   margin: 1em auto;
   padding: .2em;
-  border: 1px solid #000;
-  background: #50AECC;
+  border: 1px solid darkgray;
+  border-radius: 10px;
+  box-shadow: 2px 2px 2px gray;
+  padding: 1rem;
+}
+
+.submit-new-complaint-btn:hover {
+  color: white;
+  background-color: #467EB4;
 }

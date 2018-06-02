@@ -1,0 +1,20 @@
+.question-block-nav-group {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 2rem 0 1rem 0;
+}
+
+.question-block-nav-btn {
+  font-size: 3rem;
+  font-weight: bold;
+  border: 1px solid darkgray;
+  border-radius: 10px;
+  box-shadow: 2px 2px 2px gray;
+  padding: 1rem;
+}
+
+.question-block-nav-btn.next-btn:disabled {
+  cursor: initial;
+  box-shadow: none;
+}
