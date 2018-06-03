@@ -1,186 +1,151 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`SummaryReport should match a snapshot 1`] = `
-<div>
-  <p
-    key="question-subject"
-  >
-    <strong>
-      Subject
-    </strong>
-    : 
-    N/A
-  </p>
-  <p
-    key="question-description"
-  >
-    <strong>
-      Description
-    </strong>
-    : 
-    N/A
-  </p>
-  <p
-    key="question-isSoliciting"
-  >
-    <strong>
-      Did the call/message that you are reporting advertise any type of property, goods, or services?
-    </strong>
-    : 
-    N/A
-  </p>
-  <p
-    key="question-typeOfSolicit"
-  >
-    <strong>
-      Type of Property, Goods, or Services
-    </strong>
-    : 
-    N/A
-  </p>
-  <p
-    key="question-doneBusinessWith"
-  >
-    <strong>
-      Have you or anyone else in your household done any business with the caller / company within the past 18 months immediately before you received the call / message?
-    </strong>
-    : 
-    N/A
-  </p>
-  <p
-    key="question-inquiredWith"
-  >
-    <strong>
-      Have you or anyone else in your household made any inquiry or application to the caller/company within the 3 months immediately before you received the call/message?
-    </strong>
-    : 
-    N/A
-  </p>
-  <p
-    key="question-householdRelation"
-  >
-    <strong>
-      Do you or anyone in your household have a personal relationship with the individual that made the call?
-    </strong>
-    : 
-    N/A
-  </p>
-  <p
-    key="question-permissionToCall"
-  >
-    <strong>
-      Have you or anyone else in your household or business given the caller/company permission to call?
-    </strong>
-    : 
-    N/A
-  </p>
-  <p
-    key="question-writtenPermission"
-  >
-    <strong>
-      Did you give permission to the caller/business to call you in writing?
-    </strong>
-    : 
-    N/A
-  </p>
-  <p
-    key="question-dateOfPermission"
-  >
-    <strong>
-      Date you provided permission to the caller/company to call
-    </strong>
-    : 
-    N/A
-  </p>
-  <p
-    key="question-date"
-  >
-    <strong>
-      Date of Your Issue/Problem
-    </strong>
-    : 
-    N/A
-  </p>
-  <p
-    key="question-time"
-  >
-    <strong>
-      Time of Your Issue/Problem
-    </strong>
-    : 
-    N/A
-  </p>
-  <p
-    key="question-typeOfCall"
-  >
-    <strong>
-      Type of Call or Message
-    </strong>
-    : 
-    N/A
-  </p>
-  <p
-    key="question-receivedCallerId"
-  >
-    <strong>
-      Did you receive Caller ID Information?
-    </strong>
-    : 
-    N/A
-  </p>
-  <p
-    key="question-callerIdNumber"
-  >
-    <strong>
-      Caller ID Number
-    </strong>
-    : 
-    N/A
-  </p>
-  <p
-    key="question-callerIdName"
-  >
-    <strong>
-      Caller ID Name
-    </strong>
-    : 
-    N/A
-  </p>
-  <p
-    key="question-receivedBusinessName"
-  >
-    <strong>
-      Was the caller's business name provided during the call/message?
-    </strong>
-    : 
-    N/A
-  </p>
-  <p
-    key="question-nameAtBeginning"
-  >
-    <strong>
-      Was the business name provided at the beginning of the call/message?
-    </strong>
-    : 
-    N/A
-  </p>
-  <p
-    key="question-providedAdvertiserName"
-  >
-    <strong>
-      Please provide the name of the advertiser provided during the call
-    </strong>
-    : 
-    N/A
-  </p>
-  <p
-    key="question-providedAdvertiserNumber"
-  >
-    <strong>
-      Provide the advertiser's phone number given during the call.
-    </strong>
-    : 
-    N/A
-  </p>
-</div>
+<Accordion
+  content={
+    Array [
+      <p>
+        <strong>
+            Subject
+        </strong>
+        : 
+        N/A
+    </p>,
+      <p>
+        <strong>
+            Description
+        </strong>
+        : 
+        N/A
+    </p>,
+      <p>
+        <strong>
+            Did the call/message that you are reporting advertise any type of property, goods, or services?
+        </strong>
+        : 
+        N/A
+    </p>,
+      <p>
+        <strong>
+            Type of Property, Goods, or Services
+        </strong>
+        : 
+        N/A
+    </p>,
+      <p>
+        <strong>
+            Have you or anyone else in your household done any business with the caller / company within the past 18 months immediately before you received the call / message?
+        </strong>
+        : 
+        N/A
+    </p>,
+      <p>
+        <strong>
+            Have you or anyone else in your household made any inquiry or application to the caller/company within the 3 months immediately before you received the call/message?
+        </strong>
+        : 
+        N/A
+    </p>,
+      <p>
+        <strong>
+            Do you or anyone in your household have a personal relationship with the individual that made the call?
+        </strong>
+        : 
+        N/A
+    </p>,
+      <p>
+        <strong>
+            Have you or anyone else in your household or business given the caller/company permission to call?
+        </strong>
+        : 
+        N/A
+    </p>,
+      <p>
+        <strong>
+            Did you give permission to the caller/business to call you in writing?
+        </strong>
+        : 
+        N/A
+    </p>,
+      <p>
+        <strong>
+            Date you provided permission to the caller/company to call
+        </strong>
+        : 
+        N/A
+    </p>,
+      <p>
+        <strong>
+            Date of Your Issue/Problem
+        </strong>
+        : 
+        N/A
+    </p>,
+      <p>
+        <strong>
+            Time of Your Issue/Problem
+        </strong>
+        : 
+        N/A
+    </p>,
+      <p>
+        <strong>
+            Type of Call or Message
+        </strong>
+        : 
+        N/A
+    </p>,
+      <p>
+        <strong>
+            Did you receive Caller ID Information?
+        </strong>
+        : 
+        N/A
+    </p>,
+      <p>
+        <strong>
+            Caller ID Number
+        </strong>
+        : 
+        N/A
+    </p>,
+      <p>
+        <strong>
+            Caller ID Name
+        </strong>
+        : 
+        N/A
+    </p>,
+      <p>
+        <strong>
+            Was the caller's business name provided during the call/message?
+        </strong>
+        : 
+        N/A
+    </p>,
+      <p>
+        <strong>
+            Was the business name provided at the beginning of the call/message?
+        </strong>
+        : 
+        N/A
+    </p>,
+      <p>
+        <strong>
+            Please provide the name of the advertiser provided during the call
+        </strong>
+        : 
+        N/A
+    </p>,
+      <p>
+        <strong>
+            Provide the advertiser's phone number given during the call.
+        </strong>
+        : 
+        N/A
+    </p>,
+    ]
+  }
+  headingText="undefined undefined undefined"
+/>
 `;

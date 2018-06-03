@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import questionBlocks from 
   '../../containers/NewComplaintContainer/complaintQuestions';
 import SummaryReport from '../../components/SummaryReport';
+import './styles.css';
 
 export const UserComplaintsContainer = ({ complaints }) => {
   const reports = complaints.map(complaint => (
@@ -14,7 +15,7 @@ export const UserComplaintsContainer = ({ complaints }) => {
     />
   ));
 
-  return <div>{reports}</div>;
+  return <div className="complaintsContainer">{reports}</div>;
 };
 
 UserComplaintsContainer.propTypes = {
@@ -26,3 +27,4 @@ export const mapStateToProps = state => ({
 });
 
 export default connect(mapStateToProps)(UserComplaintsContainer);
+ 

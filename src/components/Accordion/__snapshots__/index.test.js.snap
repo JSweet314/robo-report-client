@@ -1,0 +1,55 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Accordion should match the snapshot 1`] = `
+<div
+  className="parent-acc"
+>
+  <div
+    className="acc-heading"
+    onClick={[Function]}
+  >
+    Robo Calls 2018-06-02 555-555-5555
+  </div>
+  <div
+    className="acc-content acc-close"
+  >
+    <p
+      key="1"
+    >
+      Content
+    </p>
+    <p
+      key="2"
+    >
+      Moar Content
+    </p>
+  </div>
+</div>
+`;
+
+exports[`Accordion should match the snapshot 2`] = `
+<div
+  className="parent-acc"
+>
+  <div
+    className="acc-heading"
+    onClick={[Function]}
+  >
+    Robo Calls 2018-06-02 555-555-5555
+  </div>
+  <div
+    className="acc-content acc-close"
+  >
+    <p
+      key="1"
+    >
+      Content
+    </p>
+    <p
+      key="2"
+    >
+      Moar Content
+    </p>
+  </div>
+</div>
+`;

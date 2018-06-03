@@ -1,6 +1,6 @@
 .app {
   max-width: 85vw;
-  height: 100%;
+  min-height: 100%;
   margin: 0 auto;
   background: linear-gradient(360deg, #38aecc 10%, #347fb9 90%)
 }
