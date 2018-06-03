@@ -20,9 +20,10 @@ function createWindow() {
   });
 }
 
-ipcMain.on('startNightmare', (event, args) => {
+ipcMain.on('startNightmare', (event, args = []) => {
+  const answers = args.join(' ');
   const { exec } = require('child_process');
-  exec('node fccRobo.js', []);
+  exec(`node src/fccRobo.js ${answers}`);
 });
 
 app.on('ready', createWindow);

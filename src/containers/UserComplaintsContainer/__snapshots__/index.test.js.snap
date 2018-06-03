@@ -215,6 +215,12 @@ exports[`UserComplaintsContainer should match the snapshot 1`] = `
               "type": "tel",
               "value": "providedAdvertiserNumber",
             },
+            Object {
+              "label": "Addtl. Info",
+              "required": false,
+              "type": "textarea",
+              "value": "addtlInfo",
+            },
           ],
         },
       ]

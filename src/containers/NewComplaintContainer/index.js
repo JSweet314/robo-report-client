@@ -6,13 +6,23 @@ import ComplaintSubmitPrompt from '../../components/ComplaintSubmitPrompt';
 import BlockNavBtnGroup from '../../components/BlockNavBtnGroup';
 import PropTypes from 'prop-types';
 import * as actions from '../../actions';
+import moment from 'moment';
 import './style.css';
+
+let electron;
+if (typeof window.require !== 'function') {
+  electron = require('electron');
+} else {
+  electron = window.require('electron');
+}
+const ipcRenderer = electron.ipcRenderer;
 
 export class NewComplaintContainer extends Component {
   constructor() {
     super();
     this.state = {
       values: {
+        addtlInfo: '',
         subject: '',
         description: '',
         isSoliciting: '-',
@@ -46,6 +56,7 @@ export class NewComplaintContainer extends Component {
 
   handleQuestionBlockNavigation = event => {
     const { name } = event.target;
+    const { user } = this.props;
     const { blockIndex } = this.state;
     switch (name) {
     case 'back':
@@ -57,9 +68,13 @@ export class NewComplaintContainer extends Component {
       break;
     case 'next':
       if (blockIndex === questionBlocks.length) {
-        const user_id = this.props.user.id;
-        this.props.submitNewComplaint({ ...this.state.values, user_id });
-        this.props.history.push('/');
+        // const user_id = this.props.user.id;
+        // this.props.submitNewComplaint({ ...this.state.values, user_id });
+        const args = this.mapReportFormToCmdArgs(
+          { ...user, ...this.state.values }
+        );
+        ipcRenderer.send('startNightmare', args);
+        // this.props.history.push('/');
       } else {
         this.setState({ blockIndex: blockIndex + 1 });
       }
@@ -67,6 +82,30 @@ export class NewComplaintContainer extends Component {
     default:
       break;
     }
+  }
+
+  formatPhoneNumber = number => {
+    var cleaned = ("" + number).replace(/\D/g, '');
+    var valid = cleaned.match(/^(\d{3})(\d{3})(\d{4})$/);
+    return (!valid) ? '' :  valid[1] + "-" + valid[2] + "-" + valid[3];
+  }
+
+  mapReportFormToCmdArgs = report => {
+    return Object.keys(report).reduce((args, key) => {
+      if (key === 'date') {
+        const formatedDate = moment(report[key]).format('MMMM D, YYYY');
+        return [...args, `--answers.${key}="${formatedDate}"`];
+      }
+      if (key === 'time') {
+        const formatedTime = moment(report[key], 'HH:mm').format('h:mm a');
+        return [...args, `--answers.${key}="${formatedTime}"`];
+      }
+      if (key === 'phone' || key === 'callerIdNumber') {
+        const formatedNumber = this.formatPhoneNumber(report[key]);
+        return [...args, `--answers.${key}="${formatedNumber}"`];
+      }
+      return [...args, `--answers.${key}="${report[key]}"`];
+    }, []);
   }
 
   questionFramer = () => {
@@ -78,7 +117,7 @@ export class NewComplaintContainer extends Component {
         const { value, required, dependent } = question;
         if (required && dependent) {
           return (!this.state.values[value] || this.state.values[value] === '-')
-            && this.state.values[dependent] === 'Yes'; 
+            && this.state.values[dependent] === 'Yes';
         }
         if (required) {
           return !this.state.values[value] || this.state.values[value] === '-';
@@ -96,7 +135,7 @@ export class NewComplaintContainer extends Component {
           {block.headline || 'Now, for the moment of truth...'}
         </h3>
         {
-          blockIndex === questionBlocks.length ? 
+          blockIndex === questionBlocks.length ?
             <ComplaintSubmitPrompt />
             :
             this.questionBuilder(block)

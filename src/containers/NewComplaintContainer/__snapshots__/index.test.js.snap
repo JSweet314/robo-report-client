@@ -790,6 +790,22 @@ exports[`NewComplaintContainer Snapshots should match question block 3 1`] = `
         value=""
       />
     </div>
+    <div
+      className="complaint-question"
+      key="addtlInfo"
+    >
+      <label
+        htmlFor="addtlInfo"
+      >
+        Addtl. Info
+      </label>
+      <textarea
+        id="addtlInfo"
+        onChange={[Function]}
+        required={false}
+        value=""
+      />
+    </div>
     <p>
       * = required field
     </p>

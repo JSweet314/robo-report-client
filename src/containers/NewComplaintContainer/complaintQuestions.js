@@ -158,6 +158,12 @@ const questionBlocks = [
         type: 'tel',
         value: 'providedAdvertiserNumber',
         required: false
+      },
+      {
+        label: 'Addtl. Info',
+        type: 'textarea',
+        value: 'addtlInfo',
+        required: false
       }
     ]
   }
