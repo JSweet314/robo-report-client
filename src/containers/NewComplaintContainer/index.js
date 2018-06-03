@@ -42,7 +42,8 @@ export class NewComplaintContainer extends Component {
         receivedBusinessName: '-',
         nameAtBeginning: '-',
         providedAdvertiserName: '',
-        providedAdvertiserNumber: ''
+        providedAdvertiserNumber: '',
+        isSubmitted: '-'
       },
       blockIndex: 0
     };
@@ -68,13 +69,15 @@ export class NewComplaintContainer extends Component {
       break;
     case 'next':
       if (blockIndex === questionBlocks.length) {
-        // const user_id = this.props.user.id;
-        // this.props.submitNewComplaint({ ...this.state.values, user_id });
         const args = this.mapReportFormToCmdArgs(
           { ...user, ...this.state.values }
         );
         ipcRenderer.send('startNightmare', args);
-        // this.props.history.push('/');
+        this.setState({ blockIndex: blockIndex + 1 });
+      } else if (blockIndex === questionBlocks.length + 1) {
+        const user_id = this.props.user.id;
+        this.props.submitNewComplaint({ ...this.state.values, user_id });
+        this.props.history.push('/');
       } else {
         this.setState({ blockIndex: blockIndex + 1 });
       }
@@ -135,7 +138,7 @@ export class NewComplaintContainer extends Component {
           {block.headline || 'Now, for the moment of truth...'}
         </h3>
         {
-          blockIndex === questionBlocks.length ?
+          blockIndex >= questionBlocks.length ?
             <ComplaintSubmitPrompt />
             :
             this.questionBuilder(block)
@@ -240,10 +243,47 @@ export class NewComplaintContainer extends Component {
   }
 
   render() {
+    const { blockIndex } = this.state;
     const questionBlock = this.questionFramer();
     return (
       <div className='new-complaint-container'>
-        {questionBlock}
+        {
+          blockIndex <= questionBlocks.length ? questionBlock : (
+            <div
+              className="question-block"
+              key={`questionBlock-${blockIndex + 1}`}
+            >
+              <h3 className='question-block__headline'>
+                How did it go?
+              </h3>
+              <div className="complaint-question">
+                <label htmlFor='isSubmitted'>Did you submit the form?</label>
+                <select
+                  onChange={event => this.handleOnChange(event)}
+                  value={this.state.values['isSubmitted']}
+                  name='isSubmitted'
+                  id='isSubmitted'
+                  required={true}
+                >
+                  <option value='-'>-</option>
+                  <option value={true}>Yes</option>
+                  <option value={false}>No</option>
+                </select>
+                <p>* = required field</p>
+              </div>
+              <BlockNavBtnGroup
+                blockIndex={blockIndex}
+                isNextBtnDisabled={
+                  this.state.values.isSubmitted === '-'
+                  || !this.state.values.isSubmitted
+                }
+                handleQuestionBlockNavigation={
+                  this.handleQuestionBlockNavigation
+                }
+              />
+            </div>
+          )
+        }
       </div>
     );
   }
