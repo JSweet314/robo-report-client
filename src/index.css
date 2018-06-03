@@ -8,12 +8,18 @@ html {
   -webkit-tap-highlight-color: transparent;
   text-size-adjust: 100%;
   font-size: 62.5%;
+
 }
 
 body {
-  height: 100%;
+  min-height: 100%;
   width: 100%;
   margin: 0;
+  border: 2rem solid transparent;
+  -moz-border-image: -moz-linear-gradient(top, #3acfd5 10%, #347fb9 100%);
+  -webkit-border-image: -webkit-linear-gradient(top, #3acfd5 10%, #347fb9 100%);
+  border-image: linear-gradient(to bottom, #38aecc 10%, #347fb9 90%);
+  border-image-slice: 1;
   box-sizing: border-box;
   line-height: 1;
   font-family: sans-serif;
