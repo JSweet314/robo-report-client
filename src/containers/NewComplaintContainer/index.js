@@ -51,8 +51,14 @@ export class NewComplaintContainer extends Component {
 
   handleOnChange = event => {
     const { id, value } = event.target;
-    const values = { ...this.state.values, [id]: value };
-    this.setState({ values });
+    if (id === 'isSubmitted') {
+      const boolean = value === 'true' ? true : false;
+      const values = { ...this.state.values, [id]: boolean };
+      this.setState({ values });
+    } else {
+      const values = { ...this.state.values, [id]: value };
+      this.setState({ values });
+    }
   }
 
   handleQuestionBlockNavigation = event => {
@@ -257,7 +263,7 @@ export class NewComplaintContainer extends Component {
                 How did it go?
               </h3>
               <div className="complaint-question">
-                <label htmlFor='isSubmitted'>Did you submit the form?</label>
+                <label htmlFor='isSubmitted'>Did you submit the form?*</label>
                 <select
                   onChange={event => this.handleOnChange(event)}
                   value={this.state.values['isSubmitted']}
@@ -269,14 +275,11 @@ export class NewComplaintContainer extends Component {
                   <option value={true}>Yes</option>
                   <option value={false}>No</option>
                 </select>
-                <p>* = required field</p>
               </div>
+              <p>* = required field</p>
               <BlockNavBtnGroup
                 blockIndex={blockIndex}
-                isNextBtnDisabled={
-                  this.state.values.isSubmitted === '-'
-                  || !this.state.values.isSubmitted
-                }
+                isNextBtnDisabled={this.state.values.isSubmitted === '-'}
                 handleQuestionBlockNavigation={
                   this.handleQuestionBlockNavigation
                 }
