@@ -1,21 +1,36 @@
-header {
+.header {
   width: 90%;
   margin: auto;
-  padding: .8em;
+  padding: .8rem;
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
 
-header h1 {
-  font-size: 2.6em; 
+.header__header {
+  font-size: 2.6rem; 
 }
 
-header nav {
-  font-size: 1.5em;
-  width: 25vw;
+.header__nav {
+  font-size: 1.5rem;
+  width: 45%;
   display: flex;
   justify-content: space-between;
+  align-items: center;
+}
+
+.header__link {
+  padding: .25rem;
+}
+
+.header__link:hover {
+  font-weight: bold;
+}
+
+.active {
+  font-weight: bold;
+  border: 1px solid #000;
+  border-radius: 5px;
 }
 
 .hidden {

@@ -1,70 +1,84 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Header should match the snapshot 1`] = `
-<header>
+<header
+  className="header"
+>
   <Link
     replace={false}
     to="/"
   >
-    <h1>
+    <h1
+      className="header__header"
+    >
       Robo Report
     </h1>
   </Link>
-  <nav>
+  <nav
+    className="header__nav"
+  >
     <Link
+      className="header__link header__link--home"
       replace={false}
       to="/"
     >
-      Home
+      HOME
     </Link>
     <NavLink
       activeClassName="active"
       ariaCurrent="true"
-      className="hidden"
+      className="header__link hidden"
       to="/myReports"
     >
-      My Reports
+      MY REPORTS
     </NavLink>
     <button
-      className="sign-in--button"
+      className="header__link header__link--sign-in-btn"
       onClick={[Function]}
     >
-      Sign In
+      SIGN IN
     </button>
   </nav>
 </header>
 `;
 
 exports[`Header should match the snapshot 2`] = `
-<header>
+<header
+  className="header"
+>
   <Link
     replace={false}
     to="/"
   >
-    <h1>
+    <h1
+      className="header__header"
+    >
       Robo Report
     </h1>
   </Link>
-  <nav>
+  <nav
+    className="header__nav"
+  >
     <Link
+      className="header__link header__link--home"
       replace={false}
       to="/"
     >
-      Home
+      HOME
     </Link>
     <NavLink
       activeClassName="active"
       ariaCurrent="true"
-      className="display"
+      className="header__link header__link--reports-button"
       to="/myReports"
     >
-      My Reports
+      MY REPORTS
     </NavLink>
     <button
-      className="sign-in--button"
+      className="header__link header__link--sign-in-btn"
       onClick={[Function]}
     >
-      Sign Out
+      SIGN OUT
     </button>
   </nav>
 </header>
