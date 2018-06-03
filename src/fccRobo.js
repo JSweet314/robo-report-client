@@ -1,60 +1,53 @@
 /* eslint-disable */
-const answers = require('./exampleAnswers');
+// const answers = require('./exampleAnswers.js');
 const Nightmare = require('nightmare');
 const nightmare = Nightmare({ show: true });
+const argv = require('yargs').argv;
+let answers = {};
 
-const args = process.argv;
-
-console.log(args)
+if (argv.answers) {
+  answers = {...argv.answers};
+}
 
 const startNightmare = (answers) => {
-  Nightmare.action('scrollToBottom', function (done) {
-    this.evaluate_now(function () {
-      const height = Math.max(
-        document.documentElement.clientHeight,
-        window.innerHeight || 0
-      );
-      return height;
-    }, done);
-  });
-
   nightmare
     .goto('https://consumercomplaints.fcc.gov/hc/en-us/requests/new?ticket_form_id=39744')
     .type('#request_anonymous_requester_email', 'Just...')
     .type('#request_subject', 'One...')
     .type('#request_description', 'Moment...')
-    .evaluate(function () {
+    .evaluate(function() {
       [...document.querySelectorAll('.nesty-input.ae-exclude')][1]
         .innerText = 'Unwanted Calls (including do not call and spoofing)';
     })
     .select('#ae-request_custom_fields_22619354', 'telemarketing_phone')
     .wait('#request_custom_fields_22625614')
-    .evaluate(function (ans) {
+    .wait('.nesty-input.ae-exclude')
+    .evaluate(function(ans) {
       [...document.querySelectorAll('.nesty-input.ae-exclude')][9]
         .innerText = ans.isSoliciting;
       [...document.querySelectorAll('.nesty-input.ae-exclude')][13]
         .innerText = ans.phoneType;
       [...document.querySelectorAll('.nesty-input.ae-exclude')][14]
         .innerText = ans.phoneLocation;
-      document.getElementById('request_custom_fields_22591154datedate')
-        .value = ans.date;
       if (ans.isSoliciting === 'Yes') {
         return 'yes_telemarketing_services';
       } else {
         return 'no_telemarketing_services';
       }
     }, answers)
-    .then(function (ans, value) {
+    .then(function(isSoliciting) {
       return nightmare
-        .select('#ae-request_custom_fields_22625554', 'yes_telemarketing_services')
+        .select('#ae-request_custom_fields_22625554', isSoliciting)
         .wait('#request_custom_fields_22659794')
-        .evaluate(function (ans) {
+        .evaluate(function(ans) {
           document.getElementById('request_anonymous_requester_email').value = ans.email;
           document.getElementById('request_subject').value = ans.subject;
           document.getElementById('request_description').value = ans.description;
           document.getElementById('request_custom_fields_22625614').value = ans.phone;
           document.getElementById('request_custom_fields_22732340').value = ans.time;
-          document.getElementById('request_custom_fields_22664784').value = 'Addtl. info';
+          document.getElementById('request_custom_fields_22591154datedate')
+            .value = ans.date;
+          document.getElementById('request_custom_fields_22664784').value = ans.addtlInfo;
           document.getElementById('request_custom_fields_22539594').value = ans.firstName;
           document.getElementById('request_custom_fields_22704720').value = ans.lastName;
           document.getElementById('request_custom_fields_22554824').value = ans.address;
@@ -71,9 +64,9 @@ const startNightmare = (answers) => {
             return 'wireless_phone';
           }
         }, answers)
-        .then(function (phoneType) {
+        .then(function(phoneType) {
           nightmare.select('#ae-request_custom_fields_22781220', phoneType)
-            .evaluate(function (ans) {
+            .evaluate(function(ans) {
               if (ans.phoneLocation === 'Residential/Personal') {
                 return 'residential_personal_phone_type_location';
               } else if (ans.phoneLocation === 'Business (including government and nonprofit organizations)') {
@@ -84,9 +77,9 @@ const startNightmare = (answers) => {
                 return 'toll_free_line_type_location';
               }
             }, answers)
-            .then(function (location) {
+            .then(function(location) {
               nightmare.select('#ae-request_custom_fields_22659804', location)
-                .evaluate(function (ans) {
+                .evaluate(function(ans) {
                   [...document.querySelectorAll('.nesty-input.ae-exclude')][10]
                     .innerText = ans.doneBusinessWith;
                   if (ans.doneBusinessWith === 'Yes') {
@@ -97,9 +90,9 @@ const startNightmare = (answers) => {
                     return 'uncertain_business_relationship_part_1';
                   }
                 }, answers)
-                .then(function (value) {
+                .then(function(value) {
                   nightmare.select('#ae-request_custom_fields_22787930', value)
-                    .evaluate(function (ans) {
+                    .evaluate(function(ans) {
                       [...document.querySelectorAll('.nesty-input.ae-exclude')][11]
                         .innerText = ans.inquiredWith;
                       if (ans.inquiredWith === 'Yes') {
@@ -110,10 +103,9 @@ const startNightmare = (answers) => {
                         return 'uncertain_business_relationship_part_2';
                       }
                     }, answers)
-                    .then(function (value) {
+                    .then(function(value) {
                       nightmare.select('#ae-request_custom_fields_22787940', value)
-                        .evaluate(function (ans) {
-                          console.log({ ans });
+                        .evaluate(function(ans) {
                           [...document.querySelectorAll('.nesty-input.ae-exclude')][12]
                             .innerText = ans.householdRelation;
                           if (ans.householdRelation === 'Yes') {
@@ -124,16 +116,16 @@ const startNightmare = (answers) => {
                             return 'uncertain_personal_relationship';
                           }
                         }, answers)
-                        .then(function (householdRelation) {
+                        .then(function(householdRelation) {
                           nightmare.select('#ae-request_custom_fields_22629554', householdRelation)
-                            .evaluate(function () {
+                            .evaluate(function() {
                               [...document.querySelectorAll('.nesty-input.ae-exclude')][15]
                                 .innerText = 'Yes';
                               return 'yes_do_not_call_list';
                             })
-                            .then(function (value) {
+                            .then(function(value) {
                               nightmare.select('#ae-request_custom_fields_22787860', value)
-                                .evaluate(function (ans) {
+                                .evaluate(function(ans) {
                                   [...document.querySelectorAll('.nesty-input.ae-exclude')][19]
                                     .innerText = ans.typeOfCall;
                                   if (ans.typeOfCall === 'Abandoned Calls') {
@@ -146,9 +138,9 @@ const startNightmare = (answers) => {
                                     return 'text_messaage_type_of_call_telemarketing';
                                   }
                                 }, answers)
-                                .then(function (value) {
+                                .then(function(value) {
                                   nightmare.select('#ae-request_custom_fields_22787840', value)
-                                    .evaluate(function (ans) {
+                                    .evaluate(function(ans) {
                                       [...document.querySelectorAll('.nesty-input.ae-exclude')][20]
                                         .innerText = ans.permissionToCall;
                                       if (ans.permissionToCall === 'Yes') {
@@ -159,9 +151,9 @@ const startNightmare = (answers) => {
                                         return 'uncertain_permission_to_call';
                                       }
                                     }, answers)
-                                    .then(function (value) {
+                                    .then(function(value) {
                                       nightmare.select('#ae-request_custom_fields_22625574', value)
-                                        .evaluate(function (ans) {
+                                        .evaluate(function(ans) {
                                           if (ans.permissionToCall === 'Yes') {
                                             [...document.querySelectorAll('.nesty-input.ae-exclude')][21]
                                               .innerText = ans.writtenPermission;
@@ -174,9 +166,9 @@ const startNightmare = (answers) => {
                                             }
                                           }
                                         }, answers)
-                                        .then(function (value) {
+                                        .then(function(value) {
                                           nightmare.select('#ae-request_custom_fields_22660084', 'no_permission_to_call_in_writing')
-                                            .evaluate(function (ans) {
+                                            .evaluate(function(ans) {
                                               [...document.querySelectorAll('.nesty-input.ae-exclude')][22]
                                                 .innerText = ans.receivedCallerId;
                                               if (ans.receivedCallerId === 'Yes') {
@@ -189,10 +181,10 @@ const startNightmare = (answers) => {
                                                 return 'uncertain_caller_id_information';
                                               }
                                             }, answers)
-                                            .then(function (value) {
+                                            .then(function(value) {
                                               nightmare.select('#ae-request_custom_fields_22787920', value)
                                                 .wait('#request_custom_fields_22659864')
-                                                .evaluate(function (ans) {
+                                                .evaluate(function(ans) {
                                                   if (ans.receivedCallerId === 'Yes') {
                                                     document.getElementById('request_custom_fields_22659864')
                                                       .value = ans.callerIdNumber;
@@ -209,9 +201,9 @@ const startNightmare = (answers) => {
                                                     return 'uncertain_advertiser_business_name_provided';
                                                   }
                                                 }, answers)
-                                                .then(function (value) {
+                                                .then(function(value) {
                                                   nightmare.select('#ae-request_custom_fields_22630454', value)
-                                                    .evaluate(function (ans) {
+                                                    .evaluate(function(ans) {
                                                       if (ans.receivedBusinessName === 'Yes') {
                                                         [...document.querySelectorAll('.nesty-input.ae-exclude')][24]
                                                           .innerText = ans.nameAtBeginning;
@@ -225,63 +217,63 @@ const startNightmare = (answers) => {
                                                       }
                                                       return { ans };
                                                     }, answers)
-                                                    .then(function (value) {
+                                                    .then(function(value) {
                                                       if (value.ans.receivedBusinessName === 'Yes') {
                                                         nightmare.select('#ae-request_custom_fields_22822490', value.response)
-                                                          .evaluate(function (ans) {
+                                                          .evaluate(function(ans) {
                                                             [...document.querySelectorAll('.nesty-input.ae-exclude')][34]
                                                               .innerText = ans.state;
                                                             const state = ans.state.toLowerCase().split(' ').join('_');
                                                             return state;
                                                           }, answers)
-                                                          .then(function (value) {
+                                                          .then(function(value) {
                                                             nightmare.select('#ae-request_custom_fields_22540114', value)
-                                                              .evaluate(function (ans) {
+                                                              .evaluate(function(ans) {
                                                                 [...document.querySelectorAll('.nesty-input.ae-exclude')][35]
                                                                   .innerText = 'No';
                                                                 return 'no_filing_on_behalf';
                                                               }, answers)
-                                                              .then(function (value) {
+                                                              .then(function(value) {
                                                                 nightmare.select('#ae-request_custom_fields_22636844', value)
-                                                                  .then(function () {
+                                                                  .then(function() {
                                                                     console.log('nightmare over');
                                                                   })
                                                                   .catch(console.error);
                                                               });
                                                           })
-                                                          .then(function () {
+                                                          .then(function() {
                                                             console.log('nightmare over');
                                                           })
                                                           .catch(console.error);
                                                       } else {
-                                                        nightmare.evaluate(function (ans) {
+                                                        nightmare.evaluate(function(ans) {
                                                           [...document.querySelectorAll('.nesty-input.ae-exclude')][34]
                                                             .innerText = ans.state;
                                                           const state = ans.state.toLowerCase().split(' ').join('_');
                                                           return state;
                                                         }, answers)
-                                                          .then(function (state) {
+                                                          .then(function(state) {
                                                             nightmare.select('#ae-request_custom_fields_22540114', state)
-                                                              .evaluate(function (ans) {
+                                                              .evaluate(function(ans) {
                                                                 [...document.querySelectorAll('.nesty-input.ae-exclude')][35]
                                                                   .innerText = 'No';
                                                                 return 'no_filing_on_behalf';
                                                               }, answers)
-                                                              .then(function (value) {
+                                                              .then(function(value) {
                                                                 nightmare.select('#ae-request_custom_fields_22636844', value)
-                                                                  .then(function () {
+                                                                  .then(function() {
                                                                     console.log('nightmare over');
                                                                   })
                                                                   .catch(console.error);
                                                               });
                                                           })
-                                                          .then(function () {
+                                                          .then(function() {
                                                             console.log('nightmare over');
                                                           })
                                                           .catch(console.error);
                                                       }
                                                     })
-                                                    .then(function () {
+                                                    .then(function() {
                                                       console.log('nightmare over');
                                                     })
                                                     .catch(console.error);
@@ -300,6 +292,6 @@ const startNightmare = (answers) => {
     .catch(console.error);
 }
 
-startNightmare();
+startNightmare(answers);
 
 module.exports = startNightmare;

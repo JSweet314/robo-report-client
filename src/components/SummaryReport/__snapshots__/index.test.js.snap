@@ -144,6 +144,13 @@ exports[`SummaryReport should match a snapshot 1`] = `
         : 
         N/A
     </p>,
+      <p>
+        <strong>
+            Addtl. Info
+        </strong>
+        : 
+        N/A
+    </p>,
     ]
   }
   headingText="undefined undefined undefined"

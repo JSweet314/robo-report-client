@@ -8,6 +8,7 @@
     "enzyme-adapter-react-16": "^1.1.1",
     "firebase": "^5.0.3",
     "jest-enzyme": "^6.0.0",
+    "moment": "^2.22.2",
     "nightmare": "^3.0.1",
     "prop-types": "^15.6.1",
     "react": "^16.3.2",
@@ -18,7 +19,8 @@
     "react-test-renderer": "^16.3.2",
     "redux": "^4.0.0",
     "redux-devtools-extension": "^2.13.2",
-    "redux-saga": "^0.16.0"
+    "redux-saga": "^0.16.0",
+    "yargs": "^11.0.0"
   },
   "homepage": "/",
   "main": "src/electron-start.js",
