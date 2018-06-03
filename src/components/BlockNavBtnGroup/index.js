@@ -5,8 +5,13 @@ import './style.css';
 const BlockNavBtnGroup = (
   { handleQuestionBlockNavigation, isNextBtnDisabled, blockIndex }
 ) => {
-
-  const nextText = blockIndex > 3 ? 'Report It!' : 'Next';
+  let nextText = 'Next';
+  if (blockIndex === 4) {
+    nextText = 'Report It!';
+  }
+  if (blockIndex === 5) {
+    nextText = 'Home';
+  }
 
   return (
     <div className='question-block-nav-group'>
@@ -18,7 +23,7 @@ const BlockNavBtnGroup = (
         Back
       </button>
       <button
-        disabled={isNextBtnDisabled && blockIndex < 4}
+        disabled={isNextBtnDisabled && blockIndex !== 4}
         className='question-block-nav-btn next-btn'
         name='next'
         onClick={event => handleQuestionBlockNavigation(event)}
