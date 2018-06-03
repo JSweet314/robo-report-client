@@ -1,4 +1,6 @@
 .landing {
+  height: 100%;
+  min-height: 50vh;
   padding: 1em;
   margin: auto;
   display: flex;
@@ -9,9 +11,8 @@
 
 .landing__h2 {
   width: fit-content;
-  font-size: 2.2rem;
-  margin: 2rem auto;
-  color: white;
+  font-size: 2.4rem;
+  margin: 1rem auto;
 }
 
 .landing__h4 {
@@ -20,7 +21,8 @@
 }
 
 .landing__p {
-  width: 60%;
-  line-height: 1.1;
-  margin: .3em auto;
+  width: 70%;
+  margin: 1rem auto;
+  line-height: 1.2;
+  font-size: 2rem;
 }

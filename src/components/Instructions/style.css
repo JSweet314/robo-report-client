@@ -3,12 +3,9 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: 50%;
   font-size: 2rem;
   background-color: white;
   padding: 2rem;
-  border-radius: 15px;
-  box-shadow: 2px 2px 6px 2px black;
 }
 
 .instructions__heading {
@@ -20,15 +17,18 @@
   font-weight: bold;
   display: block;
   width: fit-content;
-  margin: 1em auto;
-  padding: .2em;
+  margin: 1.5rem auto;
+  padding: .2rem;
   border: 1px solid darkgray;
   border-radius: 10px;
-  box-shadow: 2px 2px 2px gray;
   padding: 1rem;
+  transition: color 1s ease;
+  transition: background-color 1s ease;
 }
 
 .submit-new-complaint-btn:hover {
   color: white;
   background-color: #467EB4;
+  transition: color 1s ease;
+  transition: background-color 1s ease;
 }

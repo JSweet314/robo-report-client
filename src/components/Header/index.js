@@ -4,19 +4,26 @@ import { NavLink, Link } from 'react-router-dom';
 import './styles.css';
 
 const Header = ({ user, handleOAuthSignIn }) => {
-  const authBtnText = user.id ? 'Sign Out' : 'Sign In';
-  const myReportsBtnClassName = user.id ? 'display' : 'hidden';
+  const authBtnText = user.id ? 'SIGN OUT' : 'SIGN IN';
+  const myReportsBtnClassName = user.id
+    ? 'header__link header__link--reports-button'
+    : 'header__link hidden';
   return (
-    <header>
+    <header className="header">
       <Link to="/">
-        <h1>Robo Report</h1>
+        <h1 className="header__header">Robo Report</h1>
       </Link>
-      <nav>
-        <Link to="/">Home</Link>
+      <nav className="header__nav">
+        <Link to="/" className="header__link header__link--home">
+          HOME
+        </Link>
         <NavLink to="/myReports" className={myReportsBtnClassName}>
-          My Reports
+          MY REPORTS
         </NavLink>
-        <button className="sign-in--button" onClick={handleOAuthSignIn}>
+        <button
+          className="header__link header__link--sign-in-btn"
+          onClick={handleOAuthSignIn}
+        >
           {authBtnText}
         </button>
       </nav>
