@@ -6,24 +6,21 @@ import { VictoryBar, VictoryChart, VictoryAxis, VictoryLabel, VictoryTooltip }
   from 'victory';
 import { mapFCCDataToStateNumbers } from '../../helpers';
 import './style.css';
-import moment from 'moment';
 
 const BarChart = ({ fccData }) => {
   const barData = mapFCCDataToStateNumbers(fccData);
   const states = barData.map(point => point.state);
   const indepTicks = states.map((state, index) => index);
-  const date = moment().subtract(1, 'day').format('MMM D, YYYY');
   return (
     <div className='stateReport-barchart'>
       <VictoryChart>
         <VictoryLabel
-          text={`Number of Reports by State for ${date}`} 
-          dx={150}
+          text={`No. of Reports Filed Yesterday By State`} 
+          dx={140}
           dy={25}
-          style={{fontFamily: 'sans-serif', fontWeight: 'bold', fontSize: 10}}
+          style={{ fontFamily: 'sans-serif', fontWeight: 'bold', fontSize: 10 }}
         />
         <VictoryAxis
-          label='States'
           tickValues={indepTicks}
           tickFormat={states}
           style={{
@@ -34,7 +31,7 @@ const BarChart = ({ fccData }) => {
               strokeOpacity: 1
             },
             tickLabels: {
-              fontSize: '5px',
+              fontSize: '8px',
               fontFamily: 'inherit',
               fillOpacity: 1,
               padding: -5,
@@ -44,7 +41,6 @@ const BarChart = ({ fccData }) => {
         />
         <VictoryAxis
           dependentAxis
-          label='# of Reports'
           style={{
             ticks: {
               padding: 10,
@@ -72,10 +68,10 @@ const BarChart = ({ fccData }) => {
               margin={0}
               dy={-5}
               pointerLength={5}
-              style={{fontSize: 5}}
+              style={{fontSize: 10}}
             />
           }
-          style={{ data: { fill: "blue", width: 5 } }}
+          style={{ data: { fill: "blue", width: 8 } }}
           data={barData} 
           x='state'
           y='numberOfReports'
