@@ -23,9 +23,25 @@ exports[`Landing should match the snapshot 1`] = `
        Create an account with our app, and it will auto-populate the FCC complaint form, greatly reducing the primary barrier to getting this complaint data to the FCC, and hopefully, spurring the FCC to take action to stop these incessant, unwanted calls.
     </p>
   </div>
-  <PieChart
-    fccData={Array []}
-  />
+  <div
+    className="landing__stats-group"
+  >
+    <div
+      className="stats-group"
+    >
+      <p>
+        Prior Day Reports
+      </p>
+      <span
+        className="stats-group__total"
+      >
+        0
+      </span>
+    </div>
+    <PieChart
+      fccData={Array []}
+    />
+  </div>
   <BarChart
     fccData={Array []}
   />
@@ -42,9 +58,25 @@ exports[`Landing should match the snapshot 2`] = `
     Welcome Back Walter!
   </h2>
   <Instructions />
-  <PieChart
-    fccData={Array []}
-  />
+  <div
+    className="landing__stats-group"
+  >
+    <div
+      className="stats-group"
+    >
+      <p>
+        Prior Day Reports
+      </p>
+      <span
+        className="stats-group__total"
+      >
+        0
+      </span>
+    </div>
+    <PieChart
+      fccData={Array []}
+    />
+  </div>
   <BarChart
     fccData={Array []}
   />

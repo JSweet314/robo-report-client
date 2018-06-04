@@ -2691,6 +2691,7 @@ exports[`BarChart should match a snapshot 1`] = `
           responsive={true}
         />
       }
+      crossAxis={false}
       fixLabelOverlap={false}
       gridComponent={
         <Axis
@@ -2708,14 +2709,16 @@ exports[`BarChart should match a snapshot 1`] = `
       style={
         Object {
           "tickLabels": Object {
+            "angle": -90,
             "fillOpacity": 1,
             "fontFamily": "inherit",
-            "fontSize": "8px",
-            "margin": -5,
-            "padding": -5,
+            "fontSize": "5px",
+            "margin": 0,
+            "padding": 0,
           },
           "ticks": Object {
-            "padding": 10,
+            "margin": 0,
+            "padding": 5,
             "size": 2,
             "stroke": "black",
             "strokeOpacity": 1,
@@ -3206,11 +3209,6 @@ exports[`BarChart should match a snapshot 1`] = `
           type="tick"
         />
       }
-      tickFormat={
-        Array [
-          "ME",
-        ]
-      }
       tickLabelComponent={
         <VictoryLabel
           capHeight={0.71}
@@ -3221,7 +3219,58 @@ exports[`BarChart should match a snapshot 1`] = `
       }
       tickValues={
         Array [
-          0,
+          "AK",
+          "AL",
+          "AR",
+          "AZ",
+          "CA",
+          "CO",
+          "CT",
+          "DC",
+          "DE",
+          "FL",
+          "GA",
+          "HI",
+          "IA",
+          "ID",
+          "IL",
+          "IN",
+          "KS",
+          "KY",
+          "LA",
+          "MA",
+          "MD",
+          "ME",
+          "MI",
+          "MN",
+          "MO",
+          "MS",
+          "MT",
+          "NC",
+          "ND",
+          "NE",
+          "NH",
+          "NJ",
+          "NM",
+          "NV",
+          "NY",
+          "OH",
+          "OK",
+          "OR",
+          "PA",
+          "PR",
+          "RI",
+          "SC",
+          "SD",
+          "TN",
+          "TX",
+          "UT",
+          "VA",
+          "VT",
+          "WA",
+          "WI",
+          "WV",
+          "WY",
         ]
       }
     />
@@ -3261,23 +3310,20 @@ exports[`BarChart should match a snapshot 1`] = `
           role="presentation"
         />
       }
+      margin={5}
+      padding={5}
       scale="linear"
       standalone={true}
       style={
         Object {
-          "labels": Object {
-            "margin": -5,
-            "padding": -5,
-          },
           "tickLabels": Object {
             "fillOpacity": 1,
             "fontFamily": "inherit",
             "fontSize": "8px",
-            "margin": -5,
-            "padding": -5,
           },
           "ticks": Object {
-            "padding": 10,
+            "margin": 0,
+            "padding": 0,
             "size": 2,
             "stroke": "black",
             "strokeOpacity": 1,
@@ -3778,6 +3824,7 @@ exports[`BarChart should match a snapshot 1`] = `
       }
     />
     <VictoryBar
+      alignment="start"
       containerComponent={
         <VictoryContainer
           className="VictoryContainer"
@@ -3789,9 +3836,264 @@ exports[`BarChart should match a snapshot 1`] = `
       data={
         Array [
           Object {
+            "label": "AK: 0 report",
+            "numberOfReports": 0,
+            "state": "AK",
+          },
+          Object {
+            "label": "AL: 0 report",
+            "numberOfReports": 0,
+            "state": "AL",
+          },
+          Object {
+            "label": "AR: 0 report",
+            "numberOfReports": 0,
+            "state": "AR",
+          },
+          Object {
+            "label": "AZ: 0 report",
+            "numberOfReports": 0,
+            "state": "AZ",
+          },
+          Object {
+            "label": "CA: 0 report",
+            "numberOfReports": 0,
+            "state": "CA",
+          },
+          Object {
+            "label": "CO: 0 report",
+            "numberOfReports": 0,
+            "state": "CO",
+          },
+          Object {
+            "label": "CT: 0 report",
+            "numberOfReports": 0,
+            "state": "CT",
+          },
+          Object {
+            "label": "DC: 0 report",
+            "numberOfReports": 0,
+            "state": "DC",
+          },
+          Object {
+            "label": "DE: 0 report",
+            "numberOfReports": 0,
+            "state": "DE",
+          },
+          Object {
+            "label": "FL: 0 report",
+            "numberOfReports": 0,
+            "state": "FL",
+          },
+          Object {
+            "label": "GA: 0 report",
+            "numberOfReports": 0,
+            "state": "GA",
+          },
+          Object {
+            "label": "HI: 0 report",
+            "numberOfReports": 0,
+            "state": "HI",
+          },
+          Object {
+            "label": "IA: 0 report",
+            "numberOfReports": 0,
+            "state": "IA",
+          },
+          Object {
+            "label": "ID: 0 report",
+            "numberOfReports": 0,
+            "state": "ID",
+          },
+          Object {
+            "label": "IL: 0 report",
+            "numberOfReports": 0,
+            "state": "IL",
+          },
+          Object {
+            "label": "IN: 0 report",
+            "numberOfReports": 0,
+            "state": "IN",
+          },
+          Object {
+            "label": "KS: 0 report",
+            "numberOfReports": 0,
+            "state": "KS",
+          },
+          Object {
+            "label": "KY: 0 report",
+            "numberOfReports": 0,
+            "state": "KY",
+          },
+          Object {
+            "label": "LA: 0 report",
+            "numberOfReports": 0,
+            "state": "LA",
+          },
+          Object {
+            "label": "MA: 0 report",
+            "numberOfReports": 0,
+            "state": "MA",
+          },
+          Object {
+            "label": "MD: 0 report",
+            "numberOfReports": 0,
+            "state": "MD",
+          },
+          Object {
             "label": "ME: 1 report",
             "numberOfReports": 1,
             "state": "ME",
+          },
+          Object {
+            "label": "MI: 0 report",
+            "numberOfReports": 0,
+            "state": "MI",
+          },
+          Object {
+            "label": "MN: 0 report",
+            "numberOfReports": 0,
+            "state": "MN",
+          },
+          Object {
+            "label": "MO: 0 report",
+            "numberOfReports": 0,
+            "state": "MO",
+          },
+          Object {
+            "label": "MS: 0 report",
+            "numberOfReports": 0,
+            "state": "MS",
+          },
+          Object {
+            "label": "MT: 0 report",
+            "numberOfReports": 0,
+            "state": "MT",
+          },
+          Object {
+            "label": "NC: 0 report",
+            "numberOfReports": 0,
+            "state": "NC",
+          },
+          Object {
+            "label": "ND: 0 report",
+            "numberOfReports": 0,
+            "state": "ND",
+          },
+          Object {
+            "label": "NE: 0 report",
+            "numberOfReports": 0,
+            "state": "NE",
+          },
+          Object {
+            "label": "NH: 0 report",
+            "numberOfReports": 0,
+            "state": "NH",
+          },
+          Object {
+            "label": "NJ: 0 report",
+            "numberOfReports": 0,
+            "state": "NJ",
+          },
+          Object {
+            "label": "NM: 0 report",
+            "numberOfReports": 0,
+            "state": "NM",
+          },
+          Object {
+            "label": "NV: 0 report",
+            "numberOfReports": 0,
+            "state": "NV",
+          },
+          Object {
+            "label": "NY: 0 report",
+            "numberOfReports": 0,
+            "state": "NY",
+          },
+          Object {
+            "label": "OH: 0 report",
+            "numberOfReports": 0,
+            "state": "OH",
+          },
+          Object {
+            "label": "OK: 0 report",
+            "numberOfReports": 0,
+            "state": "OK",
+          },
+          Object {
+            "label": "OR: 0 report",
+            "numberOfReports": 0,
+            "state": "OR",
+          },
+          Object {
+            "label": "PA: 0 report",
+            "numberOfReports": 0,
+            "state": "PA",
+          },
+          Object {
+            "label": "PR: 0 report",
+            "numberOfReports": 0,
+            "state": "PR",
+          },
+          Object {
+            "label": "RI: 0 report",
+            "numberOfReports": 0,
+            "state": "RI",
+          },
+          Object {
+            "label": "SC: 0 report",
+            "numberOfReports": 0,
+            "state": "SC",
+          },
+          Object {
+            "label": "SD: 0 report",
+            "numberOfReports": 0,
+            "state": "SD",
+          },
+          Object {
+            "label": "TN: 0 report",
+            "numberOfReports": 0,
+            "state": "TN",
+          },
+          Object {
+            "label": "TX: 0 report",
+            "numberOfReports": 0,
+            "state": "TX",
+          },
+          Object {
+            "label": "UT: 0 report",
+            "numberOfReports": 0,
+            "state": "UT",
+          },
+          Object {
+            "label": "VA: 0 report",
+            "numberOfReports": 0,
+            "state": "VA",
+          },
+          Object {
+            "label": "VT: 0 report",
+            "numberOfReports": 0,
+            "state": "VT",
+          },
+          Object {
+            "label": "WA: 0 report",
+            "numberOfReports": 0,
+            "state": "WA",
+          },
+          Object {
+            "label": "WI: 0 report",
+            "numberOfReports": 0,
+            "state": "WI",
+          },
+          Object {
+            "label": "WV: 0 report",
+            "numberOfReports": 0,
+            "state": "WV",
+          },
+          Object {
+            "label": "WY: 0 report",
+            "numberOfReports": 0,
+            "state": "WY",
           },
         ]
       }
@@ -3834,6 +4136,8 @@ exports[`BarChart should match a snapshot 1`] = `
           }
         />
       }
+      margin={0}
+      padding={0}
       samples={50}
       scale="linear"
       sortOrder="ascending"
@@ -3842,7 +4146,7 @@ exports[`BarChart should match a snapshot 1`] = `
         Object {
           "data": Object {
             "fill": "blue",
-            "width": 8,
+            "width": 5,
           },
         }
       }
