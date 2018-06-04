@@ -1,4 +1,5 @@
 import * as api from './index';
+import moment from 'moment';
 
 describe('apiCalls', () => {
   describe('postNewUser', () => {
@@ -219,6 +220,45 @@ describe('apiCalls', () => {
         'getUserComplaints error: Bad response, status code: 500'
       );
       await expect(api.getUserComplaints(1000)).rejects.toEqual(expected);
+    });
+  });
+
+  describe('getFCCData', () => {
+    beforeEach(() => {
+      window.fetch = jest.fn().mockImplementation(() => Promise.resolve({
+        status: 200,
+        ok: true,
+        json: () => Promise.resolve([{}])
+      }));      
+    });
+
+    it('should call fetch with the correct params', () => {
+      const date = moment().subtract(1, 'day').format('YYYY-MM-DD');
+      const issueDate = `${date}T00:00:00.000`;
+      const expected =
+        // eslint-disable-next-line
+        `https://opendata.fcc.gov/resource/sr6c-syda.json?issue=Unwanted%20Calls&issue_date=${issueDate}`;
+
+      api.getFCCData();
+      expect(window.fetch).toHaveBeenCalledWith(expected);
+    });
+
+    it('should return an array of data objects if successful', async () => {
+      const expected = [{}];
+      await expect(api.getFCCData()).resolves.toEqual(expected);
+    });
+
+    it('should throw an error if a bad response is received', async () => {
+      window.fetch = jest.fn().mockImplementation(() =>
+        Promise.resolve({
+          status: 500,
+          ok: false
+        })
+      );
+      const expected = new Error(
+        'getFCCData error: Bad response, status code: 500'
+      );
+      await expect(api.getFCCData()).rejects.toEqual(expected);
     });
   });
 });
