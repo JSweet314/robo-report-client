@@ -4,10 +4,33 @@ import { NavLink, Link } from 'react-router-dom';
 import './styles.css';
 
 const Header = ({ user, handleOAuthSignIn }) => {
-  const authBtnText = user.id ? 'SIGN OUT' : 'SIGN IN';
-  const myReportsBtnClassName = user.id
-    ? 'header__link header__link--reports-button'
-    : 'header__link hidden';
+  const myAccountNavLink = (
+    <NavLink to="/myAccount" className="header__link">
+      MY ACCOUNT
+    </NavLink>
+  );
+
+  const signInButton = (
+    <button
+      className="header__link header__link--sign-in-btn"
+      onClick={handleOAuthSignIn}
+    >
+      SIGN IN
+    </button>
+  );
+
+  const myReportsNavLink = (
+    <NavLink
+      to="/myReports"
+      className="header__link header__link--reports-button"
+    >
+      MY REPORTS
+    </NavLink>
+  );
+
+  const accountButton = user.id ? myAccountNavLink : signInButton;
+
+  const myReportsButton = user.id ? myReportsNavLink : null;
   return (
     <header className="header">
       <Link to="/">
@@ -17,15 +40,8 @@ const Header = ({ user, handleOAuthSignIn }) => {
         <Link to="/" className="header__link header__link--home">
           HOME
         </Link>
-        <NavLink to="/myReports" className={myReportsBtnClassName}>
-          MY REPORTS
-        </NavLink>
-        <button
-          className="header__link header__link--sign-in-btn"
-          onClick={handleOAuthSignIn}
-        >
-          {authBtnText}
-        </button>
+        {myReportsButton}
+        {accountButton}
       </nav>
     </header>
   );

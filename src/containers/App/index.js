@@ -9,7 +9,8 @@ import Landing from '../../components/Landing';
 import NewUserContainer from '../NewUserContainer';
 import Loading from '../../components/Loading';
 import NewComplaintContainer from '../NewComplaintContainer';
-import UserComplaintsContainer from "../UserComplaintsContainer";
+import UserComplaintsContainer from '../UserComplaintsContainer';
+import UserAccountContainer from '../UserAccountContainer';
 import './style.css';
 
 export class App extends Component {
@@ -81,24 +82,19 @@ export class App extends Component {
     const { isLoading } = this.state;
     const { user } = this.props;
 
-    return (
-      isLoading ? <Loading /> :
-        <div className="app">
-          <Header
-            user={user}
-            handleOAuthSignIn={this.handleOAuthSignIn}
-          />
-          <Switch>
-            <Route
-              exact
-              path="/"
-              render={() => <Landing user={user} />}
-            />
-            <Route path="/welcomeNewUser" component={NewUserContainer} />
-            <Route path="/newComplaint" component={NewComplaintContainer} />
-            <Route path="/myReports" component={UserComplaintsContainer} />
-          </Switch>
-        </div>
+    return isLoading ? (
+      <Loading />
+    ) : (
+      <div className="app">
+        <Header user={user} handleOAuthSignIn={this.handleOAuthSignIn} />
+        <Switch>
+          <Route exact path="/" render={() => <Landing user={user} />} />
+          <Route path="/welcomeNewUser" component={NewUserContainer} />
+          <Route path="/newComplaint" component={NewComplaintContainer} />
+          <Route path="/myReports" component={UserComplaintsContainer} />
+          <Route path="/myAccount" component={UserAccountContainer} />
+        </Switch>
+      </div>
     );
   }
 }
