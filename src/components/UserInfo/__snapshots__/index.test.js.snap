@@ -1,0 +1,103 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`UserInfo should match the snapshot 1`] = `
+<div
+  className="user-info"
+>
+  <button
+    className="user-info__button user-info__button--edit"
+  >
+    Edit My Information
+  </button>
+  <p
+    className="user-info__p"
+  >
+    <strong>
+      First Name: 
+    </strong>
+    <span>
+      Jerry
+    </span>
+  </p>
+  <p
+    className="user-info__p"
+  >
+    <strong>
+      Last Name: 
+    </strong>
+    <span />
+  </p>
+  <p
+    className="user-info__p"
+  >
+    <strong>
+      Email: 
+    </strong>
+    <span />
+  </p>
+  <p
+    className="user-info__p"
+  >
+    <strong>
+      Phone: 
+    </strong>
+    <span>
+      111-222-3333
+    </span>
+  </p>
+  <p
+    className="user-info__p"
+  >
+    <strong>
+      Phone Type: 
+    </strong>
+    <span />
+  </p>
+  <p
+    className="user-info__p"
+  >
+    <strong>
+      Phone Location: 
+    </strong>
+    <span />
+  </p>
+  <p
+    className="user-info__p"
+  >
+    <strong>
+      Address: 
+    </strong>
+    <span />
+  </p>
+  <p
+    className="user-info__p"
+  >
+    <strong>
+      State: 
+    </strong>
+    <span />
+  </p>
+  <p
+    className="user-info__p"
+  >
+    <strong>
+      City: 
+    </strong>
+    <span />
+  </p>
+  <p
+    className="user-info__p"
+  >
+    <strong>
+      Zip Code: 
+    </strong>
+    <span />
+  </p>
+  <button
+    className="user-info__button"
+    onClick={[Function]}
+  >
+    Sign Out
+  </button>
+</div>
+`;
