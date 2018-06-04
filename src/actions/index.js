@@ -37,3 +37,12 @@ export const captureError = error => ({
   type: 'CAPTURE_ERROR',
   error
 });
+
+export const getFCCData = () => ({
+  type: 'GET_FCC_DATA'
+});
+
+export const captureFCCData = fccData => ({
+  type: 'CAPTURE_FCC_DATA',
+  fccData
+});
