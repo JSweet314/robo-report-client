@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import Instructions from '../Instructions';
 import './styles.css';
 import BarChart from '../BarChart';
+import PieChart from '../PieChart';
 
 const Landing = ({ user, fccData }) => {
   const welcomeText = user.id
@@ -31,6 +32,7 @@ const Landing = ({ user, fccData }) => {
           </p>
         </div>
       )}
+      <PieChart fccData={fccData} />
       <BarChart fccData={fccData} />
     </div>
   );
