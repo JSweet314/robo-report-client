@@ -68,14 +68,15 @@ export class App extends Component {
 
   handleOAuthSignIn = event => {
     event.preventDefault();
-    const user = auth.currentUser;
-    if (user) {
-      auth.signOut();
-      this.props.captureUser({});
-    } else {
-      const provider = new firebase.auth.GoogleAuthProvider();
-      auth.signInWithRedirect(provider);
-    }
+    const provider = new firebase.auth.GoogleAuthProvider();
+    auth.signInWithRedirect(provider);
+  };
+
+  handleOAuthSignOut = event => {
+    event.preventDefault();
+    auth.signOut();
+    this.props.captureUser({});
+    this.props.history.push('/');
   };
 
   render() {
@@ -92,7 +93,14 @@ export class App extends Component {
           <Route path="/welcomeNewUser" component={NewUserContainer} />
           <Route path="/newComplaint" component={NewComplaintContainer} />
           <Route path="/myReports" component={UserComplaintsContainer} />
-          <Route path="/myAccount" component={UserAccountContainer} />
+          <Route
+            path="/myAccount"
+            render={() => (
+              <UserAccountContainer
+                handleOAuthSignOut={this.handleOAuthSignOut}
+              />
+            )}
+          />
         </Switch>
       </div>
     );
