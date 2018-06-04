@@ -10,7 +10,6 @@ import './style.css';
 const BarChart = ({ fccData }) => {
   const barData = mapFCCDataToStateNumbers(fccData);
   const states = barData.map(point => point.state);
-  const indepTicks = states.map((state, index) => index);
   return (
     <div className='bar-chart'>
       <VictoryChart>
@@ -21,21 +20,23 @@ const BarChart = ({ fccData }) => {
           style={{ fontFamily: 'sans-serif', fontWeight: 'bold', fontSize: 10 }}
         />
         <VictoryAxis
-          tickValues={indepTicks}
-          tickFormat={states}
+          crossAxis={false}
+          tickValues={states}
           style={{
             ticks: {
-              padding: 10,
+              padding: 5,
+              margin: 0,
               size: 2,
               stroke: 'black',
               strokeOpacity: 1
             },
             tickLabels: {
-              fontSize: '8px',
+              angle: -90,
+              fontSize: '5px',
               fontFamily: 'inherit',
               fillOpacity: 1,
-              padding: -5,
-              margin: -5
+              padding: 0,
+              margin: 0
             }
           }}
         />
@@ -43,7 +44,8 @@ const BarChart = ({ fccData }) => {
           dependentAxis
           style={{
             ticks: {
-              padding: 10,
+              padding: 0,
+              margin: 0,
               size: 2,
               stroke: 'black',
               strokeOpacity: 1
@@ -51,15 +53,11 @@ const BarChart = ({ fccData }) => {
             tickLabels: {
               fontSize: '8px',
               fontFamily: 'inherit',
-              fillOpacity: 1,
-              padding: -5,
-              margin: -5
-            },
-            labels: {
-              padding: -5,
-              margin: -5
+              fillOpacity: 1
             }
           }}
+          padding={5}
+          margin={5}
         />
         <VictoryBar 
           labelComponent={
@@ -71,10 +69,13 @@ const BarChart = ({ fccData }) => {
               style={{fontSize: 10}}
             />
           }
-          style={{ data: { fill: "blue", width: 8 } }}
+          style={{ data: { fill: "blue", width: 5 } }}
           data={barData} 
           x='state'
           y='numberOfReports'
+          alignment='start'
+          margin={0}
+          padding={0}
         />
       </VictoryChart>
     </div>
