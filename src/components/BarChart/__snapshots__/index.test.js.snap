@@ -2,7 +2,7 @@
 
 exports[`BarChart should match a snapshot 1`] = `
 <div
-  className="stateReport-barchart"
+  className="bar-chart"
 >
   <VictoryChart
     containerComponent={

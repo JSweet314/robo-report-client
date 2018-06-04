@@ -12,7 +12,7 @@ const BarChart = ({ fccData }) => {
   const states = barData.map(point => point.state);
   const indepTicks = states.map((state, index) => index);
   return (
-    <div className='stateReport-barchart'>
+    <div className='bar-chart'>
       <VictoryChart>
         <VictoryLabel
           text={`No. of Reports Filed Yesterday By State`} 
