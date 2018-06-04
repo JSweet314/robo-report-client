@@ -34,7 +34,11 @@ const Landing = ({ user, fccData }) => {
       )}
       <div className='landing__stats-group'>
         <div className='stats-group'>
-          <p>Prior Day Reports</p>
+          <p>
+            Prior Day Reports
+            <br />
+            (nationwide)
+          </p>
           <span className='stats-group__total'>{fccData.length}</span>
         </div>
         <PieChart fccData={fccData} />
