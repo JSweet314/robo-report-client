@@ -13,11 +13,14 @@ describe('App', () => {
   const mockCaptureUser = jest.fn();
   const mockGetUserComplaints = jest.fn();
   const mockCaptureDbComplaints = jest.fn();
+  const mockGetFCCData = jest.fn();
 
   beforeEach(() => {
     wrapper = shallow(
       <App
         user={mockUser}
+        fccData={[]}
+        getFCCData={mockGetFCCData}
         getSavedUserInfo={mockGetSavedUserInfo}
         history={mockHistory}
         captureUser={mockCaptureUser}

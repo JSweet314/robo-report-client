@@ -6,7 +6,7 @@ describe('Landing', () => {
   let wrapper;
   
   beforeEach(() => {
-    wrapper = shallow(<Landing user={{}}/>);
+    wrapper = shallow(<Landing fccData={[]} user={{}}/>);
   });
 
   it('should match the snapshot', () => {
@@ -14,7 +14,9 @@ describe('Landing', () => {
   });
 
   it('should match the snapshot', () => {
-    wrapper = shallow(<Landing user={{id: 1, firstName: 'Walter'}}/>);
+    wrapper = shallow(
+      <Landing fccData={[]} user={{id: 1, firstName: 'Walter'}}/>
+    );
 
     expect(wrapper).toMatchSnapshot();
   });

@@ -60,4 +60,23 @@ describe('actions', () => {
       expect(actions.captureError('error message')).toEqual(expected);
     });
   });
+  
+  describe('getFCCData', () => {
+    it('should return an action of type GET_FCC_DATA', () => {
+      const expected = {
+        type: 'GET_FCC_DATA'
+      };
+      expect(actions.getFCCData()).toEqual(expected);
+    });
+  });
+
+  describe('captureFCCData', () => {
+    it('should return an action of type: CAPTURE_FCC_DATA', () => {
+      const expected = {
+        type: 'CAPTURE_FCC_DATA',
+        fccData: []
+      };
+      expect(actions.captureFCCData([])).toEqual(expected);
+    });
+  });
 });

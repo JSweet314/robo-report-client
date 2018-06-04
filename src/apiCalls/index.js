@@ -1,3 +1,5 @@
+import moment from 'moment';
+
 export const postNewUser = async user => {
   try {
     const response = await fetch(
@@ -81,5 +83,22 @@ export const getUserComplaints = async userId => {
     throw new Error(`Bad response, status code: ${response.status}`);
   } catch (error) {
     throw new Error(`getUserComplaints error: ${error.message}`);
+  }
+};
+
+export const getFCCData = async () => {
+  try {
+    const date = moment().subtract(1, 'day').format('YYYY-MM-DD');
+    const issueDate = `${date}T00:00:00.000`;
+    const response = await fetch(
+      // eslint-disable-next-line
+      `https://opendata.fcc.gov/resource/sr6c-syda.json?issue=Unwanted%20Calls&issue_date=${issueDate}`
+    );
+    if (response.ok) {
+      return await response.json();
+    }
+    throw new Error(`Bad response, status code: ${response.status}`);
+  } catch (error) {
+    throw new Error(`getFCCData error: ${error.message}`);
   }
 };
