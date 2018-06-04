@@ -40,7 +40,7 @@ export class NewUserContainer extends Component {
       const firstName = names[0] || '';
       const lastName = names[names.length - 1] || '';
       const values = {
-        ...this.state.values, 
+        ...this.state.values,
         firstName,
         lastName,
         email
@@ -56,7 +56,7 @@ export class NewUserContainer extends Component {
   handleOnChange = event => {
     const { id, value } = event.target;
     const values = { ...this.state.values, [id]: value };
-    this.setState({ values});
+    this.setState({ values });
   };
 
   handleOnSubmit = event => {
@@ -71,7 +71,7 @@ export class NewUserContainer extends Component {
     const isLoggedIn = user.id ? true : false;
 
     if (isLoggedIn) {
-      return <Redirect to='/' />;
+      return <Redirect to="/" />;
     }
 
     if (error) {
