@@ -26,3 +26,34 @@
   line-height: 1.2;
   font-size: 2rem;
 }
+
+.landing__stats-group {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  width: 90%;
+  border: 5px solid lightgray;
+  margin: 1rem 0;
+}
+
+.stats-group {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: 4rem;
+  padding: 2rem;
+}
+
+.stats-group p {
+  text-align: center;
+  border-bottom: 1px solid black;
+  padding: 0 0 1rem 0;
+}
+
+.stats-group__total {
+  font-size: 6rem;
+  margin: 1rem 0;
+}
+
+
