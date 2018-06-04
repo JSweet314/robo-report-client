@@ -9,6 +9,22 @@ export const mapFCCDataToStateNumbers = fccData => {
       state: key, 
       numberOfReports: counts[key],
       label: `${key}: ${counts[key]} ${counts[key] > 1 ? 'reports' : 'report'}`
+    }))
+    .sort((stateA, stateB) => stateA.state < stateB.state ? -1 : 1);
+};
+
+export const mappFCCDataToTypeOfCall = fccData => {
+  const counts = fccData.reduce((types, complaint) => {
+    !types[complaint['type_of_call_or_messge']] ? 
+      types[complaint['type_of_call_or_messge']] = 1
+      : types[complaint['type_of_call_or_messge']]++;
+    return types;
+  }, {});
+  return Object.keys(counts)
+    .map(key => ({
+      type: key,
+      numberOfReports: counts[key],
+      label: 
+        `${counts[key]} "${key}" ${counts[key] > 1 ? 'calls' : 'call'} reported`
     }));
 };
-  
