@@ -1,3 +1,5 @@
+/* eslint-disable id-length */
+
 export const mapFCCDataToStateNumbers = fccData => {
   const counts = fccData.reduce((states, complaint) => {
     !states[complaint.state] ? states[complaint.state] = 1
@@ -13,18 +15,22 @@ export const mapFCCDataToStateNumbers = fccData => {
     .sort((stateA, stateB) => stateA.state < stateB.state ? -1 : 1);
 };
 
-export const mappFCCDataToTypeOfCall = fccData => {
+export const mapFCCDataToTypeOfCall = fccData => {
   const counts = fccData.reduce((types, complaint) => {
     !types[complaint['type_of_call_or_messge']] ? 
       types[complaint['type_of_call_or_messge']] = 1
       : types[complaint['type_of_call_or_messge']]++;
     return types;
   }, {});
+
+  const totalReports = Object.values(counts)
+    .reduce((total, value) => total + value, 0);
+
   return Object.keys(counts)
     .map(key => ({
-      type: key,
-      numberOfReports: counts[key],
+      x: key,
+      y: Math.round(counts[key] * 100 / totalReports),
       label: 
-        `${counts[key]} "${key}" ${counts[key] > 1 ? 'calls' : 'call'} reported`
+        `"${key}": ${counts[key]} ${counts[key] > 1 ? 'reports' : 'report'}`
     }));
 };
