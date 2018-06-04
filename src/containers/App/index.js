@@ -23,6 +23,7 @@ export class App extends Component {
 
   componentDidMount() {
     this.checkRedirectCredentials();
+    this.props.getFCCData();
   }
 
   componentDidUpdate(prevProps) {
@@ -81,7 +82,7 @@ export class App extends Component {
 
   render() {
     const { isLoading } = this.state;
-    const { user } = this.props;
+    const { user, fccData } = this.props;
 
     return isLoading ? (
       <Loading />
@@ -89,7 +90,9 @@ export class App extends Component {
       <div className="app">
         <Header user={user} handleOAuthSignIn={this.handleOAuthSignIn} />
         <Switch>
-          <Route exact path="/" render={() => <Landing user={user} />} />
+          <Route exact path="/" render={() => 
+            <Landing user={user} fccData={fccData} />
+          } />
           <Route path="/welcomeNewUser" component={NewUserContainer} />
           <Route path="/newComplaint" component={NewComplaintContainer} />
           <Route path="/myReports" component={UserComplaintsContainer} />
@@ -112,11 +115,13 @@ export const mapDispatchToProps = dispatch => ({
   captureUser: user => dispatch(actions.captureUser(user)),
   getUserComplaints: userId => dispatch(actions.getUserComplaints(userId)),
   captureDbComplaints: complaints =>
-    dispatch(actions.captureDbComplaints(complaints))
+    dispatch(actions.captureDbComplaints(complaints)),
+  getFCCData: () => dispatch(actions.getFCCData())
 });
 
-export const mapStateToProps = state => ({
-  user: state.user
+export const mapStateToProps = ({user, fccData}) => ({
+  user,
+  fccData
 });
 
 App.propTypes = {
@@ -127,7 +132,9 @@ App.propTypes = {
   captureUser: PropTypes.func.isRequired,
   getUserComplaints: PropTypes.func.isRequired,
   captureDbComplaints: PropTypes.func.isRequired,
-  user: PropTypes.object.isRequired
+  getFCCData: PropTypes.func.isRequired,
+  user: PropTypes.object.isRequired,
+  fccData: PropTypes.array.isRequired
 };
 
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(App));

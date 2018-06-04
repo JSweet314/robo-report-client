@@ -2,8 +2,9 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Instructions from '../Instructions';
 import './styles.css';
+import BarChart from '../BarChart';
 
-const Landing = ({ user }) => {
+const Landing = ({ user, fccData }) => {
   const welcomeText = user.id
     ? `Welcome Back ${user.firstName}!`
     : 'Welcome to Robo Report!';
@@ -30,12 +31,14 @@ const Landing = ({ user }) => {
           </p>
         </div>
       )}
+      <BarChart fccData={fccData} />
     </div>
   );
 };
 
 Landing.propTypes = {
-  user: PropTypes.object.isRequired
+  user: PropTypes.object.isRequired,
+  fccData: PropTypes.array.isRequired
 };
 
 export default Landing;
