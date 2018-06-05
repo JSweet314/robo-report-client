@@ -21,7 +21,7 @@ export class NewUserContainer extends Component {
         lastName: '',
         address: '',
         city: '',
-        state: '',
+        state: '-',
         zipcode: ''
       },
       welcomeDisplayed: true,

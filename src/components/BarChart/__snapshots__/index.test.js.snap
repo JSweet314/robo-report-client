@@ -4110,6 +4110,7 @@ exports[`BarChart should match a snapshot 1`] = `
       labelComponent={
         <VictoryTooltip
           active={false}
+          dx={2.5}
           dy={-5}
           flyoutComponent={
             <Flyout
