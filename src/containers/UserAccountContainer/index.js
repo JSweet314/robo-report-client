@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
+import { withRouter } from "react-router-dom";
 import NewUserForm from '../../components/NewUserForm';
 import UserInfo from '../../components/UserInfo';
+import { updateUserInfo } from '../../actions';
 import './styles.css';
 
 export class UserAccountContainer extends Component {
@@ -23,6 +25,7 @@ export class UserAccountContainer extends Component {
   handleOnSubmit = event => {
     event.preventDefault();
     this.props.updateUserInfo(this.state.userInfo);
+    this.toggleEdit();
   };
 
   toggleEdit = () => {
@@ -36,6 +39,7 @@ export class UserAccountContainer extends Component {
         values={userInfo}
         handleOnSubmit={this.handleOnSubmit}
         handleOnChange={this.handleOnChange}
+        pathname={this.props.location.pathname}
       />
     ) : (
       <UserInfo
@@ -50,11 +54,20 @@ export class UserAccountContainer extends Component {
 UserAccountContainer.propTypes = {
   user: PropTypes.object.isRequired,
   handleOAuthSignOut: PropTypes.func.isRequired,
-  updateUserInfo: PropTypes.func.isRequired
+  updateUserInfo: PropTypes.func.isRequired,
+  location: PropTypes.shape({
+    pathname: PropTypes.string.isRequired
+  }).isRequired
 };
 
-export const mapStateToProps = state => ({
-  user: state.user
+export const mapStateToProps = ({ user }) => ({
+  user
 });
 
-export default connect(mapStateToProps, null)(UserAccountContainer);
+export const mapDispatchToProps = dispatch => ({
+  updateUserInfo: userInfo => dispatch(updateUserInfo(userInfo))
+});
+
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(
+  UserAccountContainer
+));

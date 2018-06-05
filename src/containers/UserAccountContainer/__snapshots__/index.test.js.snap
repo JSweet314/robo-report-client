@@ -6,8 +6,37 @@ exports[`UserAccountContainer should match the snapshot 1`] = `
   toggleEdit={[Function]}
   user={
     Object {
+      "address": "1 main st",
+      "city": "breck",
+      "email": "jer@sendit.org",
       "firstName": "Jerry",
+      "lastName": "Senderson",
       "phone": "111-222-3333",
+      "phoneLocation": "Residential/Personal",
+      "phoneType": "Wireless (cell phone/other mobile device)",
+      "state": "Colorado",
+      "zipcode": "80111",
+    }
+  }
+/>
+`;
+
+exports[`UserAccountContainer toggleEdit should change the rendered component 1`] = `
+<UserInfo
+  handleOAuthSignOut={[Function]}
+  toggleEdit={[Function]}
+  user={
+    Object {
+      "address": "1 main st",
+      "city": "breck",
+      "email": "jer@sendit.org",
+      "firstName": "Jerry",
+      "lastName": "Senderson",
+      "phone": "111-222-3333",
+      "phoneLocation": "Residential/Personal",
+      "phoneType": "Wireless (cell phone/other mobile device)",
+      "state": "Colorado",
+      "zipcode": "80111",
     }
   }
 />

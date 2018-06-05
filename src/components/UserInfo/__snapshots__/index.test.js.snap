@@ -6,6 +6,7 @@ exports[`UserInfo should match the snapshot 1`] = `
 >
   <button
     className="user-info__button user-info__button--edit"
+    onClick={[Function]}
   >
     Edit My Information
   </button>
