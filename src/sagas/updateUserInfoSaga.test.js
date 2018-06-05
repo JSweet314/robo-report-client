@@ -38,7 +38,7 @@ describe('updateUserInfoSaga', () => {
   });
 
   it('should call the roboReport API to get the updated user info', () => {
-    expect(generator.next(204).value).toEqual(
+    expect(generator.next().value).toEqual(
       call(getUserInfo, mockUpdatedUser.email)
     );
   });
