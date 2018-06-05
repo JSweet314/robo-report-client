@@ -11,7 +11,7 @@
 
 .landing__h2 {
   width: fit-content;
-  font-size: 2.4rem;
+  font-size: 4rem;
   margin: 1rem auto;
 }
 
@@ -20,9 +20,15 @@
   margin: .2em auto;
 }
 
+.landing__text-block {
+  width: 80%;
+  display: flex;
+  justify-content: space-evenly;
+}
+
 .landing__p {
   width: 70%;
-  margin: 1rem auto;
+  margin: 1rem;
   line-height: 1.2;
   font-size: 2rem;
 }

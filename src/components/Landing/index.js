@@ -16,7 +16,7 @@ const Landing = ({ user, fccData }) => {
       {user.id ? (
         <Instructions />
       ) : (
-        <div>
+        <div className='landing__text-block'>
           <p className="landing__p">
             Robo calls have become the primary incoming phone calls to our
             mobile devices. It&apos;s incredibly frustrating. However, the
@@ -24,7 +24,7 @@ const Landing = ({ user, fccData }) => {
             the annoyance of finding and filling out the FCC complaint form.
           </p>
           <p className="landing__p">
-            RoboReport is here to help.<br /> Create an account with our app,
+            RoboReport is here to help. Create an account with our app,
             and it will auto-populate the FCC complaint form, greatly reducing
             the primary barrier to getting this complaint data to the FCC, and
             hopefully, spurring the FCC to take action to stop these incessant,

@@ -1,3 +1,9 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto:400,700');
+
+* {
+  box-sizing: border-box;
+}
+
 html {
   height: 100%;
   width: 100%;
@@ -21,7 +27,7 @@ body {
   border-image-slice: 1;
   box-sizing: border-box;
   line-height: 1;
-  font-family: sans-serif;
+  font-family: 'Roboto', sans-serif;
 }
 
 #root {
@@ -46,6 +52,7 @@ h6 {
   margin-top: 0;
   margin-bottom: 0;
   font-size: inherit;
+  font-weight: bold;
 }
 
 p {

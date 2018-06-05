@@ -1,8 +1,7 @@
 .instructions {
   display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
   font-size: 2rem;
   background-color: white;
   padding: 2rem;
@@ -10,6 +9,14 @@
 
 .instructions__heading {
   text-align: left;
+  width: 100%;
+}
+
+.instruction-group {
+  width: 45%;
+}
+
+.instruction__btn-block {
   width: 100%;
 }
 
