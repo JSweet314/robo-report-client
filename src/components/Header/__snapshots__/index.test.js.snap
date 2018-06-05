@@ -5,9 +5,14 @@ exports[`Header should match the snapshot 1`] = `
   className="header"
 >
   <Link
+    className="header__logo-group"
     replace={false}
     to="/"
   >
+    <img
+      alt="no phone calls"
+      src="no-cellphone.svg"
+    />
     <h1
       className="header__header"
     >
@@ -17,13 +22,15 @@ exports[`Header should match the snapshot 1`] = `
   <nav
     className="header__nav"
   >
-    <Link
+    <NavLink
+      activeClassName="active"
+      ariaCurrent="true"
       className="header__link header__link--home"
-      replace={false}
+      exact={true}
       to="/"
     >
       HOME
-    </Link>
+    </NavLink>
     <button
       className="header__link header__link--sign-in-btn"
       onClick={[Function]}
@@ -39,9 +46,14 @@ exports[`Header should match the snapshot 2`] = `
   className="header"
 >
   <Link
+    className="header__logo-group"
     replace={false}
     to="/"
   >
+    <img
+      alt="no phone calls"
+      src="no-cellphone.svg"
+    />
     <h1
       className="header__header"
     >
@@ -51,13 +63,15 @@ exports[`Header should match the snapshot 2`] = `
   <nav
     className="header__nav"
   >
-    <Link
+    <NavLink
+      activeClassName="active"
+      ariaCurrent="true"
       className="header__link header__link--home"
-      replace={false}
+      exact={true}
       to="/"
     >
       HOME
-    </Link>
+    </NavLink>
     <NavLink
       activeClassName="active"
       ariaCurrent="true"

@@ -39,9 +39,9 @@ const Header = ({ user, handleOAuthSignIn }) => {
         <h1 className="header__header">Robo Report</h1>
       </Link>
       <nav className="header__nav">
-        <Link to="/" className="header__link header__link--home">
+        <NavLink exact to="/" className="header__link header__link--home">
           HOME
-        </Link>
+        </NavLink>
         {myReportsButton}
         {accountButton}
       </nav>

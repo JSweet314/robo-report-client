@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import plusSymbol from '../../assets/images/plus-symbol.svg';
+import minusSymbol from '../../assets/images/minus-symbol.svg';
 import './styles.css';
 
 class Accordion extends Component {
@@ -31,12 +33,17 @@ class Accordion extends Component {
 
   render() {
     const { content, headingText } = this.props;
-    const { className, headingClassName } = this.state;
-
+    const { className, headingClassName, open } = this.state;
+    const symbol = open ? minusSymbol : plusSymbol;
     return (
       <div className="parent-acc">
         <div className={headingClassName} onClick={this.handleClick}>
-          {headingText}
+          <div className='report-heading-group'>
+            <p className='report-heading'>
+              {headingText}
+            </p>
+            <img className='accordion-symbol' src={symbol} alt="plus/minus"/>
+          </div>
         </div>
         <div className={className}>{content}</div>
       </div>

@@ -525,7 +525,9 @@ exports[`NewUserForm should match a snapshot 1`] = `
       </option>
     </select>
   </fieldset>
-  <button>
+  <button
+    className="new-user-form__submit"
+  >
     Start Reporting!
   </button>
 </form>

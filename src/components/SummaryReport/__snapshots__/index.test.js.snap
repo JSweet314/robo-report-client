@@ -4,155 +4,260 @@ exports[`SummaryReport should match a snapshot 1`] = `
 <Accordion
   content={
     Array [
-      <p>
-        <strong>
+      <p
+        className="summary__item"
+    >
+        <strong
+            className="summary_question"
+        >
             Subject
+            :
         </strong>
-        : 
+         
         N/A
     </p>,
-      <p>
-        <strong>
+      <p
+        className="summary__item"
+    >
+        <strong
+            className="summary_question"
+        >
             Description
+            :
         </strong>
-        : 
+         
         N/A
     </p>,
-      <p>
-        <strong>
+      <p
+        className="summary__item"
+    >
+        <strong
+            className="summary_question"
+        >
             Did the call/message that you are reporting advertise any type of property, goods, or services?
+            :
         </strong>
-        : 
+         
         N/A
     </p>,
-      <p>
-        <strong>
+      <p
+        className="summary__item"
+    >
+        <strong
+            className="summary_question"
+        >
             Type of Property, Goods, or Services
+            :
         </strong>
-        : 
+         
         N/A
     </p>,
-      <p>
-        <strong>
+      <p
+        className="summary__item"
+    >
+        <strong
+            className="summary_question"
+        >
             Have you or anyone else in your household done any business with the caller / company within the past 18 months immediately before you received the call / message?
+            :
         </strong>
-        : 
+         
         N/A
     </p>,
-      <p>
-        <strong>
+      <p
+        className="summary__item"
+    >
+        <strong
+            className="summary_question"
+        >
             Have you or anyone else in your household made any inquiry or application to the caller/company within the 3 months immediately before you received the call/message?
+            :
         </strong>
-        : 
+         
         N/A
     </p>,
-      <p>
-        <strong>
+      <p
+        className="summary__item"
+    >
+        <strong
+            className="summary_question"
+        >
             Do you or anyone in your household have a personal relationship with the individual that made the call?
+            :
         </strong>
-        : 
+         
         N/A
     </p>,
-      <p>
-        <strong>
+      <p
+        className="summary__item"
+    >
+        <strong
+            className="summary_question"
+        >
             Have you or anyone else in your household or business given the caller/company permission to call?
+            :
         </strong>
-        : 
+         
         N/A
     </p>,
-      <p>
-        <strong>
+      <p
+        className="summary__item"
+    >
+        <strong
+            className="summary_question"
+        >
             Did you give permission to the caller/business to call you in writing?
+            :
         </strong>
-        : 
+         
         N/A
     </p>,
-      <p>
-        <strong>
+      <p
+        className="summary__item"
+    >
+        <strong
+            className="summary_question"
+        >
             Date you provided permission to the caller/company to call
+            :
         </strong>
-        : 
+         
         N/A
     </p>,
-      <p>
-        <strong>
+      <p
+        className="summary__item"
+    >
+        <strong
+            className="summary_question"
+        >
             Date of Your Issue/Problem
+            :
         </strong>
-        : 
+         
         N/A
     </p>,
-      <p>
-        <strong>
+      <p
+        className="summary__item"
+    >
+        <strong
+            className="summary_question"
+        >
             Time of Your Issue/Problem
+            :
         </strong>
-        : 
+         
         N/A
     </p>,
-      <p>
-        <strong>
+      <p
+        className="summary__item"
+    >
+        <strong
+            className="summary_question"
+        >
             Type of Call or Message
+            :
         </strong>
-        : 
+         
         N/A
     </p>,
-      <p>
-        <strong>
+      <p
+        className="summary__item"
+    >
+        <strong
+            className="summary_question"
+        >
             Did you receive Caller ID Information?
+            :
         </strong>
-        : 
+         
         N/A
     </p>,
-      <p>
-        <strong>
+      <p
+        className="summary__item"
+    >
+        <strong
+            className="summary_question"
+        >
             Caller ID Number
+            :
         </strong>
-        : 
+         
         N/A
     </p>,
-      <p>
-        <strong>
+      <p
+        className="summary__item"
+    >
+        <strong
+            className="summary_question"
+        >
             Caller ID Name
+            :
         </strong>
-        : 
+         
         N/A
     </p>,
-      <p>
-        <strong>
+      <p
+        className="summary__item"
+    >
+        <strong
+            className="summary_question"
+        >
             Was the caller's business name provided during the call/message?
+            :
         </strong>
-        : 
+         
         N/A
     </p>,
-      <p>
-        <strong>
+      <p
+        className="summary__item"
+    >
+        <strong
+            className="summary_question"
+        >
             Was the business name provided at the beginning of the call/message?
+            :
         </strong>
-        : 
+         
         N/A
     </p>,
-      <p>
-        <strong>
+      <p
+        className="summary__item"
+    >
+        <strong
+            className="summary_question"
+        >
             Please provide the name of the advertiser provided during the call
+            :
         </strong>
-        : 
+         
         N/A
     </p>,
-      <p>
-        <strong>
+      <p
+        className="summary__item"
+    >
+        <strong
+            className="summary_question"
+        >
             Provide the advertiser's phone number given during the call.
+            :
         </strong>
-        : 
+         
         N/A
     </p>,
-      <p>
-        <strong>
+      <p
+        className="summary__item"
+    >
+        <strong
+            className="summary_question"
+        >
             Addtl. Info
+            :
         </strong>
-        : 
+         
         N/A
     </p>,
     ]
   }
-  headingText="undefined undefined undefined"
+  headingText="Subject: undefined, Date: undefined, Caller: undefined"
 />
 `;

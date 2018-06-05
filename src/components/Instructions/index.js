@@ -8,11 +8,11 @@ const Instructions = () => {
       <div className='instruction-group'>
         <h4 className="instructions__heading">How it works:</h4>
         <p className="instructions__body">
-          When you choose to submit a new complaint, you will be taken through all
-          of the questions needed to complete the report. The questions are taken
-          directly from the FCC&#39;s complaint form for unwanted calls. Once you
-          have completed all of the required parts of the form, Robo Report will
-          pull up the FCC form and complete it for you! <br />
+          When you choose to submit a new complaint, you will be taken through 
+          all of the questions needed to complete the report. The questions are 
+          taken directly from the FCC&#39;s complaint form for unwanted calls. 
+          Once you have completed all of the required parts of the form, Robo 
+          Report will pull up the FCC form and complete it for you! <br />
           <br />
         </p>
       </div>

@@ -540,7 +540,7 @@ exports[`PieChart should match a snapshot 1`] = `
         },
       }
     }
-    width={500}
+    width={550}
   />
 </div>
 `;

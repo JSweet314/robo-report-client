@@ -14,9 +14,9 @@ const BarChart = ({ fccData }) => {
     <div className='bar-chart'>
       <VictoryChart>
         <VictoryLabel
-          text={`No. of Reports Filed Yesterday By State`} 
-          dx={140}
-          dy={25}
+          text={`Prior Day Reports By State`} 
+          dx={160}
+          dy={35}
           style={{ fontFamily: 'sans-serif', fontWeight: 'bold', fontSize: 10 }}
         />
         <VictoryAxis

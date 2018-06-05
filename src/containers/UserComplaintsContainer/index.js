@@ -15,7 +15,14 @@ export const UserComplaintsContainer = ({ complaints }) => {
     />
   ));
 
-  return <div className="complaintsContainer">{reports}</div>;
+  return (
+    <div className="complaintsContainer">
+      <h3 className='complaintsContainer__heading'>My Reports</h3>
+      <div className='complaintsContainer__group'>
+        {reports}
+      </div>
+    </div>
+  );
 };
 
 UserComplaintsContainer.propTypes = {
