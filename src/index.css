@@ -17,7 +17,7 @@ html {
 }
 
 body {
-  min-height: 100%;
+  height: 100vh;
   width: 100%;
   margin: 0;
   border: 2rem solid transparent;
@@ -30,13 +30,14 @@ body {
   font-family: 'Roboto', sans-serif;
 }
 
-body::-webkit-scrollbar {
+#root::-webkit-scrollbar {
   display: none;
 }
 
 #root {
   height: 100%;
   width: 100%;
+  overflow: scroll;
 }
 
 iframe {
