@@ -279,6 +279,60 @@ describe('apiCalls', () => {
     });
   });
 
+  describe('postNewComplaint', () => {
+    let mockNewComplaint;
+    beforeEach(() => {
+      mockNewComplaint = {
+        callerIdNumber: '727-205-6816'
+      };
+      window.fetch = jest.fn().mockImplementation(() =>
+        Promise.resolve({
+          status: 201,
+          ok: true,
+          json: () => Promise.resolve({ id: 1 })
+        })
+      );
+    });
+
+    it('should call fetch with the correct params', () => {
+      const expected = [
+        'http://roboreport-api.herokuapp.com/api/v1/complaints',
+        {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            token: process.env.REACT_APP_ROBO_TOKEN
+          },
+          body: JSON.stringify(mockNewComplaint)
+        }
+      ];
+      api.postNewComplaint(mockNewComplaint);
+      expect(window.fetch).toHaveBeenCalledWith(...expected);
+    });
+
+    it('should return an object if the response is ok', async () => {
+      const expected = { id: 1 };
+      await expect(api.postNewComplaint(mockNewComplaint)).resolves.toEqual(
+        expected
+      );
+    });
+
+    it('should return an error if response is not ok', async () => {
+      window.fetch = jest.fn().mockImplementation(() =>
+        Promise.resolve({
+          status: 500,
+          ok: false
+        })
+      );
+      const expected = new Error(
+        'postNewComplaint error: Bad response, status code: 500'
+      );
+      await expect(api.postNewComplaint(mockNewComplaint)).rejects.toEqual(
+        expected
+      );
+    });
+  });
+
   describe('getFCCData', () => {
     beforeEach(() => {
       window.fetch = jest.fn().mockImplementation(() =>

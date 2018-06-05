@@ -58,10 +58,9 @@ export const patchUserInfo = async user => {
     );
 
     if (response.ok) {
-      return await response
+      return await response;
     }
     throw new Error(`Bad response, status code: ${response.status}`);
-
   } catch (error) {
     throw new Error(`patchUserInfo error: ${error.message}`);
   }
