@@ -11,7 +11,6 @@ import Loading from '../../components/Loading';
 import NewComplaintContainer from '../NewComplaintContainer';
 import UserComplaintsContainer from '../UserComplaintsContainer';
 import UserAccountContainer from '../UserAccountContainer';
-import './style.css';
 
 export class App extends Component {
   constructor() {
