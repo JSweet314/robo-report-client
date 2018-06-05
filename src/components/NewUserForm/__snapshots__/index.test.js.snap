@@ -1058,7 +1058,9 @@ exports[`NewUserForm should match the snapshot for edit user info route 1`] = `
       </option>
     </select>
   </fieldset>
-  <button>
+  <button
+    className="new-user-form__submit"
+  >
     Save
   </button>
 </form>

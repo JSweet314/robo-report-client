@@ -14,6 +14,11 @@ describe('UserComplaintsContainer', () => {
     expect(wrapper).toMatchSnapshot();
   });
 
+  it('should match the snapshot if no complaints', () => {
+    wrapper = shallow(<UserComplaintsContainer complaints={[]} />);
+    expect(wrapper).toMatchSnapshot();
+  });
+
   describe('mapStateToProps', () => {
     const mockState = { complaints: mockComplaints};
     const mapped = mapStateToProps(mockState);

@@ -243,3 +243,39 @@ exports[`UserComplaintsContainer should match the snapshot 1`] = `
   </div>
 </div>
 `;
+
+exports[`UserComplaintsContainer should match the snapshot if no complaints 1`] = `
+<div
+  className="complaintsContainer"
+>
+  <h3
+    className="complaintsContainer__heading"
+  >
+    My Reports
+  </h3>
+  <div
+    className="complaintsContainer__group"
+  />
+  <div
+    className="complaintsContainer__prompt"
+  >
+    <p
+      className="complaintsContainer__prompt--p"
+    >
+      You have not submitted any reports.
+    </p>
+    <p
+      className="complaintsContainer__prompt--p"
+    >
+      Click the button below to submit a new report.
+    </p>
+    <Link
+      className="complaintsContainer__submit-new-complaint-btn"
+      replace={false}
+      to="/newComplaint"
+    >
+      Submit New Report
+    </Link>
+  </div>
+</div>
+`;
