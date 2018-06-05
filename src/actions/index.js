@@ -33,6 +33,11 @@ export const captureDbComplaints = complaints => ({
   complaints
 });
 
+export const updateUserInfo = user => ({
+  type: 'UPDATE_USER_INFO',
+  user
+});
+
 export const captureError = error => ({
   type: 'CAPTURE_ERROR',
   error
