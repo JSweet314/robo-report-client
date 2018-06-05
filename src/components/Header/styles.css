@@ -1,36 +1,52 @@
 .header {
-  width: 90%;
+  width: 100%;
   margin: auto;
-  padding: .8rem;
+  padding: 1rem;
   display: flex;
   align-items: center;
   justify-content: space-between;
+  background-color: rgb(11, 11, 92);
+  color: white;
 }
 
 .header__header {
   font-size: 2.6rem; 
+  font-family: 'Roboto', sans-serif;
+}
+
+.header__logo-group {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: fit-content;
+  margin-left: 2rem;
+}
+
+.header__logo-group img {
+  height: 4rem;
+  margin-right: 2rem;
 }
 
 .header__nav {
   font-size: 1.5rem;
-  width: 45%;
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
 }
 
 .header__link {
-  padding: .25rem;
+  padding: 1rem;
+  color: white;
+  margin: 1rem;
 }
 
 .header__link:hover {
   font-weight: bold;
+  margin: 1rem 1rem 1rem 0.9rem;
 }
 
 .active {
   font-weight: bold;
-  border: 1px solid #000;
-  border-radius: 5px;
 }
 
 .hidden {

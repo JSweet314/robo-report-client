@@ -1,3 +1,15 @@
 .complaintsContainer {
   height: 100%;
+  width: 80%;
+  margin: auto;
+  padding: 2rem 0 0 0;
+}
+
+.complaintsContainer__heading {
+  margin: 1rem;
+  font-size: 3rem;
+}
+
+.complaintsContainer__group {
+  box-shadow: 2px 2px 6px 2px black;
 }

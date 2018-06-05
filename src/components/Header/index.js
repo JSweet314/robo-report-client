@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { NavLink, Link } from 'react-router-dom';
+import logo from '../../assets/images/no-cellphone.svg';
 import './styles.css';
 
 const Header = ({ user, handleOAuthSignIn }) => {
@@ -33,13 +34,14 @@ const Header = ({ user, handleOAuthSignIn }) => {
   const myReportsButton = user.id ? myReportsNavLink : null;
   return (
     <header className="header">
-      <Link to="/">
+      <Link to="/" className='header__logo-group'>
+        <img src={logo} alt="no phone calls"/>
         <h1 className="header__header">Robo Report</h1>
       </Link>
       <nav className="header__nav">
-        <Link to="/" className="header__link header__link--home">
+        <NavLink exact to="/" className="header__link header__link--home">
           HOME
-        </Link>
+        </NavLink>
         {myReportsButton}
         {accountButton}
       </nav>

@@ -9,7 +9,9 @@ exports[`Landing should match the snapshot 1`] = `
   >
     Welcome to Robo Report!
   </h2>
-  <div>
+  <div
+    className="landing__text-block"
+  >
     <p
       className="landing__p"
     >
@@ -18,9 +20,7 @@ exports[`Landing should match the snapshot 1`] = `
     <p
       className="landing__p"
     >
-      RoboReport is here to help.
-      <br />
-       Create an account with our app, and it will auto-populate the FCC complaint form, greatly reducing the primary barrier to getting this complaint data to the FCC, and hopefully, spurring the FCC to take action to stop these incessant, unwanted calls.
+      RoboReport is here to help. Create an account with our app, and it will auto-populate the FCC complaint form, greatly reducing the primary barrier to getting this complaint data to the FCC, and hopefully, spurring the FCC to take action to stop these incessant, unwanted calls.
     </p>
   </div>
   <div

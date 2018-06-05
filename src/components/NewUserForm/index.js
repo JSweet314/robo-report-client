@@ -124,7 +124,7 @@ const NewUserForm = ({ handleOnChange, handleOnSubmit, values }) => {
           <option value="Toll Free Line">Toll Free Line</option>
         </select>
       </fieldset>
-      <button>Start Reporting!</button>
+      <button className='new-user-form__submit'>Start Reporting!</button>
     </form>
   );
 };

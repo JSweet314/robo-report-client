@@ -10,7 +10,7 @@ const PieChart = ({ fccData }) => {
     <div className='pie-chart'>
       <VictoryPie
         labelRadius={100}
-        width={500}
+        width={550}
         innerRadius={20}
         colorScale={
           ["mediumslateblue", "lightblue", "DeepSkyBlue ", "cyan", "navy"]

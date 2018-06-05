@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Accordion from '../Accordion';
+import './style.css';
 
 const SummaryReport = ({ questionBlocks, values }) => {
   const reportItems = questionBlocks
@@ -13,14 +14,17 @@ const SummaryReport = ({ questionBlocks, values }) => {
         ? 'N/A'
         : values[question.value];
     return (
-      <p key={`question-${question.value}`}>
-        <strong>{question.label}</strong>: {value}
+      <p key={`question-${question.value}`}
+        className='summary__item'
+      >
+        <strong className='summary_question'>{question.label}:</strong> {value}
       </p>
     );
   });
 
   const { subject, date, callerIdNumber } = values;
-  const summaryTitle = `${subject} ${date} ${callerIdNumber}`;
+  const summaryTitle = 
+    `Subject: ${subject}, Date: ${date}, Caller: ${callerIdNumber}`;
 
   return (
     <Accordion content={summary} headingText={summaryTitle} key={values.id} />

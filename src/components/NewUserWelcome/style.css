@@ -6,13 +6,34 @@
   font-size: 2rem;
   justify-content: center;
   align-items: center;
+}
+
+.new-user-welcome h2 {
   text-align: center;
+  margin: 1rem 0;
+  font-size: 3rem;
+}
+
+.new-user-welcome p {
+  margin: 1rem 0;
 }
 
 .new-user-welcome button {
+  font-weight: bold;
   display: block;
-  margin: auto;
-  width: 50%;
-  min-width: 4rem;
-  font-size: 2rem;
+  width: fit-content;
+  margin: 1.5rem auto;
+  padding: .2rem;
+  border: 1px solid darkgray;
+  border-radius: 10px;
+  padding: 1rem;
+  transition: color 1s ease;
+  transition: background-color 1s ease;
+}
+
+.new-user-welcome button:hover {
+  color: white;
+  background-color: #467EB4;
+  transition: color 1s ease;
+  transition: background-color 1s ease;
 }

@@ -2654,8 +2654,8 @@ exports[`BarChart should match a snapshot 1`] = `
   >
     <VictoryLabel
       capHeight={0.71}
-      dx={140}
-      dy={25}
+      dx={160}
+      dy={35}
       lineHeight={1}
       style={
         Object {
@@ -2664,7 +2664,7 @@ exports[`BarChart should match a snapshot 1`] = `
           "fontWeight": "bold",
         }
       }
-      text="No. of Reports Filed Yesterday By State"
+      text="Prior Day Reports By State"
       textComponent={<Text />}
       tspanComponent={<TSpan />}
     />

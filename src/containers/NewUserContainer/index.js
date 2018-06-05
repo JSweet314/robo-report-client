@@ -6,7 +6,6 @@ import * as actions from '../../actions';
 import NewUserWelcome from '../../components/NewUserWelcome';
 import NewUserForm from '../../components/NewUserForm';
 import Loading from '../../components/Loading';
-import './style.css';
 
 export class NewUserContainer extends Component {
   constructor() {

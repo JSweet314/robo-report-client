@@ -8,7 +8,20 @@ exports[`Accordion should match the snapshot 1`] = `
     className="acc-heading"
     onClick={[Function]}
   >
-    Robo Calls 2018-06-02 555-555-5555
+    <div
+      className="report-heading-group"
+    >
+      <p
+        className="report-heading"
+      >
+        Robo Calls 2018-06-02 555-555-5555
+      </p>
+      <img
+        alt="plus/minus"
+        className="accordion-symbol"
+        src="plus-symbol.svg"
+      />
+    </div>
   </div>
   <div
     className="acc-content acc-close"
@@ -35,7 +48,20 @@ exports[`Accordion should match the snapshot 2`] = `
     className="acc-heading"
     onClick={[Function]}
   >
-    Robo Calls 2018-06-02 555-555-5555
+    <div
+      className="report-heading-group"
+    >
+      <p
+        className="report-heading"
+      >
+        Robo Calls 2018-06-02 555-555-5555
+      </p>
+      <img
+        alt="plus/minus"
+        className="accordion-symbol"
+        src="plus-symbol.svg"
+      />
+    </div>
   </div>
   <div
     className="acc-content acc-close"
