@@ -125,8 +125,63 @@ describe('apiCalls', () => {
       const expected = new Error(
         'getUserInfo error: Bad response, status code: 500'
       );
-      await expect(api.getUserInfo('wrong@email.com'))
-        .rejects.toEqual(expected);
+      await expect(api.getUserInfo('wrong@email.com')).rejects.toEqual(
+        expected
+      );
+    });
+  });
+
+  describe('patchUserInfo', () => {
+    let mockUpdatedUser;
+    beforeEach(() => {
+      mockUpdatedUser = {
+        name: 'dude',
+        id: 1
+      };
+      window.fetch = jest.fn().mockImplementation(() =>
+        Promise.resolve({
+          status: 204,
+          ok: true
+        })
+      );
+    });
+
+    it('should call fetch with the correct params', () => {
+      const expected = [
+        'http://roboreport-api.herokuapp.com/api/v1/users/1',
+        {
+          method: 'PATCH',
+          headers: {
+            'Content-Type': 'application/json',
+            token: process.env.REACT_APP_ROBO_TOKEN
+          },
+          body: JSON.stringify(mockUpdatedUser)
+        }
+      ];
+      api.patchUserInfo(mockUpdatedUser);
+      expect(window.fetch).toHaveBeenCalledWith(...expected);
+    });
+
+    it('should return a status of 204', async () => {
+      const expected = { ok: true, status: 204 };
+      await expect(api.patchUserInfo(mockUpdatedUser)).resolves.toEqual(
+        expected
+      );
+    });
+
+    it('should return an error if response is not ok', async () => {
+      window.fetch = jest.fn().mockImplementation(() =>
+        Promise.resolve({
+          status: 500,
+          ok: false
+        })
+      );
+      const expected = new Error(
+        'patchUserInfo error: Bad response, status code: 500'
+      );
+      await expect(api.patchUserInfo(mockUpdatedUser)).rejects.toEqual(
+        expected
+      );
     });
   });
 
@@ -205,8 +260,9 @@ describe('apiCalls', () => {
         providedAdvertiserNumber: ''
       };
 
-      await expect(api.getUserComplaints(mockUserId))
-        .resolves.toEqual(expected);
+      await expect(api.getUserComplaints(mockUserId)).resolves.toEqual(
+        expected
+      );
     });
 
     it('should return an error if the response is not ok', async () => {
@@ -225,15 +281,19 @@ describe('apiCalls', () => {
 
   describe('getFCCData', () => {
     beforeEach(() => {
-      window.fetch = jest.fn().mockImplementation(() => Promise.resolve({
-        status: 200,
-        ok: true,
-        json: () => Promise.resolve([{}])
-      }));      
+      window.fetch = jest.fn().mockImplementation(() =>
+        Promise.resolve({
+          status: 200,
+          ok: true,
+          json: () => Promise.resolve([{}])
+        })
+      );
     });
 
     it('should call fetch with the correct params', () => {
-      const date = moment().subtract(1, 'day').format('YYYY-MM-DD');
+      const date = moment()
+        .subtract(1, 'day')
+        .format('YYYY-MM-DD');
       const issueDate = `${date}T00:00:00.000`;
       const expected =
         // eslint-disable-next-line

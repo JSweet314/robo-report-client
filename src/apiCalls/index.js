@@ -43,6 +43,30 @@ export const getUserInfo = async userEmail => {
   }
 };
 
+export const patchUserInfo = async user => {
+  try {
+    const response = await fetch(
+      `http://roboreport-api.herokuapp.com/api/v1/users/${user.id}`,
+      {
+        method: 'PATCH',
+        headers: {
+          token: process.env.REACT_APP_ROBO_TOKEN,
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(user)
+      }
+    );
+
+    if (response.ok) {
+      return await response
+    }
+    throw new Error(`Bad response, status code: ${response.status}`);
+
+  } catch (error) {
+    throw new Error(`patchUserInfo error: ${error.message}`);
+  }
+};
+
 export const postNewComplaint = async complaint => {
   try {
     const response = await fetch(
@@ -88,7 +112,9 @@ export const getUserComplaints = async userId => {
 
 export const getFCCData = async () => {
   try {
-    const date = moment().subtract(1, 'day').format('YYYY-MM-DD');
+    const date = moment()
+      .subtract(1, 'day')
+      .format('YYYY-MM-DD');
     const issueDate = `${date}T00:00:00.000`;
     const response = await fetch(
       // eslint-disable-next-line
