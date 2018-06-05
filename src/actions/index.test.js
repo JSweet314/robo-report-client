@@ -51,6 +51,16 @@ describe('actions', () => {
     });
   });
 
+  describe('updateUserInfo', () => {
+    it('should return an action of type: UPDATE_USER_INFO', () => {
+      const expected = {
+        type: 'UPDATE_USER_INFO',
+        user: { id: 1 }
+      };
+      expect(actions.updateUserInfo({ id: 1 })).toEqual(expected);
+    });
+  });
+
   describe('captureError', () => {
     it('should return an action of type: CAPTURE_ERROR', () => {
       const expected = {

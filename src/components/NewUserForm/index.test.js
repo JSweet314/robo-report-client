@@ -3,11 +3,7 @@ import { shallow } from 'enzyme';
 import NewUserForm from './index';
 
 describe('NewUserForm', () => {
-  let wrapper, 
-    mockValues, 
-    mockEvent, 
-    mockHandleOnChange, 
-    mockHandleOnSubmit;
+  let wrapper, mockValues, mockEvent, mockHandleOnChange, mockHandleOnSubmit;
 
   beforeEach(() => {
     mockValues = {
@@ -35,7 +31,8 @@ describe('NewUserForm', () => {
       <NewUserForm
         handleOnSubmit={mockHandleOnSubmit}
         handleOnChange={mockHandleOnChange}
-        values={mockValues} />
+        values={mockValues}
+      />
     );
   });
 
@@ -59,5 +56,18 @@ describe('NewUserForm', () => {
     const selects = wrapper.find('select');
     selects.forEach(select => select.simulate('change', mockEvent));
     expect(mockHandleOnChange).toHaveBeenCalledTimes(3);
+  });
+
+  it('should match the snapshot for edit user info route', () => {
+    wrapper = shallow(
+      <NewUserForm
+        handleOnSubmit={mockHandleOnSubmit}
+        handleOnChange={mockHandleOnChange}
+        values={mockValues}
+        pathname={'/myAccount'}
+      />
+    );
+
+    expect(wrapper).toMatchSnapshot();
   });
 });

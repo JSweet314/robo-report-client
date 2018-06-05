@@ -1,90 +1,43 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`UserAccountContainer should match the snapshot 1`] = `
-<div
-  className="user-account-container"
->
-  <p
-    className="user-account-container__p"
-  >
-    <strong>
-      First Name: 
-    </strong>
-    Jerry
-  </p>
-  <p
-    className="user-account-container__p"
-  >
-    <strong>
-      Last Name: 
-    </strong>
-  </p>
-  <p
-    className="user-account-container__p"
-  >
-    <strong>
-      Email: 
-    </strong>
-  </p>
-  <p
-    className="user-account-container__p"
-  >
-    <strong>
-      phone: 
-    </strong>
-  </p>
-  <p
-    className="user-account-container__p"
-  >
-    <strong>
-      Phone Type: 
-    </strong>
-  </p>
-  <p
-    className="user-account-container__p"
-  >
-    <strong>
-      Phone Location: 
-    </strong>
-  </p>
-  <p
-    className="user-account-container__p"
-  >
-    <strong>
-      Address: 
-    </strong>
-  </p>
-  <p
-    className="user-account-container__p"
-  >
-    <strong>
-      State: 
-    </strong>
-  </p>
-  <p
-    className="user-account-container__p"
-  >
-    <strong>
-      City: 
-    </strong>
-  </p>
-  <p
-    className="user-account-container__p"
-  >
-    <strong>
-      Zip Code: 
-    </strong>
-  </p>
-  <button
-    className="user-account-container__button"
-  >
-    Edit My Information
-  </button>
-  <button
-    className="user-account-container__button"
-    onClick={[Function]}
-  >
-    Sign Out
-  </button>
-</div>
+<UserInfo
+  handleOAuthSignOut={[Function]}
+  toggleEdit={[Function]}
+  user={
+    Object {
+      "address": "1 main st",
+      "city": "breck",
+      "email": "jer@sendit.org",
+      "firstName": "Jerry",
+      "lastName": "Senderson",
+      "phone": "111-222-3333",
+      "phoneLocation": "Residential/Personal",
+      "phoneType": "Wireless (cell phone/other mobile device)",
+      "state": "Colorado",
+      "zipcode": "80111",
+    }
+  }
+/>
+`;
+
+exports[`UserAccountContainer toggleEdit should change the rendered component 1`] = `
+<UserInfo
+  handleOAuthSignOut={[Function]}
+  toggleEdit={[Function]}
+  user={
+    Object {
+      "address": "1 main st",
+      "city": "breck",
+      "email": "jer@sendit.org",
+      "firstName": "Jerry",
+      "lastName": "Senderson",
+      "phone": "111-222-3333",
+      "phoneLocation": "Residential/Personal",
+      "phoneType": "Wireless (cell phone/other mobile device)",
+      "state": "Colorado",
+      "zipcode": "80111",
+    }
+  }
+/>
 `;

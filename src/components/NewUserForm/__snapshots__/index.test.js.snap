@@ -532,3 +532,534 @@ exports[`NewUserForm should match a snapshot 1`] = `
   </button>
 </form>
 `;
+
+exports[`NewUserForm should match the snapshot for edit user info route 1`] = `
+<form
+  className="new-user-form"
+  onSubmit={[Function]}
+>
+  <label
+    htmlFor="firstName"
+  >
+    First Name:
+  </label>
+  <input
+    id="firstName"
+    onChange={[Function]}
+    required={true}
+    type="text"
+    value=""
+  />
+  <label
+    htmlFor="lastName"
+  >
+    Last Name:
+  </label>
+  <input
+    id="lastName"
+    onChange={[Function]}
+    required={true}
+    type="text"
+    value=""
+  />
+  <label
+    htmlFor=""
+  >
+    Email:
+  </label>
+  <input
+    id="email"
+    onChange={[Function]}
+    required={true}
+    type="email"
+    value=""
+  />
+  <fieldset
+    className="user-report-form__fieldset"
+  >
+    <legend>
+      Your Address
+    </legend>
+    <label
+      htmlFor="address"
+    >
+      Street Address:
+    </label>
+    <input
+      id="address"
+      onChange={[Function]}
+      required={true}
+      type="text"
+      value=""
+    />
+    <label
+      htmlFor="city"
+    >
+      City:
+    </label>
+    <input
+      id="city"
+      onChange={[Function]}
+      required={true}
+      type="text"
+      value=""
+    />
+    <label
+      htmlFor="state"
+    >
+      State:
+    </label>
+    <select
+      id="state"
+      onChange={[Function]}
+      required={true}
+      value=""
+    >
+      <option
+        value="-"
+      >
+        -
+      </option>
+      <option
+        key="state-Alabama"
+        value="Alabama"
+      >
+        Alabama
+      </option>
+      <option
+        key="state-Alaska"
+        value="Alaska"
+      >
+        Alaska
+      </option>
+      <option
+        key="state-American Samoa"
+        value="American Samoa"
+      >
+        American Samoa
+      </option>
+      <option
+        key="state-Arizona"
+        value="Arizona"
+      >
+        Arizona
+      </option>
+      <option
+        key="state-Arkansas"
+        value="Arkansas"
+      >
+        Arkansas
+      </option>
+      <option
+        key="state-California"
+        value="California"
+      >
+        California
+      </option>
+      <option
+        key="state-Colorado"
+        value="Colorado"
+      >
+        Colorado
+      </option>
+      <option
+        key="state-Connecticut"
+        value="Connecticut"
+      >
+        Connecticut
+      </option>
+      <option
+        key="state-Delaware"
+        value="Delaware"
+      >
+        Delaware
+      </option>
+      <option
+        key="state-District of Columbia"
+        value="District of Columbia"
+      >
+        District of Columbia
+      </option>
+      <option
+        key="state-Florida"
+        value="Florida"
+      >
+        Florida
+      </option>
+      <option
+        key="state-Georgia"
+        value="Georgia"
+      >
+        Georgia
+      </option>
+      <option
+        key="state-Guam"
+        value="Guam"
+      >
+        Guam
+      </option>
+      <option
+        key="state-Hawaii"
+        value="Hawaii"
+      >
+        Hawaii
+      </option>
+      <option
+        key="state-Idaho"
+        value="Idaho"
+      >
+        Idaho
+      </option>
+      <option
+        key="state-Illinois"
+        value="Illinois"
+      >
+        Illinois
+      </option>
+      <option
+        key="state-Indiana"
+        value="Indiana"
+      >
+        Indiana
+      </option>
+      <option
+        key="state-Iowa"
+        value="Iowa"
+      >
+        Iowa
+      </option>
+      <option
+        key="state-Kansas"
+        value="Kansas"
+      >
+        Kansas
+      </option>
+      <option
+        key="state-Kentucky"
+        value="Kentucky"
+      >
+        Kentucky
+      </option>
+      <option
+        key="state-Louisiana"
+        value="Louisiana"
+      >
+        Louisiana
+      </option>
+      <option
+        key="state-Maine"
+        value="Maine"
+      >
+        Maine
+      </option>
+      <option
+        key="state-Maryland"
+        value="Maryland"
+      >
+        Maryland
+      </option>
+      <option
+        key="state-Massachusetts"
+        value="Massachusetts"
+      >
+        Massachusetts
+      </option>
+      <option
+        key="state-Michigan"
+        value="Michigan"
+      >
+        Michigan
+      </option>
+      <option
+        key="state-Minnesota"
+        value="Minnesota"
+      >
+        Minnesota
+      </option>
+      <option
+        key="state-Mississippi"
+        value="Mississippi"
+      >
+        Mississippi
+      </option>
+      <option
+        key="state-Missouri"
+        value="Missouri"
+      >
+        Missouri
+      </option>
+      <option
+        key="state-Montana"
+        value="Montana"
+      >
+        Montana
+      </option>
+      <option
+        key="state-Nebraska"
+        value="Nebraska"
+      >
+        Nebraska
+      </option>
+      <option
+        key="state-Nevada"
+        value="Nevada"
+      >
+        Nevada
+      </option>
+      <option
+        key="state-New Hampshire"
+        value="New Hampshire"
+      >
+        New Hampshire
+      </option>
+      <option
+        key="state-New Jersey"
+        value="New Jersey"
+      >
+        New Jersey
+      </option>
+      <option
+        key="state-New Mexico"
+        value="New Mexico"
+      >
+        New Mexico
+      </option>
+      <option
+        key="state-New York"
+        value="New York"
+      >
+        New York
+      </option>
+      <option
+        key="state-North Carolina"
+        value="North Carolina"
+      >
+        North Carolina
+      </option>
+      <option
+        key="state-North Dakota"
+        value="North Dakota"
+      >
+        North Dakota
+      </option>
+      <option
+        key="state-Northern Mariana Islands"
+        value="Northern Mariana Islands"
+      >
+        Northern Mariana Islands
+      </option>
+      <option
+        key="state-Ohio"
+        value="Ohio"
+      >
+        Ohio
+      </option>
+      <option
+        key="state-Oklahoma"
+        value="Oklahoma"
+      >
+        Oklahoma
+      </option>
+      <option
+        key="state-Oregon"
+        value="Oregon"
+      >
+        Oregon
+      </option>
+      <option
+        key="state-Pennsylvania"
+        value="Pennsylvania"
+      >
+        Pennsylvania
+      </option>
+      <option
+        key="state-Puerto Rico"
+        value="Puerto Rico"
+      >
+        Puerto Rico
+      </option>
+      <option
+        key="state-Rhode Island"
+        value="Rhode Island"
+      >
+        Rhode Island
+      </option>
+      <option
+        key="state-South Carolina"
+        value="South Carolina"
+      >
+        South Carolina
+      </option>
+      <option
+        key="state-South Dakota"
+        value="South Dakota"
+      >
+        South Dakota
+      </option>
+      <option
+        key="state-Tennessee"
+        value="Tennessee"
+      >
+        Tennessee
+      </option>
+      <option
+        key="state-Texas"
+        value="Texas"
+      >
+        Texas
+      </option>
+      <option
+        key="state-U.S. Virgin Islands"
+        value="U.S. Virgin Islands"
+      >
+        U.S. Virgin Islands
+      </option>
+      <option
+        key="state-Utah"
+        value="Utah"
+      >
+        Utah
+      </option>
+      <option
+        key="state-Vermont"
+        value="Vermont"
+      >
+        Vermont
+      </option>
+      <option
+        key="state-Virginia"
+        value="Virginia"
+      >
+        Virginia
+      </option>
+      <option
+        key="state-Washington"
+        value="Washington"
+      >
+        Washington
+      </option>
+      <option
+        key="state-West Virginia"
+        value="West Virginia"
+      >
+        West Virginia
+      </option>
+      <option
+        key="state-Wisconsin"
+        value="Wisconsin"
+      >
+        Wisconsin
+      </option>
+      <option
+        key="state-Wyoming"
+        value="Wyoming"
+      >
+        Wyoming
+      </option>
+    </select>
+    <label
+      htmlFor="zipcode"
+    >
+      Zip Code
+    </label>
+    <input
+      id="zipcode"
+      onChange={[Function]}
+      required={true}
+      type="text"
+      value=""
+    />
+  </fieldset>
+  <fieldset
+    className="user-report-form__fieldset"
+  >
+    <legend>
+      Your Phone
+    </legend>
+    <label
+      htmlFor="phone"
+    >
+      Phone Number:
+    </label>
+    <input
+      id="phone"
+      onChange={[Function]}
+      required={true}
+      type="tel"
+      value=""
+    />
+    <label
+      htmlFor="phoneType"
+    >
+      Phone Type: 
+    </label>
+    <select
+      id="phoneType"
+      onChange={[Function]}
+      required={true}
+      value=""
+    >
+      <option
+        value="-"
+      >
+        -
+      </option>
+      <option
+        value="Wireless (cell phone/other mobile device)"
+      >
+        Wireless (cell phone/other mobile device)
+      </option>
+      <option
+        value="Wired"
+      >
+        Wired
+      </option>
+      <option
+        value="Internet (VOIP)"
+      >
+        Internet (VOIP)
+      </option>
+    </select>
+    <label
+      htmlFor=""
+    >
+      Phone Location:
+    </label>
+    <select
+      id="phoneLocation"
+      onChange={[Function]}
+      required={true}
+      value=""
+    >
+      <option
+        value="-"
+      >
+        -
+      </option>
+      <option
+        value="Residential/Personal"
+      >
+        Residential/Personal
+      </option>
+      <option
+        value="Business  (including government and nonprofit organizations)"
+      >
+        Business (including government and nonprofit organizations)
+      </option>
+      <option
+        value="Patient Room in Health Care of Elderly Care Facility"
+      >
+        Patient Room in Health Care of Elderly Care Facility
+      </option>
+      <option
+        value="Toll Free Line"
+      >
+        Toll Free Line
+      </option>
+    </select>
+  </fieldset>
+  <button>
+    Save
+  </button>
+</form>
+`;
