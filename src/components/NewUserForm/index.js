@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import './style.css';
+import { states } from '../../helpers';
 
 const NewUserForm = ({ handleOnChange, handleOnSubmit, values }) => {
   const {
@@ -15,6 +16,10 @@ const NewUserForm = ({ handleOnChange, handleOnSubmit, values }) => {
     state,
     zipcode
   } = values;
+
+  const stateOptions = states.map(state => 
+    <option key={`state-${state}`} value={state}>{state}</option>
+  );
 
   return (
     <form className='new-user-form'
@@ -57,12 +62,14 @@ const NewUserForm = ({ handleOnChange, handleOnSubmit, values }) => {
           id='city'
           type='text' />
         <label htmlFor='state'>State:</label>
-        <input
+        <select
           required
           value={state}
           onChange={event => handleOnChange(event)}
-          id='state'
-          type='text' />
+          id='state' >
+          <option value='-'>-</option>
+          {stateOptions}
+        </select>
         <label htmlFor='zipcode'>Zip Code</label>
         <input
           required

@@ -52,12 +52,12 @@ describe('NewUserForm', () => {
   it('should call handleOnChange when an input or select is changed', () => {
     const inputs = wrapper.find('input');
     inputs.forEach(input => input.simulate('change', mockEvent));
-    expect(mockHandleOnChange).toHaveBeenCalledTimes(8);
+    expect(mockHandleOnChange).toHaveBeenCalledTimes(7);
   });
 
   it('should call handleOnChange when a select box is changed', () => {
     const selects = wrapper.find('select');
     selects.forEach(select => select.simulate('change', mockEvent));
-    expect(mockHandleOnChange).toHaveBeenCalledTimes(2);
+    expect(mockHandleOnChange).toHaveBeenCalledTimes(3);
   });
 });
