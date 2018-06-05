@@ -65,6 +65,7 @@ const BarChart = ({ fccData }) => {
               padding={0}
               margin={0}
               dy={-5}
+              dx={2.5}
               pointerLength={5}
               style={{fontSize: 10}}
             />
