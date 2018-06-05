@@ -1,0 +1,13 @@
+language: node_js
+node_js:
+- node
+ script:
+ - npm run eslint
+ - npm test
+notifications:
+  email: false
+true:
+  repo: jsweet314/robo-report-client
+env:
+  matrix:
+    secure: TI/ffpZoe7WIjfCKAVXk+6zevwHefTaJTGUsJTKllmiZnTt22sbpVO3ZMOjPZ/vgyNUMsullJugj+JUbPLHdm0j0W+EZIX5ngoaYVsN3PksNNCG88IJVxNzccBbjTIYrGNvkWDbcaDfGxpU05sKt5D9uPGHW6HHic0Pfu6Zq7JWo5AZd9qJe0RQWSpPlw+w4ggFzI915alYAQm34tuwybfA/wOSE6zZ6L6rMNuTrrrKjq1PM+NHcEQN5AlshyQZKA6a4SAMqWMRWUMeOdvtkBEYexdmsr5oAqBTShSWy2xvVOSyAvkPFSQc6r49uawwXdvzRoRtPcKC318CeO2nTJwkegTrzC0JC4T7r2xOhDFccjwZyQ27jmmz3cbTuXdA7xfqIcAE7b7TRK72pd0FpF6ygY3YbZEU6g7O89I0ZO8PhITqqr8kAHd5jy0TLyFo2qUm8xskLohUHWf9hF6NmfbNMjqTCW/zJOvF7zXrPnpwoT+V9tmbXMegMCVqV46UveTgH8sAdxMQmZwIQmPk+uuhucrSP4s0/kSnl9/BxSFftGdnO2Eb1ovYxSd0iTJgnzMnbmWIU4e4bN+0wmcdahwBlaHYTcIvQKL/nEEnq2Fzy/TQmk+oYsoLDFkMlQBgCbya18ymhqQ2BTIt1uuyhhjdzUkBbG8kQBEw/CZTyIVA=
