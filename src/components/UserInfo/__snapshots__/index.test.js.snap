@@ -16,6 +16,11 @@ exports[`UserInfo should match the snapshot 1`] = `
   >
     Edit My Information
   </button>
+  <h1
+    className="user-info__h1"
+  >
+    My Account
+  </h1>
   <p
     className="user-info__p"
   >

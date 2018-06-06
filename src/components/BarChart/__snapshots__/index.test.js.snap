@@ -4146,7 +4146,7 @@ exports[`BarChart should match a snapshot 1`] = `
       style={
         Object {
           "data": Object {
-            "fill": "blue",
+            "fill": "#135e97",
             "width": 5,
           },
         }

@@ -38,13 +38,12 @@
   border: 1px solid darkgray;
   border-radius: 10px;
   padding: 1rem;
-  transition: color 1s ease;
-  transition: background-color 1s ease;
+  transition: .6s ease;
 }
 
 .submit-new-complaint-btn:hover {
-  color: white;
-  background-color: #467EB4;
-  transition: color 1s ease;
-  transition: background-color 1s ease;
+
+  border: 1px solid #347fb9;
+  box-shadow: 0 0 5px 1px #347fb9;
+  transition: .3s ease;
 }
