@@ -7,6 +7,10 @@
   justify-content: space-between;
   background-color: rgb(11, 11, 92);
   color: white;
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  box-shadow: 0 3px 3px #fff;
 }
 
 .header__header {
