@@ -26,17 +26,27 @@ exports[`Instructions should match a snapshot 1`] = `
     <p>
       To finish the process, all you will need to do is:
     </p>
-    <ol>
-      <li>
+    <ol
+      className="instruction-group__ol"
+    >
+      <li
+        className="instruction-group__li"
+      >
         Scoll through and review the form, making any edits as needed.
       </li>
-      <li>
+      <li
+        className="instruction-group__li"
+      >
         Read and click the attest statement near the bottom.
       </li>
-      <li>
+      <li
+        className="instruction-group__li"
+      >
         Check the Captcha that you are not a robot (ironic, we know)
       </li>
-      <li>
+      <li
+        className="instruction-group__li"
+      >
         Submit the form!
       </li>
     </ol>

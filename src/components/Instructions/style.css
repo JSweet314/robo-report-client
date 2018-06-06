@@ -9,11 +9,20 @@
 
 .instructions__heading {
   text-align: left;
+  margin: 0 0 .4rem;
   width: 100%;
 }
 
 .instruction-group {
   width: 45%;
+}
+
+.instruction-group__ol {
+  margin: .4rem 0;
+}
+
+.instruction-group__li {
+  margin: .3rem 0;
 }
 
 .instruction__btn-block {
