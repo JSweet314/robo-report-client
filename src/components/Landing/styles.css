@@ -62,4 +62,12 @@
   margin: 1rem 0;
 }
 
-
+@media screen and (max-width: 800px) {
+  
+  .landing__stats-group,
+  .landing__text-block {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+}
