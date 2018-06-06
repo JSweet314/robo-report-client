@@ -5,6 +5,9 @@ import './styles.css';
 const UserInfo = ({ user, handleOAuthSignOut, toggleEdit }) => {
   return (
     <div className="user-info">
+      <button className="user-info__button" onClick={handleOAuthSignOut}>
+        Sign Out
+      </button>
       <button
         className="user-info__button user-info__button--edit"
         onClick={toggleEdit}
@@ -51,9 +54,6 @@ const UserInfo = ({ user, handleOAuthSignOut, toggleEdit }) => {
         <strong>Zip Code: </strong>
         <span>{user.zipcode}</span>
       </p>
-      <button className="user-info__button" onClick={handleOAuthSignOut}>
-        Sign Out
-      </button>
     </div>
   );
 };

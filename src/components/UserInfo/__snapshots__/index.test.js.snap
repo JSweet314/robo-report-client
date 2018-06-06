@@ -5,6 +5,12 @@ exports[`UserInfo should match the snapshot 1`] = `
   className="user-info"
 >
   <button
+    className="user-info__button"
+    onClick={[Function]}
+  >
+    Sign Out
+  </button>
+  <button
     className="user-info__button user-info__button--edit"
     onClick={[Function]}
   >
@@ -94,11 +100,5 @@ exports[`UserInfo should match the snapshot 1`] = `
     </strong>
     <span />
   </p>
-  <button
-    className="user-info__button"
-    onClick={[Function]}
-  >
-    Sign Out
-  </button>
 </div>
 `;
