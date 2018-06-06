@@ -3,6 +3,8 @@
 
 Welcome to Robo Report! This app serves to increase awareness of the widespread issue of unwanted robo-calls and malicious telemarketers. In addition raising awareness, this app enables users to submit reports from within the app directly to the FCC and eliminate the need to include their contact information time and time again. Utilizing React and Electron, RoboReport is built as a desktop application due Node.js libraries required by Nightmare.js, a browser automation utility that this app uses to complete the FCC Complaint Form for Unwanted Calls. For questions, reach out on GitHub to [Jon Sweet](https://github.com/jsweet314) or [Matt Renn](https://github.com/rennmatthewp).
 
+![screen shot](./src/assets/images/roboreport-screenshot.png)
+
 ## Getting Started
 
 These instructions will get you a copy of the project up and running on your local machine for development and testing purposes.
