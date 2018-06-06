@@ -12,7 +12,7 @@
 
 .complaintsContainer__group {
   box-shadow: 2px 2px 6px 2px black;
-  margin: 0 0 3rem;
+  margin: 3rem 0;
 }
 
 .complaintsContainer__prompt--p {

@@ -70,7 +70,7 @@ const BarChart = ({ fccData }) => {
               style={{fontSize: 10}}
             />
           }
-          style={{ data: { fill: "blue", width: 5 } }}
+          style={{ data: { fill: "#135e97", width: 5 } }}
           data={barData} 
           x='state'
           y='numberOfReports'

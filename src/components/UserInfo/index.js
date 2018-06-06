@@ -14,6 +14,7 @@ const UserInfo = ({ user, handleOAuthSignOut, toggleEdit }) => {
       >
         Edit My Information
       </button>
+      <h1 className="user-info__h1">My Account</h1>
       <p className="user-info__p">
         <strong>First Name: </strong>
         <span>{user.firstName}</span>
