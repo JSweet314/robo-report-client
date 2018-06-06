@@ -5,7 +5,6 @@ import { withRouter } from "react-router-dom";
 import NewUserForm from '../../components/NewUserForm';
 import UserInfo from '../../components/UserInfo';
 import { updateUserInfo } from '../../actions';
-import './styles.css';
 
 export class UserAccountContainer extends Component {
   constructor(props) {
