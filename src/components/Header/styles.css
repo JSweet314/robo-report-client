@@ -1,6 +1,6 @@
 .header {
   width: 100%;
-  margin: auto;
+  margin: 0 auto 1rem;
   padding: 1rem;
   display: flex;
   align-items: center;
@@ -14,7 +14,7 @@
 }
 
 .header__header {
-  font-size: 2.6rem; 
+  font-size: 3rem; 
   font-family: 'Roboto', sans-serif;
 }
 
@@ -32,25 +32,24 @@
 }
 
 .header__nav {
-  font-size: 1.5rem;
+  font-size: 2rem;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
 .header__link {
-  padding: 1rem;
   color: white;
-  margin: 1rem;
+  margin: .2rem 2rem;
 }
 
 .header__link:hover {
-  font-weight: bold;
-  margin: 1rem 1rem 1rem 0.9rem;
+  text-shadow: 0 0 .5px #fff;
 }
 
 .active {
-  font-weight: bold;
+  border-bottom: solid 1px #fff;
+  text-shadow: 0 0 .5px #fff;
 }
 
 .hidden {

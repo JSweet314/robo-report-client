@@ -1,8 +1,8 @@
 .complaintsContainer {
   height: 100%;
-  width: 80%;
+  width: 70%;
   margin: auto;
-  padding: 2rem 0 0 0;
+  padding: 1rem 0 0 0;
 }
 
 .complaintsContainer__heading {
