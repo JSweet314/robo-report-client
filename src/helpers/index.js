@@ -3,12 +3,16 @@
 export const mapFCCDataToStateNumbers = fccData => {
   const counts = fccData.reduce((states, complaint) => {
     if (complaint.state) {
+      if (states[complaint.state] === undefined) {
+        states[complaint.state] = 0;
+      }
       states[complaint.state]++;
     }
     return states;
   }, {
     "AL": 0,
     "AK": 0,
+    "AS": 0,
     "AZ": 0,
     "AR": 0,
     "CA": 0,
