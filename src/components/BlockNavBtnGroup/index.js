@@ -10,7 +10,7 @@ const BlockNavBtnGroup = (
     nextText = 'Report It!';
   }
   if (blockIndex === 5) {
-    nextText = 'Home';
+    nextText = 'Finish';
   }
 
   return (
