@@ -42,7 +42,6 @@
 }
 
 .submit-new-complaint-btn:hover {
-
   border: 1px solid #347fb9;
   box-shadow: 0 0 5px 1px #347fb9;
   transition: .3s ease;

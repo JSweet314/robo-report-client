@@ -31,12 +31,12 @@ exports[`NewComplaintContainer Snapshots should match question block 0 1`] = `
         htmlFor="subject"
       >
         Subject
-        *
       </label>
       <input
         id="subject"
         maxLength="255"
         onChange={[Function]}
+        placeholder=""
         required={true}
         type="text"
         value=""
@@ -50,18 +50,15 @@ exports[`NewComplaintContainer Snapshots should match question block 0 1`] = `
         htmlFor="description"
       >
         Description
-        *
       </label>
       <textarea
         id="description"
         onChange={[Function]}
+        placeholder=""
         required={true}
         value=""
       />
     </div>
-    <p>
-      * = required field
-    </p>
     <BlockNavBtnGroup
       blockIndex={0}
       handleQuestionBlockNavigation={[Function]}
@@ -102,12 +99,12 @@ exports[`NewComplaintContainer Snapshots should match question block 1 1`] = `
         htmlFor="isSoliciting"
       >
         Did the call/message that you are reporting advertise any type of property, goods, or services?
-        *
       </label>
       <select
         id="isSoliciting"
         name="isSoliciting"
         onChange={[Function]}
+        placeholder=""
         required={true}
         value="-"
       >
@@ -144,12 +141,12 @@ exports[`NewComplaintContainer Snapshots should match question block 1 1`] = `
         htmlFor="typeOfSolicit"
       >
         Type of Property, Goods, or Services
-        *
       </label>
       <input
         id="typeOfSolicit"
         maxLength="255"
         onChange={[Function]}
+        placeholder=""
         required={true}
         type="text"
         value=""
@@ -168,12 +165,12 @@ exports[`NewComplaintContainer Snapshots should match question block 1 1`] = `
         htmlFor="doneBusinessWith"
       >
         Have you or anyone else in your household done any business with the caller / company within the past 18 months immediately before you received the call / message?
-        *
       </label>
       <select
         id="doneBusinessWith"
         name="doneBusinessWith"
         onChange={[Function]}
+        placeholder=""
         required={true}
         value="-"
       >
@@ -216,12 +213,12 @@ exports[`NewComplaintContainer Snapshots should match question block 1 1`] = `
         htmlFor="inquiredWith"
       >
         Have you or anyone else in your household made any inquiry or application to the caller/company within the 3 months immediately before you received the call/message?
-        *
       </label>
       <select
         id="inquiredWith"
         name="inquiredWith"
         onChange={[Function]}
+        placeholder=""
         required={true}
         value="-"
       >
@@ -264,12 +261,12 @@ exports[`NewComplaintContainer Snapshots should match question block 1 1`] = `
         htmlFor="householdRelation"
       >
         Do you or anyone in your household have a personal relationship with the individual that made the call?
-        *
       </label>
       <select
         id="householdRelation"
         name="householdRelation"
         onChange={[Function]}
+        placeholder=""
         required={true}
         value="-"
       >
@@ -312,12 +309,12 @@ exports[`NewComplaintContainer Snapshots should match question block 1 1`] = `
         htmlFor="permissionToCall"
       >
         Have you or anyone else in your household or business given the caller/company permission to call?
-        *
       </label>
       <select
         id="permissionToCall"
         name="permissionToCall"
         onChange={[Function]}
+        placeholder=""
         required={true}
         value="-"
       >
@@ -365,6 +362,7 @@ exports[`NewComplaintContainer Snapshots should match question block 1 1`] = `
         id="writtenPermission"
         name="writtenPermission"
         onChange={[Function]}
+        placeholder="optional"
         required={false}
         value="-"
       >
@@ -406,14 +404,12 @@ exports[`NewComplaintContainer Snapshots should match question block 1 1`] = `
         id="dateOfPermission"
         maxLength="255"
         onChange={[Function]}
+        placeholder="optional"
         required={false}
         type="date"
         value=""
       />
     </div>
-    <p>
-      * = required field
-    </p>
     <BlockNavBtnGroup
       blockIndex={1}
       handleQuestionBlockNavigation={[Function]}
@@ -454,12 +450,12 @@ exports[`NewComplaintContainer Snapshots should match question block 2 1`] = `
         htmlFor="date"
       >
         Date of Your Issue/Problem
-        *
       </label>
       <input
         id="date"
         maxLength="255"
         onChange={[Function]}
+        placeholder=""
         required={true}
         type="date"
         value=""
@@ -478,12 +474,12 @@ exports[`NewComplaintContainer Snapshots should match question block 2 1`] = `
         htmlFor="time"
       >
         Time of Your Issue/Problem
-        *
       </label>
       <input
         id="time"
         maxLength="255"
         onChange={[Function]}
+        placeholder=""
         required={true}
         type="time"
         value=""
@@ -502,12 +498,12 @@ exports[`NewComplaintContainer Snapshots should match question block 2 1`] = `
         htmlFor="typeOfCall"
       >
         Type of Call or Message
-        *
       </label>
       <select
         id="typeOfCall"
         name="typeOfCall"
         onChange={[Function]}
+        placeholder=""
         required={true}
         value=""
       >
@@ -556,12 +552,12 @@ exports[`NewComplaintContainer Snapshots should match question block 2 1`] = `
         htmlFor="receivedCallerId"
       >
         Did you receive Caller ID Information?
-        *
       </label>
       <select
         id="receivedCallerId"
         name="receivedCallerId"
         onChange={[Function]}
+        placeholder=""
         required={true}
         value="-"
       >
@@ -615,6 +611,7 @@ exports[`NewComplaintContainer Snapshots should match question block 2 1`] = `
         id="callerIdNumber"
         maxLength="255"
         onChange={[Function]}
+        placeholder="optional"
         required={false}
         type="tel"
         value=""
@@ -638,14 +635,12 @@ exports[`NewComplaintContainer Snapshots should match question block 2 1`] = `
         id="callerIdName"
         maxLength="255"
         onChange={[Function]}
+        placeholder="optional"
         required={false}
         type="text"
         value=""
       />
     </div>
-    <p>
-      * = required field
-    </p>
     <BlockNavBtnGroup
       blockIndex={2}
       handleQuestionBlockNavigation={[Function]}
@@ -686,12 +681,12 @@ exports[`NewComplaintContainer Snapshots should match question block 3 1`] = `
         htmlFor="receivedBusinessName"
       >
         Was the caller's business name provided during the call/message?
-        *
       </label>
       <select
         id="receivedBusinessName"
         name="receivedBusinessName"
         onChange={[Function]}
+        placeholder=""
         required={true}
         value="-"
       >
@@ -734,12 +729,12 @@ exports[`NewComplaintContainer Snapshots should match question block 3 1`] = `
         htmlFor="nameAtBeginning"
       >
         Was the business name provided at the beginning of the call/message?
-        *
       </label>
       <select
         id="nameAtBeginning"
         name="nameAtBeginning"
         onChange={[Function]}
+        placeholder=""
         required={true}
         value="-"
       >
@@ -776,12 +771,12 @@ exports[`NewComplaintContainer Snapshots should match question block 3 1`] = `
         htmlFor="providedAdvertiserName"
       >
         Please provide the name of the advertiser provided during the call
-        *
       </label>
       <input
         id="providedAdvertiserName"
         maxLength="255"
         onChange={[Function]}
+        placeholder=""
         required={true}
         type="text"
         value=""
@@ -805,6 +800,7 @@ exports[`NewComplaintContainer Snapshots should match question block 3 1`] = `
         id="providedAdvertiserNumber"
         maxLength="255"
         onChange={[Function]}
+        placeholder="optional"
         required={false}
         type="tel"
         value=""
@@ -822,13 +818,11 @@ exports[`NewComplaintContainer Snapshots should match question block 3 1`] = `
       <textarea
         id="addtlInfo"
         onChange={[Function]}
+        placeholder="optional"
         required={false}
         value=""
       />
     </div>
-    <p>
-      * = required field
-    </p>
     <BlockNavBtnGroup
       blockIndex={3}
       handleQuestionBlockNavigation={[Function]}

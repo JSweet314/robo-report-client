@@ -150,10 +150,10 @@ export class NewComplaintContainer extends Component {
             :
             this.questionBuilder(block)
         }
-        {
+        {/* {
           blockIndex !== questionBlocks.length &&
           <p>* = required field</p>
-        }
+        } */}
         <BlockNavBtnGroup
           blockIndex={blockIndex}
           isNextBtnDisabled={isNextBtnDisabled}
@@ -178,7 +178,7 @@ export class NewComplaintContainer extends Component {
   selectQuestionBuilder = question => {
     const { values } = this.state;
     const { label, value, options, required, dependent } = question;
-    const asterisk = required ? '*' : '';
+    const optional = required ? '' : 'optional';
     let displaySetting = 'flex';
     const optionElems = options.map(option =>
       <option key={`${value}-${option}`} value={option}>{option}</option>
@@ -192,13 +192,14 @@ export class NewComplaintContainer extends Component {
         key={value}
         style={{ display: displaySetting }}
       >
-        <label htmlFor={value}>{label}{asterisk}</label>
+        <label htmlFor={value}>{label}</label>
         <select
           onChange={event => this.handleOnChange(event)}
           value={this.state.values[value]}
           name={value}
           id={value}
           required={required}
+          placeholder={optional}
         >
           {optionElems}
         </select>
@@ -209,7 +210,7 @@ export class NewComplaintContainer extends Component {
   textQuestionBuilder = question => {
     const { values } = this.state;
     const { label, type, value, required, dependent } = question;
-    const asterisk = required ? '*' : '';
+    const optional = required ? '' : 'optional';
     let displaySetting = 'flex';
     if (dependent) {
       displaySetting = values[dependent] === 'Yes' ? 'flex' : 'none';
@@ -220,7 +221,7 @@ export class NewComplaintContainer extends Component {
         key={value}
         style={{ display: displaySetting }}
       >
-        <label htmlFor={value}>{label}{asterisk}</label>
+        <label htmlFor={value}>{label}</label>
         <input
           maxLength='255'
           onChange={event => this.handleOnChange(event)}
@@ -228,6 +229,7 @@ export class NewComplaintContainer extends Component {
           type={type}
           value={this.state.values[value]}
           required={required}
+          placeholder={optional}
         />
       </div>
     );
@@ -235,15 +237,16 @@ export class NewComplaintContainer extends Component {
 
   textareaQuestionBuilder = question => {
     const { label, value, required } = question;
-    const asterisk = required ? '*' : '';
+    const optional = required ? '' : 'optional';
     return (
       <div className="complaint-question" key={value}>
-        <label htmlFor={value}>{label}{asterisk}</label>
+        <label htmlFor={value}>{label}</label>
         <textarea
           onChange={event => this.handleOnChange(event)}
           id={value}
           value={this.state.values[value]}
           required={required}
+          placeholder={optional}
         />
       </div>
     );
@@ -265,7 +268,7 @@ export class NewComplaintContainer extends Component {
                 How did it go?
               </h3>
               <div className="complaint-question">
-                <label htmlFor='isSubmitted'>Did you submit the form?*</label>
+                <label htmlFor='isSubmitted'>Did you submit the form?</label>
                 <select
                   onChange={event => this.handleOnChange(event)}
                   value={this.state.values['isSubmitted']}
@@ -278,7 +281,6 @@ export class NewComplaintContainer extends Component {
                   <option value={false}>No</option>
                 </select>
               </div>
-              <p>* = required field</p>
               <BlockNavBtnGroup
                 blockIndex={blockIndex}
                 isNextBtnDisabled={this.state.values.isSubmitted === '-'}

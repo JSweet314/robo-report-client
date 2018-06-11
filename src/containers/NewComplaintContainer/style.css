@@ -32,6 +32,11 @@
   margin: 1rem 0;
 }
 
+.complaint-question input::placeholder, .complaint-question textarea::placeholder {
+  text-align: right;
+  padding: 0 1rem;
+}
+
 .complaint-question input,
 .complaint-question textarea,
 .complaint-question select,
