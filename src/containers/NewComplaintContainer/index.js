@@ -4,6 +4,7 @@ import { withRouter } from 'react-router-dom';
 import questionBlocks from './complaintQuestions';
 import ComplaintSubmitPrompt from '../../components/ComplaintSubmitPrompt';
 import BlockNavBtnGroup from '../../components/BlockNavBtnGroup';
+import ProgressMeter from '../../components/ProgressMeter';
 import PropTypes from 'prop-types';
 import * as actions from '../../actions';
 import moment from 'moment';
@@ -253,6 +254,7 @@ export class NewComplaintContainer extends Component {
     const questionBlock = this.questionFramer();
     return (
       <div className='new-complaint-container'>
+        <ProgressMeter blockIndex={blockIndex} min={-1} max={5} />
         {
           blockIndex <= questionBlocks.length ? questionBlock : (
             <div

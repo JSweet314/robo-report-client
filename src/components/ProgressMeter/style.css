@@ -1,0 +1,9 @@
+.complaint-progress {
+  width: 50%;
+  margin: 0rem auto 1rem auto;
+}
+
+.complaint-progress meter {
+  width: 100%;
+  height: 2rem;
+}

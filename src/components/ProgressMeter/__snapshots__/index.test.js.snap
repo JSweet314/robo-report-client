@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`PrgressMeter should match a snapshot 1`] = `
+<div
+  className="complaint-progress"
+>
+  <meter
+    max={5}
+    min={-1}
+    value={0}
+  />
+</div>
+`;
