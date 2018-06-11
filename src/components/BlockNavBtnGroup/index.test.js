@@ -24,4 +24,15 @@ describe('BlockNavBtnGroup', () => {
   it('should match a snapshot', () => {
     expect(wrapper).toMatchSnapshot();
   });
+
+  it('should match a snapshot with button enabled', () => {
+    wrapper = shallow(
+      <BlockNavBtnGroup
+        blockIndex={mockBlockIndex}
+        handleQuestionBlockNavigation={mockHandleQuestionBlockNavigation}
+        isNextBtnDisabled={false}
+      />
+    );
+    expect(wrapper).toMatchSnapshot();
+  });
 });

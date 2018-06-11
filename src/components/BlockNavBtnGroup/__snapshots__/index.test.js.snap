@@ -21,3 +21,25 @@ exports[`BlockNavBtnGroup should match a snapshot 1`] = `
   </button>
 </div>
 `;
+
+exports[`BlockNavBtnGroup should match a snapshot with button enabled 1`] = `
+<div
+  className="question-block-nav-group"
+>
+  <button
+    className="question-block-nav-btn back-btn"
+    name="back"
+    onClick={[Function]}
+  >
+    Back
+  </button>
+  <button
+    className="question-block-nav-btn next-btn"
+    disabled={false}
+    name="next"
+    onClick={[Function]}
+  >
+    Next
+  </button>
+</div>
+`;

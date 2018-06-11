@@ -4,6 +4,11 @@ exports[`NewComplaintContainer Snapshots should match question block 0 1`] = `
 <div
   className="new-complaint-container"
 >
+  <ProgressMeter
+    blockIndex={0}
+    max={5}
+    min={-1}
+  />
   <div
     className="question-block"
     key="questionBlock-1"
@@ -70,6 +75,11 @@ exports[`NewComplaintContainer Snapshots should match question block 1 1`] = `
 <div
   className="new-complaint-container"
 >
+  <ProgressMeter
+    blockIndex={1}
+    max={5}
+    min={-1}
+  />
   <div
     className="question-block"
     key="questionBlock-2"
@@ -417,6 +427,11 @@ exports[`NewComplaintContainer Snapshots should match question block 2 1`] = `
 <div
   className="new-complaint-container"
 >
+  <ProgressMeter
+    blockIndex={2}
+    max={5}
+    min={-1}
+  />
   <div
     className="question-block"
     key="questionBlock-3"
@@ -644,6 +659,11 @@ exports[`NewComplaintContainer Snapshots should match question block 3 1`] = `
 <div
   className="new-complaint-container"
 >
+  <ProgressMeter
+    blockIndex={3}
+    max={5}
+    min={-1}
+  />
   <div
     className="question-block"
     key="questionBlock-4"
