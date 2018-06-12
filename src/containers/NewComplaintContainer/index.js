@@ -150,10 +150,6 @@ export class NewComplaintContainer extends Component {
             :
             this.questionBuilder(block)
         }
-        {/* {
-          blockIndex !== questionBlocks.length &&
-          <p>* = required field</p>
-        } */}
         <BlockNavBtnGroup
           blockIndex={blockIndex}
           isNextBtnDisabled={isNextBtnDisabled}
@@ -179,18 +175,19 @@ export class NewComplaintContainer extends Component {
     const { values } = this.state;
     const { label, value, options, required, dependent } = question;
     const optional = required ? '' : 'optional';
-    let displaySetting = 'flex';
+    let displaySetting = 'complaint-question';
+    if (dependent) {
+      displaySetting = values[dependent] === 'Yes' 
+        ? 'complaint-question' 
+        : 'complaint-question hidden';
+    }
     const optionElems = options.map(option =>
       <option key={`${value}-${option}`} value={option}>{option}</option>
     );
-    if (dependent) {
-      displaySetting = values[dependent] === 'Yes' ? 'flex' : 'none';
-    }
     return (
       <div
-        className="complaint-question"
+        className={displaySetting}
         key={value}
-        style={{ display: displaySetting }}
       >
         <label htmlFor={value}>{label}</label>
         <select
@@ -211,13 +208,15 @@ export class NewComplaintContainer extends Component {
     const { values } = this.state;
     const { label, type, value, required, dependent } = question;
     const optional = required ? '' : 'optional';
-    let displaySetting = 'flex';
+    let displaySetting = 'complaint-question';
     if (dependent) {
-      displaySetting = values[dependent] === 'Yes' ? 'flex' : 'none';
+      displaySetting = values[dependent] === 'Yes' 
+        ? 'complaint-question' 
+        : 'complaint-question hidden';
     }
     return (
       <div
-        className="complaint-question"
+        className={displaySetting}
         key={value}
         style={{ display: displaySetting }}
       >

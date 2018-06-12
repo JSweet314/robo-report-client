@@ -1,20 +1,9 @@
 .new-complaint-container {
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
   margin: 2rem 0;
-}
-
-.question-block {
-  width: 50%;
-  min-width: 320px;
-  margin: auto;
-  font-size: 2rem;
-  background-color: white;
-  border-radius: 15px;
-  box-shadow: 2px 2px 6px 2px black;
-  padding: 2rem;
 }
 
 .question-block,
@@ -24,12 +13,48 @@
   justify-content: center;
 }
 
+.question-block {
+  width: 60%;
+  min-width: 320px;
+  min-height: 325px;
+  max-height: fit-content;
+  font-size: 2rem;
+  border-radius: 2px;
+  box-shadow: 0 3px 3px 1px rgba(0, 0, 0, 0.14),
+              0 5px 10px 2px rgba(0, 0, 0, 0.12),
+              0 3px 3px -3px rgba(0, 0, 0, 0.4);
+  padding: 2rem;
+}
+
 .question-block__headline {
-  margin: 1rem 0;
+  margin: 0 0 1rem;
 }
 
 .complaint-question {
+  height: auto;
+  max-height: 115px;
   margin: 1rem 0;
+  padding: .1rem .1rem;
+  overflow: hidden;
+  transition: max-height .5s ease-out;
+}
+
+.complaint-question.hidden {
+  display: hidden;
+  height: 0px;
+  max-height: 0px;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  transition: max-height .5s;
+}
+
+.hidden option {
+  display: none;
+}
+
+.complaint-question label {
+  margin: 0 0 .3rem;
 }
 
 .complaint-question input::placeholder, .complaint-question textarea::placeholder {
