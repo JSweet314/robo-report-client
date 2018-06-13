@@ -33,6 +33,7 @@ exports[`NewComplaintContainer Snapshots should match question block 0 1`] = `
         Subject
       </label>
       <input
+        disabled={false}
         id="subject"
         maxLength="255"
         onChange={[Function]}
@@ -96,6 +97,7 @@ exports[`NewComplaintContainer Snapshots should match question block 1 1`] = `
         Did the call/message that you are reporting advertise any type of property, goods, or services?
       </label>
       <select
+        disabled={false}
         id="isSoliciting"
         name="isSoliciting"
         onChange={[Function]}
@@ -138,6 +140,7 @@ exports[`NewComplaintContainer Snapshots should match question block 1 1`] = `
         Type of Property, Goods, or Services
       </label>
       <input
+        disabled={true}
         id="typeOfSolicit"
         maxLength="255"
         onChange={[Function]}
@@ -157,6 +160,7 @@ exports[`NewComplaintContainer Snapshots should match question block 1 1`] = `
         Have you or anyone else in your household done any business with the caller / company within the past 18 months immediately before you received the call / message?
       </label>
       <select
+        disabled={true}
         id="doneBusinessWith"
         name="doneBusinessWith"
         onChange={[Function]}
@@ -200,6 +204,7 @@ exports[`NewComplaintContainer Snapshots should match question block 1 1`] = `
         Have you or anyone else in your household made any inquiry or application to the caller/company within the 3 months immediately before you received the call/message?
       </label>
       <select
+        disabled={true}
         id="inquiredWith"
         name="inquiredWith"
         onChange={[Function]}
@@ -243,6 +248,7 @@ exports[`NewComplaintContainer Snapshots should match question block 1 1`] = `
         Do you or anyone in your household have a personal relationship with the individual that made the call?
       </label>
       <select
+        disabled={true}
         id="householdRelation"
         name="householdRelation"
         onChange={[Function]}
@@ -286,6 +292,7 @@ exports[`NewComplaintContainer Snapshots should match question block 1 1`] = `
         Have you or anyone else in your household or business given the caller/company permission to call?
       </label>
       <select
+        disabled={false}
         id="permissionToCall"
         name="permissionToCall"
         onChange={[Function]}
@@ -329,6 +336,7 @@ exports[`NewComplaintContainer Snapshots should match question block 1 1`] = `
         Did you give permission to the caller/business to call you in writing?
       </label>
       <select
+        disabled={true}
         id="writtenPermission"
         name="writtenPermission"
         onChange={[Function]}
@@ -371,6 +379,7 @@ exports[`NewComplaintContainer Snapshots should match question block 1 1`] = `
         Date you provided permission to the caller/company to call
       </label>
       <input
+        disabled={true}
         id="dateOfPermission"
         maxLength="255"
         onChange={[Function]}
@@ -422,6 +431,7 @@ exports[`NewComplaintContainer Snapshots should match question block 2 1`] = `
         Date of Your Issue/Problem
       </label>
       <input
+        disabled={false}
         id="date"
         maxLength="255"
         onChange={[Function]}
@@ -446,6 +456,7 @@ exports[`NewComplaintContainer Snapshots should match question block 2 1`] = `
         Time of Your Issue/Problem
       </label>
       <input
+        disabled={false}
         id="time"
         maxLength="255"
         onChange={[Function]}
@@ -465,6 +476,7 @@ exports[`NewComplaintContainer Snapshots should match question block 2 1`] = `
         Type of Call or Message
       </label>
       <select
+        disabled={false}
         id="typeOfCall"
         name="typeOfCall"
         onChange={[Function]}
@@ -514,6 +526,7 @@ exports[`NewComplaintContainer Snapshots should match question block 2 1`] = `
         Did you receive Caller ID Information?
       </label>
       <select
+        disabled={false}
         id="receivedCallerId"
         name="receivedCallerId"
         onChange={[Function]}
@@ -568,6 +581,7 @@ exports[`NewComplaintContainer Snapshots should match question block 2 1`] = `
         Caller ID Number
       </label>
       <input
+        disabled={true}
         id="callerIdNumber"
         maxLength="255"
         onChange={[Function]}
@@ -592,6 +606,7 @@ exports[`NewComplaintContainer Snapshots should match question block 2 1`] = `
         Caller ID Name
       </label>
       <input
+        disabled={true}
         id="callerIdName"
         maxLength="255"
         onChange={[Function]}
@@ -638,6 +653,7 @@ exports[`NewComplaintContainer Snapshots should match question block 3 1`] = `
         Was the caller's business name provided during the call/message?
       </label>
       <select
+        disabled={false}
         id="receivedBusinessName"
         name="receivedBusinessName"
         onChange={[Function]}
@@ -681,6 +697,7 @@ exports[`NewComplaintContainer Snapshots should match question block 3 1`] = `
         Was the business name provided at the beginning of the call/message?
       </label>
       <select
+        disabled={true}
         id="nameAtBeginning"
         name="nameAtBeginning"
         onChange={[Function]}
@@ -723,6 +740,7 @@ exports[`NewComplaintContainer Snapshots should match question block 3 1`] = `
         Please provide the name of the advertiser provided during the call
       </label>
       <input
+        disabled={true}
         id="providedAdvertiserName"
         maxLength="255"
         onChange={[Function]}
@@ -747,6 +765,7 @@ exports[`NewComplaintContainer Snapshots should match question block 3 1`] = `
         Provide the advertiser's phone number given during the call.
       </label>
       <input
+        disabled={false}
         id="providedAdvertiserNumber"
         maxLength="255"
         onChange={[Function]}
