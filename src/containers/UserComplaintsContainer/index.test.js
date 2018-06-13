@@ -5,9 +5,16 @@ import { UserComplaintsContainer, mapStateToProps } from './index';
 describe('UserComplaintsContainer', () => {
   let wrapper;
   const mockComplaints = [{ subject: 'Nuisance Caller', id: 1 }];
+  const mockFilterReports = jest.fn();
 
   beforeEach(() => {
-    wrapper = shallow(<UserComplaintsContainer complaints={mockComplaints} />);
+    wrapper = shallow(
+      <UserComplaintsContainer 
+        complaints={mockComplaints} 
+        reportFilter={'ALL'}
+        filterReports={mockFilterReports}
+      />
+    );
   });
 
   it('should match the snapshot', () => {
@@ -15,7 +22,13 @@ describe('UserComplaintsContainer', () => {
   });
 
   it('should match the snapshot if no complaints', () => {
-    wrapper = shallow(<UserComplaintsContainer complaints={[]} />);
+    wrapper = shallow(
+      <UserComplaintsContainer 
+        complaints={[]} 
+        reportFilter={'ALL'}
+        filterReports={mockFilterReports}
+      />
+    );
     expect(wrapper).toMatchSnapshot();
   });
 

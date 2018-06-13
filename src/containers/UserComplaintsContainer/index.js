@@ -5,19 +5,51 @@ import { Link } from 'react-router-dom';
 import questionBlocks from 
   '../../containers/NewComplaintContainer/complaintQuestions';
 import SummaryReport from '../../components/SummaryReport';
+import * as actions from '../../actions';
 import './styles.css';
 
-export const UserComplaintsContainer = ({ complaints }) => {
-  let reports = complaints.map(complaint => (
-    <SummaryReport
-      values={complaint}
-      questionBlocks={questionBlocks}
-      key={`complaint-${complaint.id}`}
-    />
-  ));
+export const UserComplaintsContainer = (
+  { complaints, reportFilter, filterReports }
+) => {
+  const reports = complaints
+    .filter(complaint => {
+      switch (reportFilter) {
+      case 'UNSUBMITTED':
+        return complaint.isSubmitted === false;
+      case 'SUBMITTED':
+        return complaint.isSubmitted === true;
+      default:
+        return true;
+      }
+    })
+    .map(complaint => (
+      <SummaryReport
+        values={complaint}
+        questionBlocks={questionBlocks}
+        key={`complaint-${complaint.id}`}
+      />
+    ));
+
+  const handleReportFilter = event => {
+    const { value } = event.target;
+    filterReports(value);
+  };
 
   const promptSubmision =
-    complaints.length > 0 ? null : (
+    complaints.length > 0 ? (
+      <div className='report-filter-select'>
+        <label htmlFor="report-filter">Filter by Status: </label>
+        <select 
+          name="report-filter"
+          value={reportFilter}
+          onChange={event => handleReportFilter(event)}
+        >
+          <option value="ALL">ALL</option>
+          <option value="UNSUBMITTED">UNSUBMITTED</option>
+          <option value="SUBMITTED">SUBMITTED</option>
+        </select>
+      </div>
+    ) : (
       <div className="complaintsContainer__prompt">
         <p className="complaintsContainer__prompt--p">
           You have not submitted any reports.
@@ -37,18 +69,30 @@ export const UserComplaintsContainer = ({ complaints }) => {
   return (
     <div className="complaintsContainer">
       <h3 className="complaintsContainer__heading">My Reports</h3>
-      <div className="complaintsContainer__group">{reports}</div>
       {promptSubmision}
+      <div className="complaintsContainer__group">{reports}</div>
     </div>
   );
 };
 
-UserComplaintsContainer.propTypes = {
-  complaints: PropTypes.array.isRequired
-};
-
-export const mapStateToProps = state => ({
-  complaints: state.complaints
+export const mapStateToProps = ({ complaints, reportFilter }) => ({
+  complaints: complaints,
+  reportFilter: reportFilter
 });
 
-export default connect(mapStateToProps)(UserComplaintsContainer);
+export const mapDispatchToProps = dispatch => ({
+  filterReports: filter => dispatch(actions.filterReports(filter))
+});
+
+UserComplaintsContainer.propTypes = {
+  complaints: PropTypes.array.isRequired,
+  reportFilter: PropTypes.string.isRequired,
+  filterReports: PropTypes.func.isRequired
+};
+
+export default connect(
+  mapStateToProps, 
+  mapDispatchToProps
+)(
+  UserComplaintsContainer
+);

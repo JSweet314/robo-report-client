@@ -10,6 +10,36 @@ exports[`UserComplaintsContainer should match the snapshot 1`] = `
     My Reports
   </h3>
   <div
+    className="report-filter-select"
+  >
+    <label
+      htmlFor="report-filter"
+    >
+      Filter by Status: 
+    </label>
+    <select
+      name="report-filter"
+      onChange={[Function]}
+      value="ALL"
+    >
+      <option
+        value="ALL"
+      >
+        ALL
+      </option>
+      <option
+        value="UNSUBMITTED"
+      >
+        UNSUBMITTED
+      </option>
+      <option
+        value="SUBMITTED"
+      >
+        SUBMITTED
+      </option>
+    </select>
+  </div>
+  <div
     className="complaintsContainer__group"
   >
     <SummaryReport
@@ -254,9 +284,6 @@ exports[`UserComplaintsContainer should match the snapshot if no complaints 1`] 
     My Reports
   </h3>
   <div
-    className="complaintsContainer__group"
-  />
-  <div
     className="complaintsContainer__prompt"
   >
     <p
@@ -277,5 +304,8 @@ exports[`UserComplaintsContainer should match the snapshot if no complaints 1`] 
       Submit New Report
     </Link>
   </div>
+  <div
+    className="complaintsContainer__group"
+  />
 </div>
 `;
