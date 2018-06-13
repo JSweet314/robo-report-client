@@ -176,10 +176,12 @@ export class NewComplaintContainer extends Component {
     const { label, value, options, required, dependent } = question;
     const optional = required ? '' : 'optional';
     let displaySetting = 'complaint-question';
+    let disableHidden = false;
     if (dependent) {
       displaySetting = values[dependent] === 'Yes' 
         ? 'complaint-question' 
         : 'complaint-question hidden';
+      disableHidden = values[dependent] === 'Yes' ? false : true;
     }
     const optionElems = options.map(option =>
       <option key={`${value}-${option}`} value={option}>{option}</option>
@@ -197,6 +199,7 @@ export class NewComplaintContainer extends Component {
           id={value}
           required={required}
           placeholder={optional}
+          disabled={disableHidden}
         >
           {optionElems}
         </select>
@@ -209,10 +212,12 @@ export class NewComplaintContainer extends Component {
     const { label, type, value, required, dependent } = question;
     const optional = required ? '' : 'optional';
     let displaySetting = 'complaint-question';
+    let disableHidden = false;
     if (dependent) {
       displaySetting = values[dependent] === 'Yes' 
         ? 'complaint-question' 
         : 'complaint-question hidden';
+      disableHidden = values[dependent] === 'Yes' ? false : true;
     }
     return (
       <div
@@ -229,6 +234,7 @@ export class NewComplaintContainer extends Component {
           value={this.state.values[value]}
           required={required}
           placeholder={optional}
+          disabled={disableHidden}
         />
       </div>
     );
