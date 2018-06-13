@@ -90,9 +90,6 @@ UserComplaintsContainer.propTypes = {
   filterReports: PropTypes.func.isRequired
 };
 
-export default connect(
-  mapStateToProps, 
-  mapDispatchToProps
-)(
+export default connect(mapStateToProps, mapDispatchToProps)(
   UserComplaintsContainer
 );
