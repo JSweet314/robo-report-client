@@ -1,9 +1,19 @@
 .complaint-progress {
-  width: 50%;
-  margin: 0rem auto 1rem auto;
+  width: 100%;
+  margin: 0rem auto;
 }
 
 .complaint-progress meter {
   width: 100%;
   height: 2rem;
+}
+
+.complaint-progress meter::-webkit-meter-bar {
+  background: none;
+  background-color: rgb(228, 228, 228);
+}
+
+.complaint-progress meter::-webkit-meter-optimum-value {
+  background-image: linear-gradient(to right, #38aecc 10%, #347fb9 90%);
+  transition: width .3s;
 }
