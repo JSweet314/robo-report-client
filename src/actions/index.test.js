@@ -89,4 +89,14 @@ describe('actions', () => {
       expect(actions.captureFCCData([])).toEqual(expected);
     });
   });
+  
+  describe('filterReports', () => {
+    it('should return an action of type: FILTER_REPORT_VISBILITY', () => {
+      const expected = {
+        type: 'FILTER_REPORT_VISIBILITY',
+        filter: 'ALL'
+      };
+      expect(actions.filterReports('ALL')).toEqual(expected);
+    });
+  });
 });

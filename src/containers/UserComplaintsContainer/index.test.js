@@ -1,13 +1,25 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import { UserComplaintsContainer, mapStateToProps } from './index';
+import { 
+  UserComplaintsContainer, 
+  mapStateToProps, 
+  mapDispatchToProps 
+} from './index';
+import * as actions from '../../actions';
 
 describe('UserComplaintsContainer', () => {
   let wrapper;
   const mockComplaints = [{ subject: 'Nuisance Caller', id: 1 }];
+  const mockFilterReports = jest.fn();
 
   beforeEach(() => {
-    wrapper = shallow(<UserComplaintsContainer complaints={mockComplaints} />);
+    wrapper = shallow(
+      <UserComplaintsContainer 
+        complaints={mockComplaints} 
+        reportFilter={'ALL'}
+        filterReports={mockFilterReports}
+      />
+    );
   });
 
   it('should match the snapshot', () => {
@@ -15,17 +27,38 @@ describe('UserComplaintsContainer', () => {
   });
 
   it('should match the snapshot if no complaints', () => {
-    wrapper = shallow(<UserComplaintsContainer complaints={[]} />);
+    wrapper = shallow(
+      <UserComplaintsContainer 
+        complaints={[]} 
+        reportFilter={'ALL'}
+        filterReports={mockFilterReports}
+      />
+    );
     expect(wrapper).toMatchSnapshot();
   });
 
   describe('mapStateToProps', () => {
-    const mockState = { complaints: mockComplaints};
+    const mockState = { complaints: mockComplaints, reportFilter: 'ALL'};
     const mapped = mapStateToProps(mockState);
 
     it('should return complaints from the state', () => {
       expect(mapped)
         .toHaveProperty('complaints', mockComplaints);
+    });
+
+    it('should return reportFilter from the state', () => {
+      expect(mapped)
+        .toHaveProperty('reportFilter', 'ALL');
+    });
+  });
+
+  describe('mapDispatchToProps', () => {
+    const mockDispatch = jest.fn();
+    const mapped = mapDispatchToProps(mockDispatch);
+    
+    it('should map filterReports action to props', () => {
+      mapped.filterReports('ALL');
+      expect(mockDispatch).toHaveBeenCalledWith(actions.filterReports('ALL'));
     });
   });
 });

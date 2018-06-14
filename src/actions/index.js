@@ -51,3 +51,8 @@ export const captureFCCData = fccData => ({
   type: 'CAPTURE_FCC_DATA',
   fccData
 });
+
+export const filterReports = filter => ({
+  type: 'FILTER_REPORT_VISIBILITY',
+  filter
+});
