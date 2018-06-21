@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { Link } from 'react-router-dom';
+import { Link, withRouter } from 'react-router-dom';
 import questionBlocks from 
   '../../containers/NewComplaintContainer/complaintQuestions';
 import SummaryReport from '../../components/SummaryReport';
@@ -9,7 +9,7 @@ import * as actions from '../../actions';
 import './styles.css';
 
 export const UserComplaintsContainer = (
-  { complaints, reportFilter, filterReports }
+  { complaints, reportFilter, filterReports, history }
 ) => {
   const reports = complaints
     .filter(complaint => {
@@ -24,6 +24,7 @@ export const UserComplaintsContainer = (
     })
     .map(complaint => (
       <SummaryReport
+        history={history}
         values={complaint}
         questionBlocks={questionBlocks}
         key={`complaint-${complaint.id}`}
@@ -87,9 +88,10 @@ export const mapDispatchToProps = dispatch => ({
 UserComplaintsContainer.propTypes = {
   complaints: PropTypes.array.isRequired,
   reportFilter: PropTypes.string.isRequired,
-  filterReports: PropTypes.func.isRequired
+  filterReports: PropTypes.func.isRequired,
+  history: PropTypes.object.isRequired
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(
   UserComplaintsContainer
-);
+));

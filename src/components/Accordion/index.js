@@ -31,10 +31,16 @@ class Accordion extends Component {
     }
   };
 
+  handleDupeComplaint = () => {
+    const { values, history } = this.props;
+    history.push('/newComplaint', values);
+  }
+
   render() {
     const { content, headingText } = this.props;
     const { className, headingClassName, open } = this.state;
     const symbol = open ? minusSymbol : plusSymbol;
+    const dupeButtonClass = open ? 'dupe-report' : 'hidden';
     return (
       <div className="parent-acc">
         <div className={headingClassName} onClick={this.handleClick}>
@@ -45,6 +51,12 @@ class Accordion extends Component {
             <img className='accordion-symbol' src={symbol} alt="plus/minus"/>
           </div>
         </div>
+        <button 
+          className={dupeButtonClass}
+          onClick={() => this.handleDupeComplaint()}
+        >
+          Report Again?
+        </button>
         <div className={className}>{content}</div>
       </div>
     );
@@ -53,7 +65,9 @@ class Accordion extends Component {
 
 Accordion.propTypes = {
   content: PropTypes.array.isRequired,
-  headingText: PropTypes.string.isRequired
+  headingText: PropTypes.string.isRequired,
+  values: PropTypes.object.isRequired,
+  history: PropTypes.object.isRequired
 };
 
 export default Accordion;
