@@ -11,13 +11,14 @@ describe('UserComplaintsContainer', () => {
   let wrapper;
   const mockComplaints = [{ subject: 'Nuisance Caller', id: 1 }];
   const mockFilterReports = jest.fn();
-
+  const mockHistory = {};
   beforeEach(() => {
     wrapper = shallow(
       <UserComplaintsContainer 
         complaints={mockComplaints} 
         reportFilter={'ALL'}
         filterReports={mockFilterReports}
+        history={mockHistory}
       />
     );
   });
@@ -32,6 +33,7 @@ describe('UserComplaintsContainer', () => {
         complaints={[]} 
         reportFilter={'ALL'}
         filterReports={mockFilterReports}
+        history={mockHistory}
       />
     );
     expect(wrapper).toMatchSnapshot();

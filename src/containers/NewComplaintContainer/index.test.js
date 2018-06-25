@@ -20,7 +20,11 @@ describe('NewComplaintContainer', () => {
     mockHistoryPush = jest.fn();
     mockHistoryGoBack = jest.fn();
     mockSubmitNewComplaint = jest.fn();
-    mockHistory = { push: mockHistoryPush, goBack: mockHistoryGoBack };
+    mockHistory = { 
+      push: mockHistoryPush, 
+      goBack: mockHistoryGoBack, 
+      location: {} 
+    };
     
     wrapper = shallow(
       <NewComplaintContainer

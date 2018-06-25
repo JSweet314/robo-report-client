@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import Accordion from '../Accordion';
 import './style.css';
 
-const SummaryReport = ({ questionBlocks, values }) => {
+const SummaryReport = ({ questionBlocks, values, history }) => {
   const reportItems = questionBlocks
     .map(block => block.questions)
     .reduce((reportItems, questions) => [...reportItems, ...questions], []);
@@ -27,13 +27,20 @@ const SummaryReport = ({ questionBlocks, values }) => {
     `Subject: ${subject}, Date: ${date}, Caller: ${callerIdNumber}`;
 
   return (
-    <Accordion content={summary} headingText={summaryTitle} key={values.id} />
+    <Accordion 
+      values={values}
+      history={history} 
+      content={summary} 
+      headingText={summaryTitle} 
+      key={values.id} 
+    />
   );
 };
 
 SummaryReport.propTypes = {
   values: PropTypes.object.isRequired,
-  questionBlocks: PropTypes.array.isRequired
+  questionBlocks: PropTypes.array.isRequired,
+  history: PropTypes.object.isRequired
 };
 
 export default SummaryReport;

@@ -43,6 +43,7 @@ exports[`UserComplaintsContainer should match the snapshot 1`] = `
     className="complaintsContainer__group"
   >
     <SummaryReport
+      history={Object {}}
       key="complaint-1"
       questionBlocks={
         Array [
