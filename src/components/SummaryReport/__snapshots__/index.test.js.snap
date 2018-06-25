@@ -259,5 +259,7 @@ exports[`SummaryReport should match a snapshot 1`] = `
     ]
   }
   headingText="Subject: undefined, Date: undefined, Caller: undefined"
+  history={Object {}}
+  values={Object {}}
 />
 `;

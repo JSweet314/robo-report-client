@@ -23,6 +23,12 @@ exports[`Accordion should match the snapshot 1`] = `
       />
     </div>
   </div>
+  <button
+    className="hidden"
+    onClick={[Function]}
+  >
+    Report Again?
+  </button>
   <div
     className="acc-content acc-close"
   >
@@ -63,6 +69,12 @@ exports[`Accordion should match the snapshot 2`] = `
       />
     </div>
   </div>
+  <button
+    className="hidden"
+    onClick={[Function]}
+  >
+    Report Again?
+  </button>
   <div
     className="acc-content acc-close"
   >

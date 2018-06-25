@@ -6,11 +6,13 @@ import questionBlocks
 
 describe('SummaryReport', () => {
   let wrapper;
+  const mockHistory = {};
   beforeEach(() => {
     wrapper = shallow(
       <SummaryReport 
         values={{}}
         questionBlocks={questionBlocks}
+        history={mockHistory}
       />
     );
   });

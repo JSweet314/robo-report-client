@@ -19,10 +19,10 @@ if (typeof window.require !== 'function') {
 const ipcRenderer = electron.ipcRenderer;
 
 export class NewComplaintContainer extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
-      values: {
+      values: props.history.location.state || {
         addtlInfo: '',
         subject: '',
         description: '',
@@ -46,7 +46,7 @@ export class NewComplaintContainer extends Component {
         providedAdvertiserNumber: '',
         isSubmitted: '-'
       },
-      blockIndex: 0
+      blockIndex: props.history.location.state ? 2 : 0
     };
   }
 
@@ -317,7 +317,8 @@ NewComplaintContainer.propTypes = {
   user: PropTypes.object,
   history: PropTypes.shape({
     push: PropTypes.func.isRequired,
-    goBack: PropTypes.func.isRequired
+    goBack: PropTypes.func.isRequired,
+    location: PropTypes.object
   }).isRequired,
   submitNewComplaint: PropTypes.func.isRequired
 };
